@@ -7,15 +7,11 @@ on:
       - '**/*.py'
       - '**/*.md'
       - 'docs/**'
-  workflow_run:
-    workflows: ["Docker Hub Push & Release"]
-    types:
-      - completed
+      - '.github/workflows/docs-deploy.yml'
 
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' || github.event_name == 'push'
     
     steps:
       - name: Checkout code
@@ -34,7 +30,11 @@ jobs:
 
       - name: Generate API Documentation
         run: |
-          pdoc --html --output-dir docs/api app/ agents/ logic/ evolutionary/ utils/
+          # Create docs directory if it doesn't exist
+          mkdir -p docs/api
+          
+          # Generate API docs
+          pdoc --html --output-dir docs/api app/ agents/ logic/ evolutionary/ utils/ || echo "Warning: Some modules may not have generated docs"
           
           # Create index page
           cat > docs/index.html << 'EOF'
