@@ -1,7 +1,7 @@
 # SciSynth: Autonomous AI Research Assistant
 
-[![CI](https://github.com/<your-username>/<your-repo>/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-username>/<your-repo>/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/<your-username>/<your-repo>/branch/main/graph/badge.svg)](https://codecov.io/gh/<your-username>/<your-repo>)
+[![CI](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/actions/workflows/docker-push.yml/badge.svg)](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/actions/workflows/docker-push.yml)
+[![Documentation](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/actions/workflows/docs.yml/badge.svg)](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/actions/workflows/docs.yml)
 
 ## 🎯 Project Purpose
 A full-stack, production-ready AI system for scientific literature analysis, synthesis, and discovery. Combines LLM-based RAG, symbolic logic, evolutionary algorithms, and multi-agent planning for advanced research workflows.
@@ -27,10 +27,15 @@ docker build -t scisynth-ai .
 docker run -p 8501:8501 scisynth-ai
 ```
 
+### Docker Hub (Latest Release)
+```bash
+docker run -p 8501:8501 avinash76543/scisynth-ai:latest
+```
+
 ## 🚀 Live Demo
-- [Render Cloud Demo](https://your-app.onrender.com)  
-- [Hugging Face Spaces](https://huggingface.co/spaces/your-username/scisynth-ai)  
-- [Streamlit Cloud](https://share.streamlit.io/your-username/scisynth-ai/main/streamlit_app.py)
+- **Docker Hub**: `avinash76543/scisynth-ai:latest`
+- **GitHub Actions**: Automated CI/CD with Docker deployment
+- **Documentation**: Auto-generated API docs via pdoc
 
 ## 📦 Tech Stack
 - Python 3.10, Streamlit, PyTorch, scikit-learn, HuggingFace Transformers, SentenceTransformers, ChromaDB, DEAP, NetworkX, Prolog, Docker
@@ -41,9 +46,16 @@ docker run -p 8501:8501 scisynth-ai
 - To upload to Codecov: `bash <(curl -s https://codecov.io/bash)`
 
 ## 🔁 CI/CD
-- GitHub Actions for auto-testing and Docker build checks
+- **GitHub Actions**: Auto-testing, Docker builds, and documentation generation
+- **Docker Hub**: Automated image publishing with version tags
+- **Documentation**: Auto-generated API documentation
 
 ## 🛠️ Deployment Instructions
+### Docker Hub (Recommended)
+1. Pull the latest image: `docker pull avinash76543/scisynth-ai:latest`
+2. Run locally: `docker run -p 8501:8501 avinash76543/scisynth-ai:latest`
+3. Access at: http://localhost:8501
+
 ### Render Cloud
 1. Connect your GitHub repo to [Render](https://render.com/)
 2. Select "Web Service", use Dockerfile, and set port to 8501
@@ -60,7 +72,9 @@ docker run -p 8501:8501 scisynth-ai
 3. App auto-deploys
 
 ## 📝 Example Resume/Portfolio Summary
-> Autonomous AI Research Assistant: Built a full-stack AI system combining LLM-based RAG, symbolic logic, evolutionary algorithms, and multi-agent planning. Designed and deployed with Docker and CI/CD on Render Cloud. Frontend (Streamlit), backend orchestration (Python), and modular agentic architecture. [Live demo](https://your-app.onrender.com) | [GitHub](https://github.com/your-username/scisynth-ai) | [Docker Hub](https://hub.docker.com/r/your-username/scisynth-ai)
+> Autonomous AI Research Assistant: Built a full-stack AI system combining LLM-based RAG, symbolic logic, evolutionary algorithms, and multi-agent planning. Designed and deployed with Docker and CI/CD on Docker Hub. Frontend (Streamlit), backend orchestration (Python), and modular agentic architecture. [Docker Hub](https://hub.docker.com/r/avinash76543/scisynth-ai) | [GitHub](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant)
 
 ---
 *SciSynth: Helping researchers analyze and synthesize scientific literature with advanced AI.* 
+
+**Latest Update**: Fixed CI/CD workflows and documentation generation. All systems operational! 🚀 
