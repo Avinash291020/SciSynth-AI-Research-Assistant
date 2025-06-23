@@ -13,4 +13,5 @@ deap
 networkx
 pymupdf
 pytest
-pytest-cov 
+pytest-cov
+protobuf==3.20.3 
