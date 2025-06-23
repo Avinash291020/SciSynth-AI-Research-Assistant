@@ -7,6 +7,12 @@ on:
     # Weekly security scan every Sunday at 2 AM UTC
     - cron: '0 2 * * 0'
 
+# Add permissions for workflow operations
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -81,7 +87,7 @@ jobs:
           sarif_file: 'trivy-results.sarif'
 
       - name: Upload build metadata
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-metadata
           path: build_metadata.json
@@ -94,7 +100,7 @@ jobs:
           output-file: sbom.json
 
       - name: Upload SBOM
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sbom
           path: sbom.json
