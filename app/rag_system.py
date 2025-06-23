@@ -347,7 +347,7 @@ Instructions:
 6. If the question is outside the scope of the papers, clearly state this
 
 Answer:"""
-            
+        
             # Generate response using the LLM
             try:
                 response = self.generator(
