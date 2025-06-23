@@ -1,0 +1,48 @@
+# SciSynth AI Research Assistant - Locked Dependencies
+# Generated for maximum reproducibility and security
+# Last updated: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+# Core Framework
+streamlit==1.28.1
+pandas==2.1.3
+numpy==1.24.3
+scikit-learn==1.3.2
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.17.0
+
+# Deep Learning & AI
+torch==2.1.1
+transformers==4.35.2
+sentence-transformers==2.2.2
+
+# Vector Database & Search
+chromadb==0.4.18
+
+# Evolutionary Algorithms
+deap==1.4.1
+
+# Graph Analysis
+networkx==3.2.1
+
+# PDF Processing
+pymupdf==1.23.8
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Protocol Buffers (Exact version for compatibility)
+protobuf==3.20.3
+
+# AI/ML Libraries
+langchain==0.0.350
+llama-index==0.10.5
+
+# Documentation
+pdoc==14.3.0
+
+# Security Note: All versions are pinned for reproducible builds
+# Run 'pip install -r requirements.lock' for exact environment reproduction 

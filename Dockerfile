@@ -26,10 +26,10 @@ RUN groupadd -r scisynth && useradd -r -g scisynth scisynth
 
 WORKDIR /app
 
-# Copy only requirements first for better caching
-COPY requirements.txt ./
+# Copy requirements files for exact version reproduction
+COPY requirements.txt requirements.lock ./
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r requirements.lock && \
     pip cache purge
 
 # Copy the rest of the code (excluding files in .dockerignore)

@@ -1,8 +1,11 @@
-name: Docker Hub Push
+name: Docker Hub Push & Release
 
 on:
   push:
     branches: [ main ]
+  schedule:
+    # Weekly security scan every Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
 
 jobs:
   build-and-push:
@@ -83,6 +86,47 @@ jobs:
           name: build-metadata
           path: build_metadata.json
 
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: SciSynth AI v${{ github.run_number }}
+          body: |
+            ## 🚀 SciSynth AI Research Assistant v${{ github.run_number }}
+            
+            ### 🔧 What's New
+            - Automated deployment with enterprise-grade security
+            - Multi-paradigm AI capabilities (LLM, RAG, RL, Evolutionary, Symbolic)
+            - Professional Streamlit interface
+            
+            ### 🐳 Docker Deployment
+            ```bash
+            docker run -p 8501:8501 ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:latest
+            ```
+            
+            ### 🔒 Security Features
+            - ✅ Vulnerability scanning with Trivy
+            - ✅ Non-root container execution
+            - ✅ Version-pinned dependencies
+            - ✅ Automated security reports
+            
+            ### 📊 Build Information
+            - **Commit:** ${{ github.sha }}
+            - **Author:** ${{ github.actor }}
+            - **Build Date:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+            
+            ### 📋 Artifacts
+            - `build_metadata.json` - Complete deployment metadata
+            - `trivy-results.sarif` - Security vulnerability scan
+            
+            ---
+            *Built with enterprise DevSecOps practices*
+          draft: false
+          prerelease: false
+
       - name: Verify deployment
         run: |
           echo "✅ Docker image built and pushed successfully!"
@@ -106,4 +150,7 @@ jobs:
           echo "📋 Artifacts Generated:"
           echo "   📄 build_metadata.json - Complete deployment metadata"
           echo "   🔍 trivy-results.sarif - Security vulnerability scan"
-          echo "   📦 build-metadata - Downloadable artifact" 
+          echo "   📦 build-metadata - Downloadable artifact"
+          if [ "${{ github.event_name }}" == "push" ]; then
+            echo "   🏷️  GitHub Release: v${{ github.run_number }}"
+          fi 
