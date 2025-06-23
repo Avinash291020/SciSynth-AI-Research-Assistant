@@ -6,6 +6,20 @@
 ## 🎯 Project Purpose
 A full-stack, production-ready AI system for scientific literature analysis, synthesis, and discovery. Combines LLM-based RAG, symbolic logic, evolutionary algorithms, and multi-agent planning for advanced research workflows.
 
+## ⚡ Quick Start
+```bash
+# Option 1: Docker (Recommended)
+docker run -p 8501:8501 avinash76543/scisynth-ai:latest
+
+# Option 2: Local Development
+git clone https://github.com/Avinash291020/SciSynth-AI-Research-Assistant.git
+cd SciSynth-AI-Research-Assistant
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Then open http://localhost:8501 in your browser! 🚀
+
 ## 🧠 AI Capabilities & Architecture
 - **LLM & RAG**: Retrieval-Augmented Generation with local LLMs (T5, Sentence Transformers)
 - **Symbolic & Neuro-Symbolic AI**: Prolog rules, logic consistency, citation networks
@@ -36,6 +50,17 @@ docker run -p 8501:8501 avinash76543/scisynth-ai:latest
 - **Docker Hub**: `avinash76543/scisynth-ai:latest`
 - **GitHub Actions**: Automated CI/CD with Docker deployment
 - **Documentation**: Auto-generated API docs via pdoc
+
+<!-- TODO: Add Hugging Face + Render deployment links when live -->
+- **Future Deployments**: 
+  - [ ] Hugging Face Spaces
+  - [ ] Render Cloud
+  - [ ] Streamlit Community Cloud
+
+## 🔍 Screenshot
+![SciSynth AI Dashboard](https://img.shields.io/badge/SciSynth-AI%20Dashboard-blue?style=for-the-badge&logo=streamlit)
+
+*Professional AI Research Assistant with multi-paradigm capabilities including LLM, RAG, RL, Evolutionary Algorithms, and Symbolic AI.*
 
 ## 📦 Tech Stack
 - Python 3.10, Streamlit, PyTorch, scikit-learn, HuggingFace Transformers, SentenceTransformers, ChromaDB, DEAP, NetworkX, Prolog, Docker
