@@ -181,7 +181,7 @@ def get_paradigm_explanation(paradigm):
 # --- LANDING/OVERVIEW PAGE ---
 if page == "🏠 Overview & AI Stack":
     st.markdown('<div class="main-header"><h1>SciSynth: AI Research Assistant (Professional Edition)</h1></div>', unsafe_allow_html=True)
-st.markdown("""
+    st.markdown("""
     Welcome to the **Advanced AI Research Assistant**. This dashboard demonstrates a full-stack, multi-paradigm AI system for scientific literature analysis, synthesis, and discovery.
     
     **AI Paradigms Implemented:**
@@ -264,26 +264,26 @@ elif page == "📄 Individual Paper Analysis":
             except Exception as e:
                 st.error(f"❌ Failed to initialize: {str(e)}")
     else:
-    uploaded_file = st.file_uploader("Upload a research paper (PDF)", type="pdf")
-    
-    if uploaded_file:
-        with st.spinner("Processing paper..."):
+        uploaded_file = st.file_uploader("Upload a research paper (PDF)", type="pdf")
+        
+        if uploaded_file:
+            with st.spinner("Processing paper..."):
                 try:
-            # Save uploaded file
-            temp_path = Path("temp") / uploaded_file.name
-            temp_path.parent.mkdir(exist_ok=True)
-            temp_path.write_bytes(uploaded_file.getvalue())
-            
-            # Process paper
-            result = st.session_state.processor.process_paper(temp_path)
-            
-            if result:
-                # Display results in tabs
-                tab1, tab2, tab3 = st.tabs(["📊 Overview", "💡 Insights", "🔬 Hypotheses"])
-                
-                with tab1:
-                    st.subheader("Paper Overview")
-                    metadata = result["metadata"]
+                    # Save uploaded file
+                    temp_path = Path("temp") / uploaded_file.name
+                    temp_path.parent.mkdir(exist_ok=True)
+                    temp_path.write_bytes(uploaded_file.getvalue())
+                    
+                    # Process paper
+                    result = st.session_state.processor.process_paper(temp_path)
+                    
+                    if result:
+                        # Display results in tabs
+                        tab1, tab2, tab3 = st.tabs(["📊 Overview", "💡 Insights", "🔬 Hypotheses"])
+                        
+                        with tab1:
+                            st.subheader("Paper Overview")
+                            metadata = result["metadata"]
                             
                             # Display title with better formatting
                             title = metadata.get('title', 'Title not extracted')
@@ -310,11 +310,11 @@ elif page == "📄 Individual Paper Analysis":
                                 st.markdown("**📅 Date:** Not available")
                             
                             # Display keywords if available
-                    if metadata.get('keywords'):
+                            if metadata.get('keywords'):
                                 st.markdown("**🔑 Keywords:** " + ", ".join(metadata['keywords']))
-                    
+                            
                             # Technical terms with better formatting
-                    if metadata.get('technical_terms'):
+                            if metadata.get('technical_terms'):
                                 st.subheader("🔬 Technical Terms & Abbreviations")
                                 terms = metadata['technical_terms']
                                 if len(terms) > 0:
@@ -356,20 +356,20 @@ elif page == "📄 Individual Paper Analysis":
                                     st.info("No technical terms found in this paper.")
                             else:
                                 st.info("No technical terms extracted from this paper.")
-                
-                with tab2:
-                    st.subheader("Generated Insights")
-                    insights = result["insights"].split("\n")
-                    for insight in insights:
-                        if insight.strip():
-                            st.markdown(f"- {insight}")
-                
-                with tab3:
-                    st.subheader("Research Hypotheses")
-                    hypotheses = result["hypotheses"].split("\n")
-                    for hypothesis in hypotheses:
-                        if hypothesis.strip() and not hypothesis.startswith("Research Hypotheses:"):
-                            st.markdown(f"- {hypothesis}")
+                        
+                        with tab2:
+                            st.subheader("Generated Insights")
+                            insights = result["insights"].split("\n")
+                            for insight in insights:
+                                if insight.strip():
+                                    st.markdown(f"- {insight}")
+                        
+                        with tab3:
+                            st.subheader("Research Hypotheses")
+                            hypotheses = result["hypotheses"].split("\n")
+                            for hypothesis in hypotheses:
+                                if hypothesis.strip() and not hypothesis.startswith("Research Hypotheses:"):
+                                    st.markdown(f"- {hypothesis}")
                     else:
                         st.error("Failed to process the paper. Please try again.")
                 except Exception as e:
@@ -385,20 +385,20 @@ elif page == "📚 Research Collection Analysis":
     if results_path.exists():
         try:
             with open(results_path, encoding='utf-8') as f:
-            all_results = json.load(f)
-        st.session_state.results_loaded = True
-        
-        # Summary statistics
-        st.subheader("Collection Overview")
+                all_results = json.load(f)
+            st.session_state.results_loaded = True
+            
+            # Summary statistics
+            st.subheader("Collection Overview")
             col1, col2, col3, col4 = st.columns(4)
-        with col1:
-            st.metric("Total Papers", len(all_results))
-        with col2:
-            avg_chunks = sum(r["num_chunks"] for r in all_results) / len(all_results)
-            st.metric("Avg. Chunks per Paper", f"{avg_chunks:.1f}")
-        with col3:
-            total_text = sum(r["text_length"] for r in all_results)
-            st.metric("Total Text Analyzed", f"{total_text/1000:.1f}K chars")
+            with col1:
+                st.metric("Total Papers", len(all_results))
+            with col2:
+                avg_chunks = sum(r["num_chunks"] for r in all_results) / len(all_results)
+                st.metric("Avg. Chunks per Paper", f"{avg_chunks:.1f}")
+            with col3:
+                total_text = sum(r["text_length"] for r in all_results)
+                st.metric("Total Text Analyzed", f"{total_text/1000:.1f}K chars")
             with col4:
                 papers_with_metadata = sum(1 for r in all_results if r.get("metadata", {}).get("title"))
                 st.metric("Papers with Metadata", papers_with_metadata)
@@ -459,8 +459,8 @@ elif page == "📚 Research Collection Analysis":
                 papers_data.append(paper_data)
             
             papers_df = pd.DataFrame(papers_data)
-        st.dataframe(papers_df, use_container_width=True)
-        
+            st.dataframe(papers_df, use_container_width=True)
+            
             # Show detailed paper information in expandable sections
             st.subheader("📋 Detailed Paper Information")
             for i, paper in enumerate(filtered_results[:5]):  # Show first 5 papers in detail
@@ -538,16 +538,16 @@ elif page == "📚 Research Collection Analysis":
                     for author, count in top_authors:
                         st.write(f"• {author}: {count} papers")
             
-        # Download options
+            # Download options
             st.subheader("💾 Download Options")
             col1, col2 = st.columns(2)
             with col1:
-        st.download_button(
-            "Download Full Analysis (JSON)",
-            data=json.dumps(all_results, indent=2),
-            file_name="research_collection_analysis.json",
-            mime="application/json"
-        )
+                st.download_button(
+                    "Download Full Analysis (JSON)",
+                    data=json.dumps(all_results, indent=2),
+                    file_name="research_collection_analysis.json",
+                    mime="application/json"
+                )
             with col2:
                 st.download_button(
                     "Download Enhanced Metadata (CSV)",
@@ -563,9 +563,9 @@ elif page == "📚 Research Collection Analysis":
         if st.button("Process Research Collection"):
             with st.spinner("Processing all papers..."):
                 try:
-                processor = BatchProcessor()
-                results = processor.process_all_papers()
-                st.success(f"Processed {len(results)} papers successfully!")
+                    processor = BatchProcessor()
+                    results = processor.process_all_papers()
+                    st.success(f"Processed {len(results)} papers successfully!")
                     st.rerun()
                 except Exception as e:
                     st.error(f"Error processing collection: {str(e)}")
@@ -581,39 +581,39 @@ elif page == "🔗 Citation Network Analysis":
         if network_path.exists():
             try:
                 with open(network_path, encoding='utf-8') as f:
-                network_data = json.load(f)
-            
-            # Network statistics
-            st.subheader("Network Overview")
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                st.metric("Papers", network_data["num_papers"])
-            with col2:
-                st.metric("Citations", network_data["num_citations"])
-            with col3:
-                st.metric("Relationships", network_data["num_relationships"])
-            
-            # Citation network visualization
-            st.subheader("Citation Network Graph")
-            network_img = Path("results/citation_network.png")
-            if network_img.exists():
-                st.image(str(network_img))
-            
-            # Cross-references analysis
-            if "cross_references" in network_data:
-                st.subheader("Cross-References Analysis")
+                    network_data = json.load(f)
                 
-                # Direct citations
-                if network_data["cross_references"]["direct_citations"]:
-                    st.markdown("**Direct Citations**")
-                    citations_df = pd.DataFrame(network_data["cross_references"]["direct_citations"])
-                    st.dataframe(citations_df)
+                # Network statistics
+                st.subheader("Network Overview")
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("Papers", network_data["num_papers"])
+                with col2:
+                    st.metric("Citations", network_data["num_citations"])
+                with col3:
+                    st.metric("Relationships", network_data["num_relationships"])
                 
-                # Shared topics
-                if network_data["cross_references"]["shared_topics"]:
-                    st.markdown("**Papers with Shared Topics**")
-                    topics_df = pd.DataFrame(network_data["cross_references"]["shared_topics"])
-                    st.dataframe(topics_df)
+                # Citation network visualization
+                st.subheader("Citation Network Graph")
+                network_img = Path("results/citation_network.png")
+                if network_img.exists():
+                    st.image(str(network_img))
+                
+                # Cross-references analysis
+                if "cross_references" in network_data:
+                    st.subheader("Cross-References Analysis")
+                    
+                    # Direct citations
+                    if network_data["cross_references"]["direct_citations"]:
+                        st.markdown("**Direct Citations**")
+                        citations_df = pd.DataFrame(network_data["cross_references"]["direct_citations"])
+                        st.dataframe(citations_df)
+                    
+                    # Shared topics
+                    if network_data["cross_references"]["shared_topics"]:
+                        st.markdown("**Papers with Shared Topics**")
+                        topics_df = pd.DataFrame(network_data["cross_references"]["shared_topics"])
+                        st.dataframe(topics_df)
             except Exception as e:
                 st.error(f"Error loading network analysis: {str(e)}")
         else:
@@ -628,42 +628,42 @@ elif page == "📊 Topic Analysis":
     
     if st.session_state.results_loaded:
         try:
-        results_path = Path("results/all_papers_results.json")
+            results_path = Path("results/all_papers_results.json")
             with open(results_path, encoding='utf-8') as f:
-            all_results = json.load(f)
-        
-        # Extract and analyze topics
-        topics = {}
-        for paper in all_results:
-            if "metadata" in paper and "keywords" in paper["metadata"]:
-                for keyword in paper["metadata"]["keywords"]:
-                    topics[keyword] = topics.get(keyword, 0) + 1
-        
-        # Topic distribution
-        st.subheader("Topic Distribution")
+                all_results = json.load(f)
+            
+            # Extract and analyze topics
+            topics = {}
+            for paper in all_results:
+                if "metadata" in paper and "keywords" in paper["metadata"]:
+                    for keyword in paper["metadata"]["keywords"]:
+                        topics[keyword] = topics.get(keyword, 0) + 1
+            
+            # Topic distribution
+            st.subheader("Topic Distribution")
             topic_df = pd.DataFrame(list(topics.items()), columns=pd.Index(["Topic", "Count"]))
-        topic_df = topic_df.sort_values("Count", ascending=False)
-        
-        fig = px.bar(topic_df, x="Topic", y="Count",
-                    title="Research Topics Frequency")
-        st.plotly_chart(fig)
-        
-        # Topic co-occurrence
-        st.subheader("Topic Co-occurrence")
-        cooc_matrix = {}
-        for paper in all_results:
-            if "metadata" in paper and "keywords" in paper["metadata"]:
-                keywords = paper["metadata"]["keywords"]
-                for i, k1 in enumerate(keywords):
-                    for k2 in keywords[i+1:]:
-                        pair = tuple(sorted([k1, k2]))
-                        cooc_matrix[pair] = cooc_matrix.get(pair, 0) + 1
-        
-        if cooc_matrix:
-            cooc_df = pd.DataFrame([(k[0], k[1], v) for k, v in cooc_matrix.items()],
-                                     columns=pd.Index(["Topic 1", "Topic 2", "Co-occurrences"]))
-            cooc_df = cooc_df.sort_values("Co-occurrences", ascending=False)
-            st.dataframe(cooc_df)
+            topic_df = topic_df.sort_values("Count", ascending=False)
+            
+            fig = px.bar(topic_df, x="Topic", y="Count",
+                        title="Research Topics Frequency")
+            st.plotly_chart(fig)
+            
+            # Topic co-occurrence
+            st.subheader("Topic Co-occurrence")
+            cooc_matrix = {}
+            for paper in all_results:
+                if "metadata" in paper and "keywords" in paper["metadata"]:
+                    keywords = paper["metadata"]["keywords"]
+                    for i, k1 in enumerate(keywords):
+                        for k2 in keywords[i+1:]:
+                            pair = tuple(sorted([k1, k2]))
+                            cooc_matrix[pair] = cooc_matrix.get(pair, 0) + 1
+            
+            if cooc_matrix:
+                cooc_df = pd.DataFrame([(k[0], k[1], v) for k, v in cooc_matrix.items()],
+                                         columns=pd.Index(["Topic 1", "Topic 2", "Co-occurrences"]))
+                cooc_df = cooc_df.sort_values("Co-occurrences", ascending=False)
+                st.dataframe(cooc_df)
         except Exception as e:
             st.error(f"Error in topic analysis: {str(e)}")
     else:
