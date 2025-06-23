@@ -37,4 +37,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:latest,${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:${{ github.sha }} 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:latest,${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:${{ github.sha }}
+
+      - name: Verify deployment
+        run: |
+          echo "✅ Docker image built and pushed successfully!"
+          echo "📦 Image: ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:latest"
+          echo "🏷️  Tag: ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:${{ github.sha }}"
+          echo "🚀 Deploy with: docker run -p 8501:8501 ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:latest" 
