@@ -1,0 +1,5549 @@
+{
+  "author_network": {
+    "metrics": {
+      "total_authors": 169,
+      "total_collaborations": 589,
+      "connected_components": 4,
+      "average_clustering": 0.37677898116900443,
+      "density": 0.15040858018386108
+    },
+    "top_collaborations": [
+      [
+        [
+          "Chen Liang",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "From Scratch",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Esteban Real",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Evolving Machine",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Abstract Machine",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Learning Algorithms",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Main Topic",
+          "Stanford University"
+        ],
+        3
+      ],
+      [
+        [
+          "Beicheng Lou",
+          "Main Topic"
+        ],
+        3
+      ],
+      [
+        [
+          "Main Topic",
+          "Mechanical Engineering"
+        ],
+        3
+      ],
+      [
+        [
+          "Benjamin Wang",
+          "Main Topic"
+        ],
+        3
+      ]
+    ],
+    "author_papers": {
+      "Symbolic Arti": [
+        0
+      ],
+      "Intelligence Current": [
+        0
+      ],
+      "Trends Md": [
+        0
+      ],
+      "Kamruzzaman Saker": [
+        0
+      ],
+      "Lu Zhou": [
+        0
+      ],
+      "Aaron Eberhart": [
+        0
+      ],
+      "Pascal Hitzler": [
+        0
+      ],
+      "Computer Science": [
+        0,
+        10
+      ],
+      "Kansas State": [
+        0
+      ],
+      "Neural Networks": [
+        0
+      ],
+      "Benjamin Wang": [
+        1
+      ],
+      "Beicheng Lou": [
+        1
+      ],
+      "Shanhui Fan": [
+        1
+      ],
+      "Mechanical Engineering": [
+        1
+      ],
+      "Stanford University": [
+        1
+      ],
+      "Electrical Engineering": [
+        1
+      ],
+      "Main Topic": [
+        1,
+        3,
+        6,
+        16
+      ],
+      "Nature Vol": [
+        2
+      ],
+      "Article Highly": [
+        2
+      ],
+      "Fold John": [
+        2
+      ],
+      "Richard Evans": [
+        2
+      ],
+      "Alexander Pritzel": [
+        2
+      ],
+      "Tim Green": [
+        2
+      ],
+      "Michael Figurnov": [
+        2
+      ],
+      "Olaf Ronneberger": [
+        2
+      ],
+      "Kathryn Tunyasuvunakool": [
+        2
+      ],
+      "Russ Bates": [
+        2
+      ],
+      "Evolving Machine": [
+        3
+      ],
+      "Learning Algorithms": [
+        3
+      ],
+      "From Scratch": [
+        3
+      ],
+      "Esteban Real": [
+        3
+      ],
+      "Chen Liang": [
+        3
+      ],
+      "Abstract Machine": [
+        3
+      ],
+      "Thought Prompting": [
+        4
+      ],
+      "Elicits Reasoning": [
+        4
+      ],
+      "Large Language": [
+        4,
+        18
+      ],
+      "Models Jason": [
+        4
+      ],
+      "Wei Xuezhi": [
+        4
+      ],
+      "Wang Dale": [
+        4
+      ],
+      "Schuurmans Maarten": [
+        4
+      ],
+      "Bosma Brian": [
+        4
+      ],
+      "Ichter Fei": [
+        4
+      ],
+      "Xia Ed": [
+        4
+      ],
+      "Language Models": [
+        5
+      ],
+      "Know What": [
+        5
+      ],
+      "They Know": [
+        5
+      ],
+      "Saurav Kadavath": [
+        5
+      ],
+      "Tom Conerly": [
+        5
+      ],
+      "Amanda Askell": [
+        5
+      ],
+      "Tom Henighan": [
+        5,
+        12
+      ],
+      "Dawn Drain": [
+        5
+      ],
+      "Ethan Perez": [
+        5
+      ],
+      "Nicholas Schiefer": [
+        5
+      ],
+      "Technical Report": [
+        6
+      ],
+      "Abstract We": [
+        6
+      ],
+      "Marco Leonetti": [
+        7
+      ],
+      "Lorenzo Pattelli": [
+        7
+      ],
+      "Simone De": [
+        7
+      ],
+      "Giancarlo Ruocco": [
+        7
+      ],
+      "Life Nano": [
+        7
+      ],
+      "Isituto Italiano": [
+        7
+      ],
+      "Istituto Nazionale": [
+        7
+      ],
+      "Ricerca Metrologica": [
+        7
+      ],
+      "European Laboratory": [
+        7
+      ],
+      "Sesto Fiorentino": [
+        7
+      ],
+      "Foundation Language": [
+        8
+      ],
+      "Models Hugo": [
+        8
+      ],
+      "Thibaut Lavril": [
+        8
+      ],
+      "Gautier Izacard": [
+        8
+      ],
+      "Xavier Martinet": [
+        8
+      ],
+      "Anne Lachaux": [
+        8
+      ],
+      "Timothee Lacroix": [
+        8
+      ],
+      "Baptiste Rozi": [
+        8
+      ],
+      "Naman Goyal": [
+        8
+      ],
+      "Eric Hambro": [
+        8
+      ],
+      "Scaling Language": [
+        9
+      ],
+      "Pathways Aakanksha": [
+        9
+      ],
+      "Chowdhery Sharan": [
+        9
+      ],
+      "Narang Jacob": [
+        9
+      ],
+      "Devlin Maarten": [
+        9
+      ],
+      "Bosma Gaurav": [
+        9
+      ],
+      "Mishra Adam": [
+        9
+      ],
+      "Roberts Paul": [
+        9
+      ],
+      "Barham Hyung": [
+        9
+      ],
+      "Won Chung": [
+        9
+      ],
+      "Shunyu Yao": [
+        10
+      ],
+      "Jeffrey Zhao": [
+        10
+      ],
+      "Dian Yu": [
+        10
+      ],
+      "Nan Du": [
+        10
+      ],
+      "Izhak Shafran": [
+        10
+      ],
+      "Karthik Narasimhan": [
+        10,
+        13
+      ],
+      "Yuan Cao": [
+        10
+      ],
+      "Princeton University": [
+        10
+      ],
+      "Google Research": [
+        10
+      ],
+      "Sebastian Borgeaud": [
+        11
+      ],
+      "Arthur Mensch": [
+        11
+      ],
+      "Jordan Ho": [
+        11
+      ],
+      "Trevor Cai": [
+        11
+      ],
+      "Eliza Rutherford": [
+        11
+      ],
+      "Katie Millican": [
+        11
+      ],
+      "Baptiste Lespiau": [
+        11
+      ],
+      "Bogdan Damoc": [
+        11
+      ],
+      "Aidan Clark": [
+        11
+      ],
+      "Las Casas": [
+        11
+      ],
+      "Scaling Laws": [
+        12
+      ],
+      "Neural Language": [
+        12
+      ],
+      "Models Jared": [
+        12
+      ],
+      "Kaplan Johns": [
+        12
+      ],
+      "Hopkins University": [
+        12
+      ],
+      "Sam Mc": [
+        12
+      ],
+      "Candlish Open": [
+        12
+      ],
+      "Brown Open": [
+        12
+      ],
+      "Benjamin Chess": [
+        12
+      ],
+      "Language Agents": [
+        13
+      ],
+      "Verbal Reinforcement": [
+        13
+      ],
+      "Learning Noah": [
+        13
+      ],
+      "Shinn Northeastern": [
+        13
+      ],
+      "Federico Cassano": [
+        13
+      ],
+      "Northeastern University": [
+        13
+      ],
+      "Edward Berman": [
+        13
+      ],
+      "Ashwin Gopinath": [
+        13
+      ],
+      "Massachusetts Institute": [
+        13
+      ],
+      "General Intelligence": [
+        14
+      ],
+      "Sebastien Bubeck": [
+        14
+      ],
+      "Varun Chandrasekaran": [
+        14
+      ],
+      "Ronen Eldan": [
+        14
+      ],
+      "Johannes Gehrke": [
+        14
+      ],
+      "Eric Horvitz": [
+        14
+      ],
+      "Ece Kamar": [
+        14
+      ],
+      "Peter Lee": [
+        14
+      ],
+      "Yin Tat": [
+        14
+      ],
+      "Lee Yuanzhi": [
+        14
+      ],
+      "Rene Bellwied": [
+        15
+      ],
+      "Szabolcs Bors": [
+        15
+      ],
+      "Paolo Parotto": [
+        15
+      ],
+      "Claudia Ratti": [
+        15
+      ],
+      "Wuppertal University": [
+        15
+      ],
+      "Pennsylvania State": [
+        15
+      ],
+      "State College": [
+        15
+      ],
+      "Theoretical Physics": [
+        15
+      ],
+      "Supercomputing Centre": [
+        15
+      ],
+      "Aix Marseille": [
+        15
+      ],
+      "Aware Systems": [
+        16
+      ],
+      "Cognitive Augmentation": [
+        16
+      ],
+      "Andreas Kosch": [
+        16
+      ],
+      "Software Engineering": [
+        16
+      ],
+      "Albrecht Schmidt": [
+        16
+      ],
+      "Fabio Patern": [
+        16
+      ],
+      "Jonathan Lazar": [
+        16
+      ],
+      "Abstract Abstract": [
+        16
+      ],
+      "Numerical Analysis": [
+        17
+      ],
+      "Sensitivity Enhancement": [
+        17
+      ],
+      "Surface Plasmon": [
+        17
+      ],
+      "Resonance Biosensors": [
+        17
+      ],
+      "Mirrored Bilayer": [
+        17
+      ],
+      "Structure Sayeed": [
+        17
+      ],
+      "Shafayet Chowdhury": [
+        17
+      ],
+      "Syed Mohammad": [
+        17
+      ],
+      "Ashab Uddin": [
+        17
+      ],
+      "Purdue University": [
+        17
+      ],
+      "Deliberate Problem": [
+        18
+      ],
+      "Models Shunyu": [
+        18
+      ],
+      "Yao Princeton": [
+        18
+      ],
+      "University Dian": [
+        18
+      ],
+      "Yu Google": [
+        18
+      ],
+      "Mind Jeffrey": [
+        18
+      ],
+      "Zhao Google": [
+        18
+      ],
+      "Mind Izhak": [
+        18
+      ],
+      "Shafran Google": [
+        18
+      ]
+    },
+    "graph_edges": [
+      [
+        "Lu Zhou",
+        "Nan Du",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Princeton University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Dian Yu",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Izhak Shafran",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Yuan Cao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Shunyu Yao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Jeffrey Zhao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Lu Zhou",
+        "Google Research",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Nan Du",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Princeton University",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Dian Yu",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Izhak Shafran",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Computer Science",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Karthik Narasimhan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yuan Cao",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Karthik Narasimhan",
+        {
+          "weight": 2
+        }
+      ],
+      [
+        "Computer Science",
+        "Shunyu Yao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Jeffrey Zhao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Google Research",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Computer Science",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Shunyu Yao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Jeffrey Zhao",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Karthik Narasimhan",
+        "Google Research",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shunyu Yao",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Jeffrey Zhao",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Intelligence Current",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Kamruzzaman Saker",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Trends Md",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Kansas State",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Aaron Eberhart",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Neural Networks",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Pascal Hitzler",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Symbolic Arti",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Federico Cassano",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Northeastern University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Learning Noah",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Language Agents",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Massachusetts Institute",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Edward Berman",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Shinn Northeastern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Verbal Reinforcement",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Google Research",
+        "Ashwin Gopinath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Main Topic",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Chen Liang",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Chen Liang",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Main Topic",
+        "From Scratch",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Esteban Real",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Evolving Machine",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Abstract Machine",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Learning Algorithms",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Stanford University",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Beicheng Lou",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Mechanical Engineering",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Benjamin Wang",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Shanhui Fan",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Electrical Engineering",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Technical Report",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Abstract We",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Software Engineering",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Andreas Kosch",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Fabio Patern",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Jonathan Lazar",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Abstract Abstract",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Aware Systems",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Albrecht Schmidt",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "Main Topic",
+        "Cognitive Augmentation",
+        {
+          "weight": 3
+        }
+      ],
+      [
+        "From Scratch",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "From Scratch",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Esteban Real",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Evolving Machine",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract Machine",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Stanford University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Beicheng Lou",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Mechanical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Benjamin Wang",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Shanhui Fan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Electrical Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Learning Algorithms",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Stanford University",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Beicheng Lou",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mechanical Engineering",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Wang",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shanhui Fan",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Technical Report",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Abstract We",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Electrical Engineering",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Technical Report",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Software Engineering",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Andreas Kosch",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Fabio Patern",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Jonathan Lazar",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Abstract Abstract",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Aware Systems",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Albrecht Schmidt",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Abstract We",
+        "Cognitive Augmentation",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Zhao Google",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Mind Izhak",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Yao Princeton",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Deliberate Problem",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "University Dian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Mind Jeffrey",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Models Shunyu",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Shafran Google",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Schuurmans Maarten",
+        "Yu Google",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Zhao Google",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Izhak",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yao Princeton",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Deliberate Problem",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Large Language",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "University Dian",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Mind Jeffrey",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Models Shunyu",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Shafran Google",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Yu Google",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Large Language",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Mind Jeffrey",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Shunyu",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Shafran Google",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Wang Dale",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Ichter Fei",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Xia Ed",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Thought Prompting",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Wei Xuezhi",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Models Jason",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Bosma Brian",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Yu Google",
+        "Elicits Reasoning",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Tom Henighan",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Neural Language",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Hopkins University",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Scaling Laws",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Models Jared",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Brown Open",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Benjamin Chess",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Kaplan Johns",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Candlish Open",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Sam Mc",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Tom Henighan",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Hopkins University",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Scaling Laws",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Models Jared",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Brown Open",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Benjamin Chess",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Kaplan Johns",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Candlish Open",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Ethan Perez",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Dawn Drain",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Amanda Askell",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Know What",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Tom Conerly",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Saurav Kadavath",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Language Models",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "Nicholas Schiefer",
+        {
+          "weight": 1
+        }
+      ],
+      [
+        "Sam Mc",
+        "They Know",
+        {
+          "weight": 1
+        }
+      ]
+    ],
+    "graph_nodes": [
+      "Lu Zhou",
+      "Nan Du",
+      "Princeton University",
+      "Dian Yu",
+      "Izhak Shafran",
+      "Yuan Cao",
+      "Computer Science",
+      "Karthik Narasimhan",
+      "Shunyu Yao",
+      "Jeffrey Zhao",
+      "Google Research",
+      "Intelligence Current",
+      "Kamruzzaman Saker",
+      "Trends Md",
+      "Kansas State",
+      "Aaron Eberhart",
+      "Neural Networks",
+      "Pascal Hitzler",
+      "Symbolic Arti",
+      "Chen Liang",
+      "Main Topic",
+      "From Scratch",
+      "Esteban Real",
+      "Evolving Machine",
+      "Abstract Machine",
+      "Learning Algorithms",
+      "Stanford University",
+      "Beicheng Lou",
+      "Mechanical Engineering",
+      "Benjamin Wang",
+      "Shanhui Fan",
+      "Electrical Engineering",
+      "Technical Report",
+      "Abstract We",
+      "Software Engineering",
+      "Andreas Kosch",
+      "Fabio Patern",
+      "Jonathan Lazar",
+      "Abstract Abstract",
+      "Aware Systems",
+      "Albrecht Schmidt",
+      "Cognitive Augmentation",
+      "Schuurmans Maarten",
+      "Zhao Google",
+      "Mind Izhak",
+      "Yao Princeton",
+      "Deliberate Problem",
+      "University Dian",
+      "Large Language",
+      "Mind Jeffrey",
+      "Models Shunyu",
+      "Shafran Google",
+      "Yu Google",
+      "Wang Dale",
+      "Ichter Fei",
+      "Xia Ed",
+      "Thought Prompting",
+      "Wei Xuezhi",
+      "Models Jason",
+      "Bosma Brian",
+      "Elicits Reasoning",
+      "Neural Language",
+      "Tom Henighan",
+      "Hopkins University",
+      "Scaling Laws",
+      "Models Jared",
+      "Brown Open",
+      "Benjamin Chess",
+      "Kaplan Johns",
+      "Candlish Open",
+      "Sam Mc",
+      "Ethan Perez",
+      "Dawn Drain",
+      "Amanda Askell",
+      "Know What",
+      "Tom Conerly",
+      "Saurav Kadavath",
+      "Language Models",
+      "Nicholas Schiefer",
+      "They Know",
+      "Federico Cassano",
+      "Northeastern University",
+      "Learning Noah",
+      "Language Agents",
+      "Massachusetts Institute",
+      "Edward Berman",
+      "Shinn Northeastern",
+      "Verbal Reinforcement",
+      "Ashwin Gopinath"
+    ]
+  },
+  "citation_analysis": {
+    "papers_with_refs": 0,
+    "total_references": 0,
+    "papers_with_dois": 0,
+    "papers_with_urls": 0,
+    "avg_refs_per_paper": 0,
+    "reference_years": {},
+    "common_venues": []
+  },
+  "section_analysis": {
+    "papers_with_sections": 2,
+    "section_frequency": {
+      "2. These few-shot properties ﬁrst appeared when scaling models to a sufﬁcient size( Kaplan et al.": 1,
+      "1. Our numerical analysis shows that using the proposed approach, about 4.": 1
+    },
+    "avg_sections_per_paper": 1.0,
+    "section_content_length": {
+      "2. These few-shot properties ﬁrst appeared when scaling models to a sufﬁcient size( Kaplan et al.": 103.0,
+      "1. Our numerical analysis shows that using the proposed approach, about 4.": 95.0
+    }
+  },
+  "topic_evolution": {
+    "topic_evolution": {
+      "Artiﬁcial Neural Networks": {
+        "2025": 1
+      },
+      "Deep Learning": {
+        "2025": 1
+      },
+      "Knowledge Representation and Reasoning": {
+        "2025": 1
+      },
+      "Intelligence 1": {
+        "2025": 1
+      },
+      "USA": {
+        "2025": 2,
+        "2021": 1
+      },
+      "training": {
+        "2021": 1,
+        "2025": 5,
+        "2010": 1
+      },
+      "FDFD": {
+        "2021": 1
+      },
+      "June 10": {
+        "2021": 1
+      },
+      "INTRODUCTION": {
+        "2021": 1
+      },
+      "PMM": {
+        "2021": 1
+      },
+      "Cappelli1": {
+        "2021": 1
+      },
+      "Russ Bates1": {
+        "2021": 1
+      },
+      "Senior1": {
+        "2021": 1
+      },
+      "Tamas Berghammer1": {
+        "2021": 1
+      },
+      "Nature Vol 596": {
+        "2021": 1
+      },
+      "Ballard1": {
+        "2021": 1
+      },
+      "Jonas Adler1": {
+        "2021": 1
+      },
+      "Alexander Pritzel1": {
+        "2021": 1
+      },
+      "Anna Potapenko1": {
+        "2021": 1
+      },
+      "Michael Figurnov1": {
+        "2021": 1
+      },
+      "Ellen Clancy1": {
+        "2021": 1
+      },
+      "Sebastian Bodenstein1": {
+        "2021": 1
+      },
+      "Martin Steinegger2": {
+        "2021": 1
+      },
+      "Pushmeet Kohli1": {
+        "2021": 1
+      },
+      "Paredes1": {
+        "2021": 1
+      },
+      "Rishub Jain1": {
+        "2021": 1
+      },
+      "neural networks": {
+        "2020": 1
+      },
+      "machine learning": {
+        "2020": 1
+      },
+      "CIFAR": {
+        "2020": 1
+      },
+      "So 1": {
+        "2020": 1
+      },
+      "Evolving Machine Learning Algorithms From Scratch Esteban Real 1": {
+        "2020": 1
+      },
+      "PMLR": {
+        "2020": 1
+      },
+      "Le 1": {
+        "2020": 1
+      },
+      "Chen Liang 1": {
+        "2020": 1
+      },
+      "language models": {
+        "2025": 8,
+        "2020": 1,
+        "2023": 1,
+        "2010": 1
+      },
+      "GPT": {
+        "2025": 5,
+        "2020": 1,
+        "2010": 1
+      },
+      "NLP": {
+        "2025": 2
+      },
+      "optimization": {
+        "2025": 1
+      },
+      "Giancarlo Ruocco1": {
+        "2025": 1
+      },
+      "Italy 3Istituto": {
+        "2025": 1
+      },
+      "LENS": {
+        "2025": 1
+      },
+      "DNA": {
+        "2025": 1
+      },
+      "Italy 2Institute": {
+        "2025": 1
+      },
+      "NANOTEC": {
+        "2025": 1
+      },
+      "Italy 5Department": {
+        "2025": 1
+      },
+      "Italy 6Dipartimento": {
+        "2025": 1
+      },
+      "CNR": {
+        "2025": 1
+      },
+      "Italy 4European": {
+        "2025": 1
+      },
+      "AI": {
+        "2020": 1,
+        "2025": 1
+      },
+      "inference": {
+        "2020": 1,
+        "2025": 1
+      },
+      " Brown et al.\n2. These few-shot properties ﬁrst appeared when scaling models to a sufﬁcient size( Kaplan et al.\n3. , 2020": {
+        "2020": 1
+      },
+      " Chowdhery et al. Research Hypotheses:\n\n1. Research exploring Open and Efﬁcient Foundation Language Models Hugo Touvron, Thibaut Lavril,... could lead to novel approaches that enhance the efficiency and effectiveness of current methodologies.\n\n2. Building upon the finding that 1 Introduction Large Languages Models( LLMs": {
+        "2020": 1
+      },
+      " Brown et al. However, this objective disregards the inference budget, which becomes critical when serving a language model at scale.\n\nKey Points:\n1. 1 Introduction Large Languages Models( LLMs": {
+        "2020": 1
+      },
+      "TPU": {
+        "2025": 1
+      },
+      "Pathways Language": {
+        "2025": 1
+      },
+      "reinforcement learning": {
+        "2023": 1,
+        "2025": 1
+      },
+      "ACTING": {
+        "2023": 1
+      },
+      "API": {
+        "2023": 1
+      },
+      "Izhak Shafran2": {
+        "2023": 1
+      },
+      "Dian Yu2": {
+        "2023": 1
+      },
+      "Nan Du2": {
+        "2023": 1
+      },
+      "ICLR": {
+        "2023": 1
+      },
+      "REACT": {
+        "2023": 1
+      },
+      "ABSTRACT": {
+        "2023": 1
+      },
+      "Karthik Narasimhan1": {
+        "2023": 1
+      },
+      "SYNERGIZING": {
+        "2023": 1
+      },
+      "Princeton University 2Google": {
+        "2023": 1
+      },
+      "MODELS": {
+        "2023": 1
+      },
+      "REASONING": {
+        "2023": 1
+      },
+      "Jeffrey Zhao2": {
+        "2023": 1
+      },
+      "Yuan Cao2": {
+        "2023": 1
+      },
+      "transformers": {
+        "2010": 1
+      },
+      "Enhanced": {
+        "2010": 1
+      },
+      "Appendices 20": {
+        "2025": 1
+      },
+      "Caveats 22": {
+        "2025": 1
+      },
+      "Compute Budget 14": {
+        "2025": 1
+      },
+      "Empirical": {
+        "2025": 1
+      },
+      "Introduction 2": {
+        "2025": 1
+      },
+      "Frontier 20": {
+        "2025": 1
+      },
+      "Supplemental Figures 23": {
+        "2025": 1
+      },
+      "Methods 6": {
+        "2025": 1
+      },
+      "Training Time 12": {
+        "2025": 1
+      },
+      "Related Work 18": {
+        "2025": 1
+      },
+      "Discussion 18": {
+        "2025": 1
+      },
+      "Power Laws 20": {
+        "2025": 1
+      },
+      "Basic Power Laws 7": {
+        "2025": 1
+      },
+      "Contents 1": {
+        "2025": 1
+      },
+      "LLM": {
+        "2025": 1
+      },
+      "Toolformer 22": {
+        "2025": 1
+      },
+      "Ope23": {
+        "2025": 1
+      },
+      "QCD": {
+        "2021": 1
+      },
+      "HRG": {
+        "2021": 1
+      },
+      "The 38th": {
+        "2021": 1
+      },
+      "ELTE": {
+        "2021": 1
+      },
+      "CPT": {
+        "2021": 1
+      },
+      "CNRS": {
+        "2021": 1
+      },
+      "Januar 2020": {
+        "2020": 1
+      },
+      "Oct 2020": {
+        "2020": 1
+      },
+      "FDTD": {
+        "2025": 1
+      },
+      "SPR": {
+        "2025": 1
+      }
+    },
+    "top_topics": [
+      [
+        "language models",
+        11
+      ],
+      [
+        "training",
+        7
+      ],
+      [
+        "GPT",
+        7
+      ],
+      [
+        "USA",
+        3
+      ],
+      [
+        "NLP",
+        2
+      ],
+      [
+        "AI",
+        2
+      ],
+      [
+        "inference",
+        2
+      ],
+      [
+        "reinforcement learning",
+        2
+      ],
+      [
+        "Artiﬁcial Neural Networks",
+        1
+      ],
+      [
+        "Deep Learning",
+        1
+      ]
+    ]
+  },
+  "institution_analysis": {
+    "total_institutions": 21,
+    "institution_papers": {
+      "Pascal Hitzler Department of Computer Science": [
+        0
+      ],
+      "Kansas State University": [
+        0
+      ],
+      "Stanford University": [
+        1
+      ],
+      "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research": [
+        4
+      ],
+      "This paper focuses on Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research": [
+        4
+      ],
+      "European Laboratory for Non-linear Spectroscopy": [
+        7
+      ],
+      "Princeton University": [
+        10
+      ],
+      "Google Research": [
+        10
+      ],
+      "Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University": [
+        12
+      ],
+      "This paper focuses on Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University": [
+        12
+      ],
+      "Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn": [
+        13
+      ],
+      "Federico Cassano Northeastern University cassano. fnortheastern. edu Edward Berman Northeastern University berman. ednortheastern. edu Ashwin Gopinath Massachusetts Institute of Technology agopimit. edu Karthik Narasimhan Princeton University karthiknprinceton. edu Shunyu Yao Princeton University shunyuyprinceton. edu Abstract Large language models": [
+        13
+      ],
+      "This paper focuses on Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn": [
+        13
+      ],
+      "Sebastien Bubeck Varun Chandrasekaran Ronen Eldan Johannes Gehrke Eric Horvitz Ece Kamar Peter Lee Yin Tat Lee Yuanzhi Li Scott Lundberg Harsha Nori Hamid Palangi Marco Tulio Ribeiro Yi Zhang Microsoft Research Abstract Arti": [
+        14
+      ],
+      "Wuppertal University": [
+        15
+      ],
+      "Pennsylvania State University": [
+        15
+      ],
+      "State College": [
+        15
+      ],
+      "MTA-ELTE Theoretical Physics Research Group": [
+        15
+      ],
+      "Purdue University": [
+        17
+      ],
+      "Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks": [
+        18
+      ],
+      "This paper focuses on Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks": [
+        18
+      ]
+    },
+    "top_institutions": [
+      [
+        "Pascal Hitzler Department of Computer Science",
+        1
+      ],
+      [
+        "Kansas State University",
+        1
+      ],
+      [
+        "Stanford University",
+        1
+      ],
+      [
+        "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research",
+        1
+      ],
+      [
+        "This paper focuses on Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research",
+        1
+      ],
+      [
+        "European Laboratory for Non-linear Spectroscopy",
+        1
+      ],
+      [
+        "Princeton University",
+        1
+      ],
+      [
+        "Google Research",
+        1
+      ],
+      [
+        "Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University",
+        1
+      ],
+      [
+        "This paper focuses on Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University",
+        1
+      ]
+    ],
+    "institution_collaborations": {
+      "Pascal Hitzler Department of Computer Science": [
+        "Kansas State University"
+      ],
+      "Kansas State University": [
+        "Pascal Hitzler Department of Computer Science"
+      ],
+      "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research": [
+        "This paper focuses on Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research"
+      ],
+      "This paper focuses on Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research": [
+        "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models Jason Wei Xuezhi Wang Dale Schuurmans Maarten Bosma Brian Ichter Fei Xia Ed H. Chi Quoc V. Le Denny Zhou Google Research"
+      ],
+      "Princeton University": [
+        "Google Research"
+      ],
+      "Google Research": [
+        "Princeton University"
+      ],
+      "Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University": [
+        "This paper focuses on Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University"
+      ],
+      "This paper focuses on Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University": [
+        "Scaling Laws for Neural Language Models Jared Kaplan Johns Hopkins University"
+      ],
+      "Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn": [
+        "Federico Cassano Northeastern University cassano. fnortheastern. edu Edward Berman Northeastern University berman. ednortheastern. edu Ashwin Gopinath Massachusetts Institute of Technology agopimit. edu Karthik Narasimhan Princeton University karthiknprinceton. edu Shunyu Yao Princeton University shunyuyprinceton. edu Abstract Large language models",
+        "This paper focuses on Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn"
+      ],
+      "Federico Cassano Northeastern University cassano. fnortheastern. edu Edward Berman Northeastern University berman. ednortheastern. edu Ashwin Gopinath Massachusetts Institute of Technology agopimit. edu Karthik Narasimhan Princeton University karthiknprinceton. edu Shunyu Yao Princeton University shunyuyprinceton. edu Abstract Large language models": [
+        "This paper focuses on Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn",
+        "Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn"
+      ],
+      "This paper focuses on Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn": [
+        "Federico Cassano Northeastern University cassano. fnortheastern. edu Edward Berman Northeastern University berman. ednortheastern. edu Ashwin Gopinath Massachusetts Institute of Technology agopimit. edu Karthik Narasimhan Princeton University karthiknprinceton. edu Shunyu Yao Princeton University shunyuyprinceton. edu Abstract Large language models",
+        "Language Agents with Verbal Reinforcement Learning Noah Shinn Northeastern University noahshinn"
+      ],
+      "Wuppertal University": [
+        "Pennsylvania State University",
+        "State College",
+        "MTA-ELTE Theoretical Physics Research Group"
+      ],
+      "Pennsylvania State University": [
+        "Wuppertal University",
+        "State College",
+        "MTA-ELTE Theoretical Physics Research Group"
+      ],
+      "State College": [
+        "Wuppertal University",
+        "Pennsylvania State University",
+        "MTA-ELTE Theoretical Physics Research Group"
+      ],
+      "MTA-ELTE Theoretical Physics Research Group": [
+        "Wuppertal University",
+        "Pennsylvania State University",
+        "State College"
+      ],
+      "Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks": [
+        "This paper focuses on Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks"
+      ],
+      "This paper focuses on Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks": [
+        "Deliberate Problem Solving with Large Language Models Shunyu Yao Princeton University Dian Yu Google DeepMind Jeffrey Zhao Google DeepMind Izhak Shafran Google DeepMind Thomas L. Griffiths Princeton University Yuan Cao Google DeepMind Karthik Narasimhan Princeton University Abstract Language models are increasingly being deployed for general problem solving across a wide range of tasks"
+      ]
+    }
+  },
+  "paper_type_analysis": {
+    "type_distribution": {
+      "survey": 1,
+      "method": 2,
+      "unknown": 15,
+      "original research": 1
+    },
+    "type_keywords": {
+      "survey": [
+        [
+          "Artiﬁcial Neural Networks",
+          1
+        ],
+        [
+          "Deep Learning",
+          1
+        ],
+        [
+          "Knowledge Representation and Reasoning",
+          1
+        ]
+      ],
+      "method": [
+        [
+          "training",
+          1
+        ],
+        [
+          "neural networks",
+          1
+        ],
+        [
+          "machine learning",
+          1
+        ]
+      ],
+      "unknown": [
+        [
+          "language models",
+          10
+        ],
+        [
+          "training",
+          6
+        ],
+        [
+          "inference",
+          2
+        ],
+        [
+          "reinforcement learning",
+          2
+        ],
+        [
+          "NLP",
+          1
+        ]
+      ],
+      "original research": [
+        [
+          "AI",
+          1
+        ],
+        [
+          "language models",
+          1
+        ]
+      ]
+    },
+    "type_authors": {
+      "survey": [
+        [
+          "Symbolic Arti",
+          1
+        ],
+        [
+          "Intelligence Current",
+          1
+        ],
+        [
+          "Trends Md",
+          1
+        ],
+        [
+          "Kamruzzaman Saker",
+          1
+        ],
+        [
+          "Lu Zhou",
+          1
+        ]
+      ],
+      "method": [
+        [
+          "Main Topic",
+          2
+        ],
+        [
+          "Benjamin Wang",
+          1
+        ],
+        [
+          "Beicheng Lou",
+          1
+        ],
+        [
+          "Shanhui Fan",
+          1
+        ],
+        [
+          "Mechanical Engineering",
+          1
+        ]
+      ],
+      "unknown": [
+        [
+          "Large Language",
+          2
+        ],
+        [
+          "Tom Henighan",
+          2
+        ],
+        [
+          "Main Topic",
+          2
+        ],
+        [
+          "Karthik Narasimhan",
+          2
+        ],
+        [
+          "Nature Vol",
+          1
+        ]
+      ],
+      "original research": [
+        [
+          "General Intelligence",
+          1
+        ],
+        [
+          "Sebastien Bubeck",
+          1
+        ],
+        [
+          "Varun Chandrasekaran",
+          1
+        ],
+        [
+          "Ronen Eldan",
+          1
+        ],
+        [
+          "Johannes Gehrke",
+          1
+        ]
+      ]
+    },
+    "type_sections": {
+      "unknown": [
+        [
+          "2. These few-shot properties ﬁrst appeared when scaling models to a sufﬁcient size( Kaplan et al.",
+          1
+        ],
+        [
+          "1. Our numerical analysis shows that using the proposed approach, about 4.",
+          1
+        ]
+      ]
+    }
+  },
+  "summary": {
+    "total_papers": 19,
+    "papers_with_metadata": 19,
+    "papers_with_authors": 19,
+    "papers_with_affiliations": 11,
+    "papers_with_sections": 2,
+    "papers_with_references": 0,
+    "papers_with_dois": 0,
+    "papers_with_urls": 0
+  }
+}

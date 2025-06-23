@@ -1,0 +1,805 @@
+CABIOS
+Vol 7. no 3. 1991
+Pages 301 -308
+Artificial intelligence methods for theory
+representation and hypothesis formation
+Peter D.Karp
+Abstract
+This article describes artificial intelligence methods for
+representing theories in molecular biology, and for improving
+the predictive power of these theories using experimental data.
+A program called GENSIM provides a framework for
+representing theories that includes descriptions of classes of
+biological objects (genes, enzymes, etc.), and processes that
+specify potential interactions among these objects (such as
+enzymatic reactions). GENSIM can employ a theory specified
+within this framework to predict the outcomes of biological
+experiments. A program called HYPGENE comes into play when
+the observed outcome of an experiment does not match the out-
+come predicted by GENSIM. HYPGENE works backward from
+the error in GENSIMs prediction to postulate changes to both
+the theory embodied by GENSIM, and the presumed initial
+conditions of the experiment. I view HYPGENEs hypothesis
+generation task as a design problem, and I have adapted AI
+methods developed for design and planning to this task. These
+techniques were developed in conjunction with an in-depth study
+of the discovery of the gene regulation mechanism of attenuation
+in the E. coli tryptophan operon. Both GENSIM and HYPGENE
+have been tested on sample problems from the history of at-
+tenuation, and produced many of the same solutions as biologists
+did.
+Introduction
+Much work in artificial intelligence (AI) shares two sorts of
+motivations: understanding and engineering. The research
+described in this paper was motivated by the goal of under-
+standing certain types of scientific reasoning, and by the goal
+of eventually constructing computer programs that can assist
+scientists with reasoning tasks. These two goals are not
+independent since engineering requires understanding, and
+because understanding is usually increased by observing the
+outcomes of experiments with computer programs. This paper
+reports on computer-science research that has yielded new AI
+methods; these methods form the foundations of two programs
+Knowledge Systems Laboratory, Computer Science Department. Stanford
+University. 701 Welch Road, Building C, Palo Alto, CA 94304. USA
+Present address Artificial Intelligence Center, SRI International, 333
+Ravenswood Are., Menlo Park, CA, USA
+described herein. These programs are not production software
+that can be run on a PC tomorrow by a biologist—they are
+research tools that I have used to explore and validate the
+methods that they are based on.
+The first phase of this research in understanding scientific
+reasoning focused on a particular instance of scientific reason-
+ing. Karp and Friedland performed a historical study of the
+discovery by Dr Charles Yanofsky and his colleages of the
+bacterial gene-regulation mechanism called attenuation (Karp,
+1989; Yanofsky, 1981). Karp and Friedland reconstructed the
+different theories of the regulation of the E. coli tryptophan (tip)
+operon that the biologists possessed at different points in time
+in order to understand what reasoning processes could be used
+to generate new theories from their predecessors in response
+to experimental observations.
+In the second phase of the research I constructed a framework
+for representing theories of gene regulation, where a theory
+is an entity that that can be used to predict the outcomes of
+experiments. This project yielded a program called GENSIM
+that has knoweldge bases that describe biological objects and
+chemical reactions, and a simulator that can predict what
+reactions will occur in a particular experiment, and what new
+objects are produced by those reactions. GENSIM provides a
+framework for representing many different types of biological
+knowledge of structure and function. I used this framework to
+construct a model of the trp operon as it was thought to function
+before the discovery of attenuation.
+The third phase addressed the reasoning problem of
+hypothesis formation: given an experiment whose observed
+outcome does not match its outcome as predicted by a theory,
+the problem is to generate alternative hypothesis that will
+eliminate the prediction error. I constructed a program called
+HYPGENE that treats hypothesis generation as a design
+problem, and uses AI methods for design and planning to solve
+this problem.
+Both GENSIM and HYPGENE have been tested on several
+reasoning problems from the history of attenuation, and have
+produced adequate solutions to these problems. This paper
+provides an overview of HYPGENE and GENSIM, and
+describes their solutions to a problem from the history of
+attentuation.
+Note well that space restrictions severely constrain the amount
+of detail with which I can describe these programs; interested
+readers should refer to Karp (1989). Also note that although
+301
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+P.D.Karp
+this research grew out of the earlier MOLGEN work by
+Friedland el at. (Friedland, 1979; Bach eta!., 1984) and by
+Stefik (Stefik, 1980), my research has quite different aims
+(theory representation and hypothesis formation as opposed to
+experiment planning) and employs different methods.
+The historical study of attenuation
+Before proceeding with a description of the progams 1 will
+present a brief summary of the historical study of attentuation,
+and an overview of the trp operon. The trp operon is a cluster
+of coregulated bacterial genes that codes for enzymes that form
+the biosynthetic pathway for tryptophan (see Figure 1). In the
+early 1960s preliminary experiments suggested that the
+expression of the trp operon was regulated by Jacob-Monod
+repression, but the work of Dr C. Yanofsky and his colleagues
+demonstrated the existence and elucidated the mechanism of
+an additional mode of regulation called attenuation.
+The historical study is based on information obtained from
+the scientific publications that Dr Yanofsky and his colleagues
+authored, and from interviews that we conducted with the
+biologists. In the first phase of the analysis, we produced a
+conceptual reconstruction of what knowledge the biologists
+possessed about the trp operon at different times. This
+reconstruction also describes the experiments that the biologists
+performed, and the alternative hypotheses that the biologists
+proposed to explain the outcomes of their experiments. Thus,
+we identified sample hypothesis-formation problems and
+experiment-prediction problems that can be used to test
+computational methods for performing these tasks.
+In the next phase of the analysis, we sought patterns in the
+differences between successive states of the biologists'
+knowledge. These differences existed because the biologists
+altered their theories of the trp operon. We searched for patterns
+that we assumed would be due to the reasoning methods that
+the scientists used to derive new theories from old. The analysis
+suggested theory-modification operators that biologists use to
+modify a theory to make it conform with new experimental data;
+these operators form the core of the HYPGENE program. The
+analysis also supports the conjecture that scientists use four
+different modes of scientific exploration to determine what types
+of experiments to perform next from a given state of research.
+A mode of exploration selects experiments based on the number
+of theories entertained at a given moment, and/or these theories'
+relative credibilities.
+System and methods
+The original versions of GENSIM and HYPGENE run on
+Xerox 1100-series Lisp Machines, which use the Interlisp dialect
+of Lisp (Koto release). I recently ported GENSIM to run under
+Lucid Common Lisp on Sun workstations. All knowledge bases
+were constructed using IntelliCorp's KEE frame representation
+system (Version 3.0) (Kehler and Clemenson, 1984).
+Implementation
+GENSIM
+The GENSIM program was designed to meet several
+constraints: it must provide a framework for representing both
+general theories and specific experiments in molecular biology,
+it must be able to use its general theory to predict the outcomes
+of experiments, and the preceding capabilities must be encoded
+in a manner that allows the HYPGENE program to reason about
+GENSIM theories and predictions such that HYPGENE can
+alter them to align predictions with observations. GENSIM
+accomplishes these tasks using the following components.
+163
+1225
+trpL
+trpE
+trpO
+3324
+trpC
+4688 
+5881 
+6684
+trpB 
+trpA
+anthranilate
+synthetase
+Component I
+Col Coll
+1 
+2
+chonsmate 
+—» 
+anthranilate 
+—» 
+PR anthranilate
+PR anthranilate
+isomerase-
+indoleglycerol
+phosphate
+synthetase
+CdRP
+tryptophan
+synthetase
+beta
+tryptophan
+synthetase
+alpha
+alpha beta
+InGP 
+—» tryptophan
+-t-glutamine 
++PRPP 
+-t-L-senne
+Fig. 1. The trp operon contains five structural genes (trpA through trpE) that are surrounded by an operator and promoter, a leader region, and a transcription
+terminator. The genes code for five polypep'ides that form three enzymes; the enzymes catalyze the conversion of chonsmate to tryptophan.
+302
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+AI methods for theory representation and hypothesis formation
+The class knowledge base (CKB) is a taxonomy of the classes
+of biological objects that are relevant to the tip operon. The
+knowledge base includes a generalization hierarchy of the
+concepts in this domain, for example, the trp promoter is a
+specialization of the class of all promoters, which in turn is
+a specialization of the class of all DNA segments. Other
+specializations of the class DNA segments include operators,
+genes, and transcription terminators. Each class within the CKB
+also includes values for the different properties that define the
+class, for example, the components of the trp operon are
+recorded (such as the trp operator and trp A gene), as is the name
+of the polypeptide encoded by the trp A gene.
+Whereas the CKB defines a known universe of biological
+objects, specific experiments are defined in experiment-specific
+KBs (the second component of the GENSIM) by specifying
+which of the known classes of objects are present in the given
+experiment, and what relationships hold among those objects.
+For example, to describe an experiment in which wild type
+E.coli is grown in a medium containing tryptophan, one would
+run a simple program that instantiates objects to construct
+specific instances of the classes E.coli and tryptophan. The
+E.coli object contains as components objects such as the trp
+Messenger.RNAs.18
+I
+XCElong.Complexes.17
+I
+XCElong Complexes.16
+i
+XCElong Complexes 15
+i
+XCElong.Complexes 14
+I
+XCElong.Complexes 13
+I
+XCElong Complexes 12
+I
+XCElong Complexes 11
+I
+XCElong Complexes 10
+i
+XCElong Complexes 9
+I
+XCElong Complexes 8
+I
+XCElong.Complexes 7
+I
+XCElong Complexes 6
+I
+XCElong.Complexes.5
+i
+XCElong Complexes 4
+I
+XCElong Complexes 3
+i
+XCElong.Complexes 2
+I
+XCElong Complexes 1
+I
+xCImt Complexes 1
+RNA-Polymerase 1 
+Trp Promoter 1
+Fig. 2. This figure shows the simulation of transcription of the trp operon. and
+degradation of the mRNA transcript. The connecting lines indicate reactions
+between objects that yield new objects, for example, RNA-Polymerase 1 and
+Trp Promoter. 1 react to yield XCImt. complexes. 1. The numbers within each
+object name indicate different instances of a given class of objects.
+operon, RNA polymerase and ribosomes (many known
+components of E.coli have been omitted for simplicity).
+The third component of GENSIM is the process knowledge
+base, or PKB. GENSIM processes are derived from the work
+of Forbus (Forbus, 1984). The PKB contains definitions of over
+40 different reactions between objects in the CKB. For example,
+the PKB contains processes that describe the binding of
+tryptophan to the trp-aporepressor protein, the binding of the
+activated trp-repressor to the trp operator, and the conversion
+of indole-glycerol-phosphate to tryptophan by the enzyme
+tryptophan synthetase. Each process specifies:
+• The classes of objects that participate in the reaction it
+describes (such as trp-aporepressor and tryptophan).
+• Conditions that must hold for the reaction to occur (the
+aporepressor must contain a binding site that can bind to
+tryptophan, and the binding site must be empty and free of
+mutations that would prevent this reaction).
+• The effects of the process (new instances of tryptophan and
+the aporepressor object are created that are bound together
+to form an activated repressor).
+The processes in the PKB are grouped into a taxonomic
+hierarchy of general classes such as classes called aporepressor-
+binds-cofactor, repressor-binds-operator, and protein-binds-
+DNA. Specific processes can inherit their definitions from more
+general classes. This approach simplifies the act of defining new
+processes—rather than define an entire process from scratch,
+one can often save work by creating new processes as children
+of an existing process-class, and then modifying the process
+definition inherited from that class. The approach also has
+implications for hypothesis formation since a hypothesis-
+formation program could postulate new processes by
+instantiating existing process classes.
+GENSIM utilizes a process interpreter to predict the outcome
+of an experiment. The interpreter repeatedly scans the PKB for
+processes whose preconditions are satisfied and executes their
+effects, until no new reactions are detected. I developed a
+separate process interpreter rather than utilize the production-
+rule system that is supplied with KEE. KEE does not allow
+full predicate calculus in rule preconditions, does not allow
+quantification in rule effects, and does not support inheritance
+of rule definitions from rule classes. See Karp (1989) for
+descriptions of algorithms used in the process interpreter.
+Because reactions are probabilistic events that occur among
+populations of objects, reactions are treated as events that fork
+populations of objects into two sub-populations: those that
+participate in the reaction and those that do not. GENSIM
+generally copies the description of the reacting object, and
+modifies it as specificed by the process effects. For example,
+when tryptophan binds to the trp-aporepressor, both objects are
+copied, and the copies become part of a new trp-repressor
+object.
+Two important simplifications are that GENSIM models
+303
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+P.D.Karp
+neither reaction rates nor concentrations, and that experiments
+are assumed to occur during a sufficiently short interval of time
+that no population of objects is ever fully consumed by a
+reaction. Thus, GENSIM predicts what objects exist at the end
+of an experiment, but not their concentrations. Because of the
+assumptions about time and concentration GENSIM cannot
+represent cases in which the concentation of an object becomes
+zero, and therefore existing objects are never deleted during
+RepOp.Complexes 1
+Ttp-Repressor 1 
+Trp Operator.1
+r
+Trp-ApoRe|
+Charged trp tFNA 1
+Anthranilate-Synthetase COMPLEX 1
+Trp-synthetase Alpha.1
+I
+XLE long.. Complexes 10
+I
+XLElong.Complexes 5
+I
+XLInit Complexes 5
+Ribosome Binding sit
+Trp-Synthetase.Beta 1
+I
+XLElong Complexes 9
+I
+XLElong.Complexes 4
+I
+XLInit.Complexes 4
+Anthranilate-Synthetase.1 Chorlsmate 1
+XLElong Complexes 8
+XLElong Complexes 3 A n t h r . n l l l t e - S , n t | » l a s » Component I 1
+I 
+.
+XLElong Complexes 6 
+Anthr.nil.te-Syntheta.G.Component.II.1
+XLElong Complexes 1 
+XLElong CompLoxes.7
+I 
+I
+XLInit Complexes 1 
+XLElonq.Complexes 2
+ing Site.46 
+XLInit.Complexes 2
+1
+Ribosome Binding.Site.47
+XLInit Complexes 3
+Ribosome.Binding Site.48
+Fig. 3. This figure shows the other reactions in the simulation of the trp system, such as translation of the trp enzymes and the reactions in the trp biosynthetic pathway.
+XCElong.Complexes.5
+Hisc.mRNA.Segment.8
+Miac.mRNA.Segment.9
+Messenger.RNAa.5 t- RNA.Gene.3
+Ribosome.Binding.Sice.2
+RNA.Gene.4
+Trp.promoter.7 — 
+Promoter.Polymeraae.Binding.Site.7
+Trp.Operator.7 —_ 
+Trp.Operator.Represaor.Binding.Site 7
+Trp.Leader.ED102.7
+Trp-D.ED102.7
+dRibosome.Binding.Site.19
+Trp-C.7
+dStop.Codon.19
+dRibosome.Binding.Site.20
+Trp-B.7
+dStop.Codon.20
+dRibosome.Binding.Site.21
+Trp-A.7
+dStop.Codon.21
+Trp.Terminator.7
+RNA-Polymerase.7 *_ 
+RNA-Polymerase.Promoter.Binding.Site 7
+Trp,Operon.EDI02.7
+Fig. 4. This figure shows the internal structure of one of the transcription elongation complexes in the simulation in Figure 1. RNA.Gene.3 is part of the
+Messenger.RNAs.5, which in turn is part of the overall transcription elongation complex
+304
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+AI methods for theory representation and hypothesis formation
+a simulation, although new objects are created by reactions.
+Although these assumptions clearly limit the scope and precision
+of GENSIM simulations, they did not hinder my ability to
+simulate experiments from the history of attenuation, and more
+generally I believe that many experiments in molecular biology
+have this qualitative character. In earlier work, I explored
+methods for reasoning about reaction rates and concentrations
+in the tip system given a mixture of qualitative and quantitative
+knowledge about state variables of the system (Karp and
+Friedland, 1989). Additional research will be required to endow
+GENSIM with this type of reasoning.
+GENSIM is able to simulate the function of the entire tip
+operon, including transcription and translation of the operon,
+and the reactions in the tip biosynthetic pathway, as shown in
+Figures 2, 3 and 4.
+See Karp (1989) for additional details on the implementation
+of GENSIM, and for a discussion of other biological simulation
+systems in AI, such as Meyers (1984), Koton (1985), Weld
+(1986) and Round (1987); see also Koile and Overton (1989).
+HYPGENE
+The HYPGENE program is employed when the outcome of
+an experiment computed by GENSIM does not match the
+observed outcome of the experiment; see Figure 5.
+HYPGENE's input is a tuple \lA,PA,ErrorA, PBK,CKB\ that
+describes the assumed initial conditions of the experiment (1A),
+the predicted outcome of the experiment (PA), and the
+difference between the predicted and observed outcomes of the
+experiment (ErrorA). HYPGENE's output is a set of
+hypotheses, where each hypothesis is a tuple (/',,,PKB'j such
+that the outcome predicted for IA' by GENSIM using the
+reaction theory PKB' matches the observed outcome of the
+experiment.
+Fig. 5. This figure shows the relationship between the GENSIM and HYPGENE
+programs. GENSIM predicts the outcome of an experiment. Its prediction is
+compared to the observed outcome of the experiment. HYPGENEs input is
+a tuple (/,,. PA, OA ErrorAT\ that describes the experiment and its outcomes,
+HYPGENE's output is a hypothesis [//, V] that aligns prediction with
+observation.
+Each PKB' is a modified version of the original process
+knowledge base; for example, it might contain an additional
+process that postulates the existence of a new reaction. Each
+IA' is a hypothesis that the initial conditions of the experiment
+were in fact different than had originally been thought. The latter
+class of hypotheses is important because the initial conditions
+of most biological experiments are complex and uncertain, given
+that they describe such objects as bacterial DNA—the attenuator
+hypothesis postulates that bacterial DNA contained a previously
+unknown functional site.
+I treat the hypothesis formation problem as a design task,
+meaning that I apply methods that were developed to mechanize
+the design process to the problem of hypothesis formation,
+which is a novel view of this machine-learning task.
+Traditionally, the design process yields entities such as digital
+circuits, which are synthesized from building blocks such as
+logic gates, to satisfy constraints that specify such things as
+power consumption and the computation the circuit is to
+perform. Thus, I view hypotheses as entities to be synthesized
+from primitive building blocks, and hypotheses must satisfy
+certain constraints. These constraints include consistency with
+the observed outcome of the experiment, therefore HYPGENEs
+starting goal is to eliminate the prediction error ErrorA. An
+example of a prediction error is an experiment in which
+GENSIM predicts that the trp-repressor binds to the tip
+operator, but no repressor-operator complexes are in fact
+observed.
+To satisfy its design goals (that is, to generate hypotheses).
+HYPGENE employs four types of design operators that alter
+both IA and the PKB in order to achieve unsatisfied goals on
+HYPGENEs goal stack. Initial condition modification operators
+alter IA, for example, to prevent GENSIM from predicting that
+a repressor-operation complex is formed, HYPGENE would
+attempt to violate the preconditions of the process whose
+execution created this object, perhaps by postulating that no
+trp-aporepressor was actually present in the initial conditions
+of the experiment. Class-modification operators alter the
+CKB—they generalize the hypotheses generated by the initial-
+condition modification operators by postulating changes to the
+known classes of biological objects. Process-modification
+operators alter the PKB; to prevent the prediction of the presence
+of a repressor-operator complex, these operators could postulate
+that the process whose execution created this object contained
+additional preconditions that were not satisfied in the current
+experiment, thus preventing the reaction from occurring (these
+preconditions might postulate that some activation factor is re-
+quired for the reaction). Quantity-hypothesis design operators
+generate hypotheses to explain discrepancies in the concentra-
+tions of objects in PA. Even though GENSIM does not specify
+the concentrations of objects in its predictions, it is still possible
+for HYPGENE to generate hypotheses to account for, say, an
+increase in the quantity of trp operon mRNA in the cell. Neither
+the process-modification operators nor the class-modification
+operators have been implemented in HYPGENE; both the
+305
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+P.D.Karp
+initial-condition modification operators and the quantity-
+hypothesis design operators have been implemented.
+All of the above operators are defined within HYPGENE in
+very general terms—they contain little knowledge of molecular
+biology, but refer to the languages used to represent
+experimental conditions (lA and PA) and processes, to the
+CKB, and to the simulation dependency traces produced by
+GENSIM (these traces show the reaction network for GEN-
+SIMs prediction, telling HYPGENE what reactants caused each
+process to occur and what products the reaction produced).
+Thus, HYPGENE is likely to be able to solve hypothesis-
+generation problems in other domains besides molecular
+biology.
+HYPGENE implementation details
+HYPGENE is implemented as an agenda-based, best-first search
+system. HYPGENEs goal stack is initialized to contain a
+description of ErrorA. The agenda controller examines
+HYPGENEs goal stack, and finds operators that may be able
+to satisfy an outstanding goal. Each such operator is a potential
+way of pursuing the current hypothesis-generation problem, and
+thus is added to the agenda of potential tasks to perform. The
+controller then picks the best item from the agenda, and executes
+it next. (The best item is simply the one that contains a partial
+hypothesis involving the fewest possible object modifications.)
+As operators execute, they may satisfy goals from HYPGENEs
+goal stack (satisfied goals are automatically removed from the
+trp 4
+Trp-ApoRepressor 2
+Trp-Repressor.2
+\
+RepOp.Complexes. 1
+stack), or they may add new goals to the goal stack. When the
+goal stack becomes empty the prediction error has been
+eliminated, in which case HYPGENE has found a solution to
+the current problem.
+It is important to realize that HYPGENE searches a space
+of possible solutions, because at each point in its reasoning,
+several operators can usually be applied to the current problem
+state. HYPGENE usually explores a number of possible
+solutions in parallel, and often finds multiple solutions to a given
+problem (since biologists usually generate several hypotheses
+to explain a given observation). The size of the space that
+HYPGENE searches is a combinatoric function of such factors
+as the number of processes in the PKB and the number of
+preconditions in a given process; see Karp (1989) for a more
+detailed discussion of the computational complexity of
+HYPGENE.
+As well as modifying HYPGENEs goal stack, execution of
+the design operators also modifies lA. Whenever IA is
+modified, HYPGENE calls upon GENSIM to incrementally
+update PA to reflect the change in 1A. If, for example,
+Trp-Operator. 1
+Fig.6. This figure shows a sample GENSIM prediction involving two reactions.
+The top half of the figure shows the names of the reacting objects, the bottom
+half shows pictoral representations of the objects. Here a simple molecule called
+trp binds to a binding site within the trp-aporepressor protein. The protein is
+then in a form that allows its other binding site to bind to a region of DNA
+called the trp operator.
+Fig. 7. HYPGENE finds 15 solutions for the transcription initiation hypothesis
+formation problem These solutions can be grouped into the five classes shown.
+These solutions took — 2 h of CPU time to compute, (a) class I: Postulate that
+certain objects were in fact not present in the initial conditions of the experi-
+ment, (b) class 2: Postulate that binding sites were absent from specific objects
+(c) class 3: Postulate that specific binding sites were occupied, thus prohibiting
+them from participating in reactions (d) class 4: Postulate that specific binding
+sites contained mutations with specificities that interfere with the reactivity of
+the binding sites, (e) class 5: Postulate that the specificites of binding site were
+altered in a manner that prohibits them from participating in reactions.
+306
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+AI methods for theory representation and hypothesis formation
+HYPGENE modifies IA by postulating that a property of some
+existing object has changed, GENSIM will first revoke all
+reactions caused (directly or indirectly) by the object, and will
+then recompute the reactions that the object causes, since the
+modification to the object may enable new reactions, prevent
+old ones, or alter the reactants produced by previous reactions.
+Discussion
+GENSIM and HYPGENE have been tested on three sets of
+sample problems from the history of attenuation, for which they
+have obtained solutions similar to those obtained by biologists
+(Karp, 1989). These examples demonstrate that the methods
+on which these programs are based are sufficient for solving
+some actual problems from molecular biology. Clearly our faith
+in these methods will increase when they are validated on other
+systems besides the tip operon.
+One of the example problems is shown in Figure 6; it
+concerns a small subset of the reactions in the overall trp system.
+GENSIM predicts that when tryptophan, the trp-aporepressor
+protein, and the trp operator are incubated together, two
+reactions occur, yielding a repressor-operator complex. Figure
+7 shows the hypotheses generated by HYPGENE when it is
+given the design goal that no repressor-operator complexes are
+in fact observed in this experiment. HYPGENE computes these
+solutions by reasoning backward through GENSIM's simulation
+dependency trace. It examines the preconditions of the two
+processes that describe these reactions to determine all possible
+ways to alter /,, to prevent these processes from firing. Similar
+reasoning was performed in Hiraga (1969) when these biologists
+characterized constitutive mutants of the trp operon.
+A second example problem was taken from the work of
+Jackson and Yanofsky (Jackson and Yanofsky, 1973). When
+they constructed an E.coli strain containing a deletion in the
+leader region of the trp operon, they found that the synthesis
+of trp operon mRNA was elevated relative to its synthesis in
+wild type E.coli.GENSIM's simulation of transcription of the
+trp operon is shown in Figure 2. HYPGENE generates several
+hypotheses to explain why the level of trp-mRNA might be
+elevated: 1. The concentration of the trp operon might be
+elevated; 2. The concentation of RNA polymerase might be
+elevated; 3. The degradation rate of mRNA might be decreased;
+4. The rate of transcription elongation might be elevated; 5.
+The rate of transcription initiation might be elevated; 6. The
+rate of transcription termination might be elevated and; 7. Any
+of the DNA segments within the wild type trp operon might
+contain a leaky transcription terminator, which was absent from
+the mutant strain.
+The last hypotheses required the most complex reasoning.
+HYPGENE produced them by applying a particular quantity-
+hypothesis operator to every transcription-elongation complex
+predicted by GENSIM to postulate that each complex was being
+consumed by some additional reaction. Leaky transcription
+termination was a process in the PKB that consumed
+transcription-elongation complexes, but for it to occur, the DNA
+segment at the current position of RNA polymerase would have
+to contain a leaky transcription terminator, which HYPGENE
+postulated to be present.
+Of these hypotheses, Jackson and Yanofsky also proposed
+1, 3 and a single member of 7 (that the leader region only had
+contained a leaky transcription terminator—the attenuator), plus
+the additional hypothesis that the deletion of part of the leader
+region had inadvertently created a promoter of transcription in
+that region. HYPGENEs hypotheses are in good agreement with
+those generated by Jackson and Yanofsky, suggesting that we
+have a good understanding of how to generate hypotheses to
+explain to single anomalous experiment in the absence of other
+information.
+Up until this point we have only been concerned with
+generating hypotheses that are correct, even if somewhat
+implausible. Karp (1989) examines the question of what types
+of knowledge might be brought to bear on the evaluation of
+hypotheses that have been generated, and how to control
+HYPGENEs search through a combinatoric hypothesis space
+such that more plausible hypotheses are generated before less
+plausible ones. It focuses on the use of a second, reference
+experiment, to aid in these tasks. Here we will not discuss these
+methods, but we will continue the analysis of the preceding
+example, from which some of these methods were derived.
+Hypothesis 2 could be ruled out because RNA polymerase
+is usually in excess in the cell—therefore increasing its
+concentration would not increase the rate of transcription.
+Hypotheses 5 and 6 could be ruled out because they are not
+rate-limiting steps in transcription. Most of the hypotheses in
+7 could be ruled out by the knowledge that a deletion in the
+leader region is unlikely to remove a transcription terminator
+that existed anywhere except in the vicinity of the leader region
+(since the experimenters were unsure of the exact length of the
+deletion). HYPGENE missed the hypothesis about the additional
+promoter because in fact this hypothesis yields a new trp-mRNA
+species that is subtly different from the normal trp-mRNA (they
+have different lengths because transcription starts at slightly
+different points), but which will not be distinguished from the
+wild type trp-mRNA using the hybridizaiton techniques used
+to detect trp-mRNA in this experiment. So HYPGENEs initial
+goal should not only be to increase the amount of wild type
+trp-mRNA, but also to increase the amount of any other mRNA
+that will be detected by the experimental technique used to quan-
+tify trp-mRNA. Thus, knowledge of how different experimental
+techniques work (such as hybridization and the gene splicing
+techniques that yield leader-region deletions) is important to the
+hypothesis-generation process.
+Umitations of HYPGENE
+HYPGENE incorporates several assumptions that limit its
+generality. The design framework assumes that HYPGENEs
+inputs exist, and that they have certain properties. These
+307
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+
+P.D.Karp
+assumptions are violated, for example, by scientific-reasoning
+problems that require us to derive a description of the initial
+conditions of an experiment.
+Another assumption of this method is that, to satisfy domain-
+specific goals such as (IS.PART X Y) (which states that object
+X is a component of object Y) HYPGENE depends on the
+existence of a LISP function that can invert the predicate—to
+make X a component of Y. Some domains include predicates
+that do not have unique inverses.
+HYPGENE has a limited ability to regress design goals
+through process effects to determine what SKB contents will
+cause a process to achieve a desired goal. AI researchers have
+not developed a general theory of goal regression, but
+HYPGENE would benefit from such a theory.
+HYPGENEs design operators reflect the GENSIM
+assumption that process effects cannot delete objects from the
+simulation. If we were to extend GENSIM's ontology such that
+it no longer incorporated this assumption, we would have to
+augment HYPGENE's operators; for example, by creating an
+initial-condition design operator that attempts to remove an
+object from a prediction by firing an existing process that deletes
+the object.
+Related work
+Several other researchers have developed systems that bear
+some similarity to HYPGENE. Simmons has constructed a
+program that solves geologic interpretation problems (Simmons,
+1988) by reasoning about a simulation dependency-trace
+produced by a geologic simulator. It postulates changes to the
+set of geologic events that had been presumed to affect a
+geologic region. Rajamoney's program learns new processes
+in common-sense physics by analyzing simple experiments
+involving fluid flow or heat transfer (Rajamoney, 1988).
+Kulkarni has studied another instance of scientific research—
+Krebs' discovery of the Ornithine Cycle—to yield strategies for
+scientific experimentation (Kulkarni and Simon, 1988).
+Summary
+The GENSIM program provides a framework for constructing
+theories in molecular biology, and for using such theories to
+predict experimental outcomes. The framework allows one to
+describe relevant classes of biological objects, and potential
+interactions between these objects. A simulator can predict what
+interactions occur in a particular experiment. This framework
+should be useful for representing knowledge of structure and
+function in many fields of biology.
+The HYPGENE program solves hypothesis formation
+problems that arise when the predicted outcome of an
+experiment does not match its observed outcome. HYPGENE
+reasons backward from the error in the prediction to generate
+alternative modifications to both the theory used to make the
+predictions, and the intial conditions of the experiment, such
+that the new prediction of the outcome of the modified
+experiment matches its observed outcome. HYPGENE
+embodies a flexible approach to hypothesis generation because
+it is able to modify both initial conditions of experiments and
+theories, because it is able to reason about complex process
+definitions, and because it is fairly domain-independent.
+Acknowledgements
+I thank Charles Yanofsky for his collaboration on this project. This work was
+supported by NSF grant MCS83-10236. NIH grant RR-OO785. and DARPA
+contract N0OO39-83-C-O136.
+References
+Bach.R., Iwasaki.Y and Fnedland.P. (1984) Intelligent computational assistance
+for experiment design. Nucleic Acids Res., 12(1). 11—29.
+Forbus.K. (1984) Qualitative process theory Technical Report TR-789.
+Massachusetts Institute of Technology AI Laboratory
+Friedland,P. (1979) Knowledge-based Hierarchical Planning on Molecular
+Genetics PhD thesis, Stanford University Computer Science Department.
+Report CS-79-760.
+Hiraga.S. (1969) Operator mutants of the tryptophan operon in E.coli. J. Mol.
+Biol , 39, 159-179.
+Jackson.E. and Yanofsky,C. (1973) The region between the operator and first
+structural gene of the tryptophan operon of E. coli may have a regulatory
+function. J. Mol. Biol, 76. 89-101.
+Karp.P. (1989) Hypothesis Formation and Qualitative Reasoning in Molecular
+Biology. PhD thesis, Stanford University Computer Science Department.
+Technical report STAN-CS-89-1263.
+Karp.P. and Fnedland.P. (1989) Coordinating the use of qualitative and
+quantitative knowledge in declarative device modelling. In Wildman.L.E.,
+Helman.D.H. and Loparo.K. (eds) Artificial Intelligence, Modelling and
+Simulation, John Wiley and Sons. See also Stanford University Knowledge
+Systems Laboratory report KSL-87-09.
+Kehler.T. and Clemenson.G. (1984) An application development system for
+expert systems. System Software, 3(1). 212-224.
+Koile.K. and Overton.G. (1989) A qualitative model for gene expression. In
+Clema.J. Proceedings of 1989 Summer Computer Simulation Conference,
+Simulation Councils, Inc.. pp 415-421.
+Koton.P. (1985) Towards a problem solving system for molecular genetics.
+Technical Report 338, Massachusetts Institute of Technology Laboratory for
+Computer Science
+Kulkarni,D. and Simon,H. (1988) The processes of scientific discovery. The
+strategy of experimentation. Cognitive Science, 12. 139—175.
+Meyers,S. (1984) A simulator for regulatory genetics and its application to
+bacteriophage lambda. Nucleic Acids Res., 12(1). 1-9. Also available as
+Stanford Heuristic Programming Project report HPP-83-12.
+Rajamoney.S. (1988) Explanation-Based Theory Revision: an Approach to the
+Problems of Incomplete and Incorrect Theories. PhD thesis. University of
+Illinois Department of Computer Science.
+Round,A. (1987) QSOPS: a workbench environment for the qualitative
+simulation of phsyical processes. Technical Report KSL-87-37. Stanford
+University Knowledge Systems Laboratory. Also appears in Proceedings of
+the European Simulation Multiconference.
+Simmons.R. (1988) Combining Associational and Causal Reasoning to Solve
+Interpretation and Planning Problems. PhD thesis. Massachusetts Institute
+of Technology
+Stefik.M. (1980) Planning with Constraints. PhD thesis, Stanford University
+Computer Science Department. See also Stanford University Computer
+Science Department reports HPP-80-2, STAN-CS-80-784.
+Weld.D. (1986) The use of aggregation in causal simulation. Artificial
+Intelligence, 30. 1-34
+Yanofsky.C (1981) Attenuation in the control of expression of bacterial operons.
+Nature, 289. 751-758.
+Received on November 30, 1989; accepted on May I, 1990
+Circle No. 1 on Reader Enquiry Card
+308
+Downloaded from https://academic.oup.com/bioinformatics/article/7/3/301/199153 by guest on 18 June 2025
+
+

@@ -1,0 +1,16 @@
+streamlit
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+plotly
+torch
+transformers
+sentence-transformers
+chromadb
+deap
+networkx
+pymupdf
+pytest
+pytest-cov 

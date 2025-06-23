@@ -1,0 +1,857 @@
+{
+  "num_papers": 19,
+  "num_citations": 2,
+  "num_relationships": 68,
+  "relationships": [
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "similarity": 0.4710034430027008,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "similarity": 0.32143229246139526,
+      "shared_topics": [
+        "Abstract",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "similarity": 0.40127575397491455,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Computer Science",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.3057976961135864,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.3221442401409149,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.44641047716140747,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "A Survey on Neuro-Symbolic AI.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.4094318449497223,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "similarity": 0.3469545543193817,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Eliciting Latent Knowledge in Language Models.pdf",
+      "similarity": 0.3098168671131134,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "GPT-4 Technical Report.pdf",
+      "similarity": 0.32780396938323975,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "LLaMA Open and Efficient Foundation Models.pdf",
+      "similarity": 0.40192604064941406,
+      "shared_topics": [
+        "However",
+        "These",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.4087409973144531,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.40391719341278076,
+      "shared_topics": [
+        "These",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.46904927492141724,
+      "shared_topics": [
+        "However",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.43314510583877563,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Moreover",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "AutoML-Zero Evolving ML Algorithms From Scratch.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.44112882018089294,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic",
+        "Our"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "Eliciting Latent Knowledge in Language Models.pdf",
+      "similarity": 0.5159026384353638,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "similarity": 0.35114070773124695,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "similarity": 0.6914452910423279,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.3863060772418976,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.546593964099884,
+      "shared_topics": [
+        "For",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.4314064085483551,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "Symbolic Regression via Deep Reinforcement Learning.pdf",
+      "similarity": 0.31907129287719727,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Chain-of-Thought Prompting Elicits Reasoning in LLMs.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.7237924337387085,
+      "shared_topics": [
+        "Chain",
+        "For",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "GPT-4 Technical Report.pdf",
+      "similarity": 0.30876949429512024,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "LLaMA Open and Efficient Foundation Models.pdf",
+      "similarity": 0.5147465467453003,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "similarity": 0.4961746335029602,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "similarity": 0.5288385152816772,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.5038315653800964,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.4253707528114319,
+      "shared_topics": [
+        "Sam",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.48002904653549194,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.3993435800075531,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Eliciting Latent Knowledge in Language Models.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.5727922916412354,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "LLaMA Open and Efficient Foundation Models.pdf",
+      "similarity": 0.4993930459022522,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.4893457293510437,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.3097791075706482,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.3289920389652252,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.6068581342697144,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "GPT-4 Technical Report.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.3919123709201813,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "similarity": 0.44582557678222656,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "similarity": 0.3493642210960388,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.5825563669204712,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.4980663061141968,
+      "shared_topics": [
+        "These",
+        "Abstract",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.44042089581489563,
+      "shared_topics": [
+        "However",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.5583381652832031,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "LLaMA Open and Efficient Foundation Models.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.4663269817829132,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "similarity": 0.4083749055862427,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.3617976903915405,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.4310078024864197,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.3770838677883148,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.3508528769016266,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "PaLM Scaling Language Modeling with Pathways.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.4158150255680084,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "RETRO Retrieval-Augmented Transformer.pdf",
+      "similarity": 0.3691999912261963,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.3627604842185974,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.6385772228240967,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Concretely",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.4590657651424408,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "Symbolic Regression via Deep Reinforcement Learning.pdf",
+      "similarity": 0.33451947569847107,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "ReAct Synergizing Reasoning and Acting in Language Models.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.6799197196960449,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "RETRO Retrieval-Augmented Transformer.pdf",
+      "paper2": "Scaling Laws for Language Models.pdf",
+      "similarity": 0.4243743419647217,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "RETRO Retrieval-Augmented Transformer.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.4472137689590454,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "RETRO Retrieval-Augmented Transformer.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.4886655807495117,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "RETRO Retrieval-Augmented Transformer.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.5182701945304871,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Scaling Laws for Language Models.pdf",
+      "paper2": "Self-Reflective LLMs.pdf",
+      "similarity": 0.43619534373283386,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Scaling Laws for Language Models.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.3656849265098572,
+      "shared_topics": [
+        "Title",
+        "OpenAI",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "The",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Scaling Laws for Language Models.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.37364494800567627,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Self-Reflective LLMs.pdf",
+      "paper2": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "similarity": 0.4898870289325714,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Self-Reflective LLMs.pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.6188725233078003,
+      "shared_topics": [
+        "For",
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    },
+    {
+      "paper1": "Sparks of Artificial General Intelligence (Microsoft).pdf",
+      "paper2": "Tree of Thoughts Deliberate Problem Solving with LLMs.pdf",
+      "similarity": 0.5044869780540466,
+      "shared_topics": [
+        "Title",
+        "This",
+        "Abstract Summary",
+        "Key Points",
+        "Main Topic"
+      ]
+    }
+  ],
+  "cross_references": {
+    "direct_citations": [],
+    "shared_topics": []
+  }
+}
