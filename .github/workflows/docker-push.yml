@@ -86,6 +86,19 @@ jobs:
           name: build-metadata
           path: build_metadata.json
 
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/scisynth-ai:${{ github.sha }}
+          format: cyclonedx-json
+          output-file: sbom.json
+
+      - name: Upload SBOM
+        uses: actions/upload-artifact@v3
+        with:
+          name: sbom
+          path: sbom.json
+
       - name: Create GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/create-release@v1
@@ -112,6 +125,7 @@ jobs:
             - ✅ Non-root container execution
             - ✅ Version-pinned dependencies
             - ✅ Automated security reports
+            - ✅ SBOM (Software Bill of Materials) generation
             
             ### 📊 Build Information
             - **Commit:** ${{ github.sha }}
@@ -121,6 +135,11 @@ jobs:
             ### 📋 Artifacts
             - `build_metadata.json` - Complete deployment metadata
             - `trivy-results.sarif` - Security vulnerability scan
+            - `sbom.json` - Software Bill of Materials (CycloneDX)
+            
+            ### 📚 Documentation
+            - **API Docs:** [GitHub Pages](https://avinash291020.github.io/SciSynth-AI-Research-Assistant/)
+            - **Docker Hub:** [avinash76543/scisynth-ai](https://hub.docker.com/r/avinash76543/scisynth-ai)
             
             ---
             *Built with enterprise DevSecOps practices*
@@ -151,6 +170,8 @@ jobs:
           echo "   📄 build_metadata.json - Complete deployment metadata"
           echo "   🔍 trivy-results.sarif - Security vulnerability scan"
           echo "   📦 build-metadata - Downloadable artifact"
+          echo "   📋 sbom.json - Software Bill of Materials"
           if [ "${{ github.event_name }}" == "push" ]; then
             echo "   🏷️  GitHub Release: v${{ github.run_number }}"
+            echo "   📚 Documentation: https://avinash291020.github.io/SciSynth-AI-Research-Assistant/"
           fi 
