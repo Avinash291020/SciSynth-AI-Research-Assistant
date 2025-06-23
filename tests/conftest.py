@@ -1,7 +1,36 @@
+"""Test configuration for SciSynth AI Research Assistant."""
+import sys
+import os
+from pathlib import Path
+
+# Add the project root to Python path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+# Add the app directory to Python path
+app_dir = project_root / "app"
+sys.path.insert(0, str(app_dir))
+
+# Add other module directories
+agents_dir = project_root / "agents"
+if agents_dir.exists():
+    sys.path.insert(0, str(agents_dir))
+
+evolutionary_dir = project_root / "evolutionary"
+if evolutionary_dir.exists():
+    sys.path.insert(0, str(evolutionary_dir))
+
+logic_dir = project_root / "logic"
+if logic_dir.exists():
+    sys.path.insert(0, str(logic_dir))
+
+utils_dir = project_root / "utils"
+if utils_dir.exists():
+    sys.path.insert(0, str(utils_dir))
+
 import pytest
 import pandas as pd
 import numpy as np
-from pathlib import Path
 
 @pytest.fixture
 def sample_text():
