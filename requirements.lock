@@ -50,4 +50,6 @@ llama-index==0.10.5
 pdoc==14.3.0
 
 # Security Note: All versions are pinned for reproducible builds
-# Run 'pip install -r requirements.lock' for exact environment reproduction 
+# Run 'pip install -r requirements.lock' for exact environment reproduction
+
+huggingface_hub==0.15.1 

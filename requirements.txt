@@ -7,7 +7,7 @@ seaborn
 plotly
 torch
 transformers
-sentence-transformers
+sentence-transformers==2.2.2
 chromadb
 deap
 networkx
@@ -20,4 +20,5 @@ jupyter
 protobuf==3.20.3
 langchain>=0.0.200
 llama-index>=0.10.0,<0.11.0
-pdoc 
+pdoc
+huggingface_hub==0.15.1 

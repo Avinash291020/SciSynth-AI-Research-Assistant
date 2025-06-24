@@ -29,8 +29,7 @@ WORKDIR /app
 # Copy requirements files for exact version reproduction
 COPY requirements.txt requirements.lock ./
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.lock && \
-    pip cache purge
+    pip install --no-cache-dir -r requirements.lock
 
 # Copy the rest of the code (excluding files in .dockerignore)
 COPY . .
