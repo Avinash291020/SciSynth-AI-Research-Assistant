@@ -15,7 +15,7 @@ plotly==5.17.0
 
 # Deep Learning & AI
 torch==2.1.1
-transformers==4.35.2
+transformers==4.36.0
 sentence-transformers==2.2.2
 
 # Vector Database & Search
@@ -52,4 +52,4 @@ pdoc==14.3.0
 # Security Note: All versions are pinned for reproducible builds
 # Run 'pip install -r requirements.lock' for exact environment reproduction
 
-huggingface_hub==0.15.1 
+huggingface_hub==0.19.0 
