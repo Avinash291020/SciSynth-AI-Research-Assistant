@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>app.rl_selector API documentation</title>
+<meta name="description" content="Reinforcement Learning system for paper selection and recommendation.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.rl_selector</code></h1>
+</header>
+<section id="section-intro">
+<p>Reinforcement Learning system for paper selection and recommendation.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.rl_selector.DQNAgent"><code class="flex name class">
+<span>class <span class="ident">DQNAgent</span></span>
+<span>(</span><span>state_size: int, action_size: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DQNAgent:
+    &#34;&#34;&#34;Deep Q-Learning agent for paper recommendation.&#34;&#34;&#34;
+    
+    def __init__(self, state_size: int, action_size: int):
+        self.state_size = state_size
+        self.action_size = action_size
+        
+        # Neural networks
+        self.q_network = DQNNetwork(state_size, action_size)
+        self.target_network = DQNNetwork(state_size, action_size)
+        self.optimizer = optim.Adam(self.q_network.parameters(), lr=0.001)
+        
+        # Hyperparameters
+        self.memory = deque(maxlen=1000)
+        self.batch_size = 32
+        self.gamma = 0.95
+        self.epsilon = 1.0
+        self.epsilon_min = 0.01
+        self.epsilon_decay = 0.995
+        self.learning_rate = 0.001
+        
+        # Update target network
+        self.update_target_network()
+    
+    def update_target_network(self):
+        &#34;&#34;&#34;Update target network with current Q-network weights.&#34;&#34;&#34;
+        self.target_network.load_state_dict(self.q_network.state_dict())
+    
+    def remember(self, state: np.ndarray, action: int, reward: float, 
+                next_state: np.ndarray, done: bool):
+        &#34;&#34;&#34;Store experience in memory.&#34;&#34;&#34;
+        self.memory.append((state, action, reward, next_state, done))
+    
+    def act(self, state: np.ndarray) -&gt; int:
+        &#34;&#34;&#34;Choose action using epsilon-greedy policy.&#34;&#34;&#34;
+        if np.random.rand() &lt;= self.epsilon:
+            return random.randrange(self.action_size)
+        
+        state_tensor = torch.FloatTensor(state).unsqueeze(0)
+        q_values = self.q_network(state_tensor)
+        return int(np.argmax(q_values.detach().numpy()))
+    
+    def replay(self):
+        &#34;&#34;&#34;Train the agent on a batch of experiences.&#34;&#34;&#34;
+        if len(self.memory) &lt; self.batch_size:
+            return
+        
+        batch = random.sample(self.memory, self.batch_size)
+        states = torch.FloatTensor([e[0] for e in batch])
+        actions = torch.LongTensor([e[1] for e in batch])
+        rewards = torch.FloatTensor([e[2] for e in batch])
+        next_states = torch.FloatTensor([e[3] for e in batch])
+        dones = torch.BoolTensor([e[4] for e in batch])
+        
+        current_q_values = self.q_network(states).gather(1, actions.unsqueeze(1))
+        next_q_values = self.target_network(next_states).max(1)[0].detach()
+        target_q_values = rewards + (self.gamma * next_q_values * ~dones)
+        
+        loss = nn.MSELoss()(current_q_values.squeeze(), target_q_values)
+        
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        
+        if self.epsilon &gt; self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
+    
+    def load(self, name: str):
+        &#34;&#34;&#34;Load trained model.&#34;&#34;&#34;
+        self.q_network.load_state_dict(torch.load(name))
+    
+    def save(self, name: str):
+        &#34;&#34;&#34;Save trained model.&#34;&#34;&#34;
+        torch.save(self.q_network.state_dict(), name)</code></pre>
+</details>
+<div class="desc"><p>Deep Q-Learning agent for paper recommendation.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="app.rl_selector.DQNAgent.act"><code class="name flex">
+<span>def <span class="ident">act</span></span>(<span>self, state: numpy.ndarray) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def act(self, state: np.ndarray) -&gt; int:
+    &#34;&#34;&#34;Choose action using epsilon-greedy policy.&#34;&#34;&#34;
+    if np.random.rand() &lt;= self.epsilon:
+        return random.randrange(self.action_size)
+    
+    state_tensor = torch.FloatTensor(state).unsqueeze(0)
+    q_values = self.q_network(state_tensor)
+    return int(np.argmax(q_values.detach().numpy()))</code></pre>
+</details>
+<div class="desc"><p>Choose action using epsilon-greedy policy.</p></div>
+</dd>
+<dt id="app.rl_selector.DQNAgent.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>self, name: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load(self, name: str):
+    &#34;&#34;&#34;Load trained model.&#34;&#34;&#34;
+    self.q_network.load_state_dict(torch.load(name))</code></pre>
+</details>
+<div class="desc"><p>Load trained model.</p></div>
+</dd>
+<dt id="app.rl_selector.DQNAgent.remember"><code class="name flex">
+<span>def <span class="ident">remember</span></span>(<span>self,<br>state: numpy.ndarray,<br>action: int,<br>reward: float,<br>next_state: numpy.ndarray,<br>done: bool)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remember(self, state: np.ndarray, action: int, reward: float, 
+            next_state: np.ndarray, done: bool):
+    &#34;&#34;&#34;Store experience in memory.&#34;&#34;&#34;
+    self.memory.append((state, action, reward, next_state, done))</code></pre>
+</details>
+<div class="desc"><p>Store experience in memory.</p></div>
+</dd>
+<dt id="app.rl_selector.DQNAgent.replay"><code class="name flex">
+<span>def <span class="ident">replay</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def replay(self):
+    &#34;&#34;&#34;Train the agent on a batch of experiences.&#34;&#34;&#34;
+    if len(self.memory) &lt; self.batch_size:
+        return
+    
+    batch = random.sample(self.memory, self.batch_size)
+    states = torch.FloatTensor([e[0] for e in batch])
+    actions = torch.LongTensor([e[1] for e in batch])
+    rewards = torch.FloatTensor([e[2] for e in batch])
+    next_states = torch.FloatTensor([e[3] for e in batch])
+    dones = torch.BoolTensor([e[4] for e in batch])
+    
+    current_q_values = self.q_network(states).gather(1, actions.unsqueeze(1))
+    next_q_values = self.target_network(next_states).max(1)[0].detach()
+    target_q_values = rewards + (self.gamma * next_q_values * ~dones)
+    
+    loss = nn.MSELoss()(current_q_values.squeeze(), target_q_values)
+    
+    self.optimizer.zero_grad()
+    loss.backward()
+    self.optimizer.step()
+    
+    if self.epsilon &gt; self.epsilon_min:
+        self.epsilon *= self.epsilon_decay</code></pre>
+</details>
+<div class="desc"><p>Train the agent on a batch of experiences.</p></div>
+</dd>
+<dt id="app.rl_selector.DQNAgent.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>self, name: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save(self, name: str):
+    &#34;&#34;&#34;Save trained model.&#34;&#34;&#34;
+    torch.save(self.q_network.state_dict(), name)</code></pre>
+</details>
+<div class="desc"><p>Save trained model.</p></div>
+</dd>
+<dt id="app.rl_selector.DQNAgent.update_target_network"><code class="name flex">
+<span>def <span class="ident">update_target_network</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_target_network(self):
+    &#34;&#34;&#34;Update target network with current Q-network weights.&#34;&#34;&#34;
+    self.target_network.load_state_dict(self.q_network.state_dict())</code></pre>
+</details>
+<div class="desc"><p>Update target network with current Q-network weights.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="app.rl_selector.DQNNetwork"><code class="flex name class">
+<span>class <span class="ident">DQNNetwork</span></span>
+<span>(</span><span>state_size: int, action_size: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DQNNetwork(nn.Module):
+    &#34;&#34;&#34;Deep Q-Network for paper selection.&#34;&#34;&#34;
+    
+    def __init__(self, state_size: int, action_size: int):
+        super(DQNNetwork, self).__init__()
+        self.fc1 = nn.Linear(state_size, 128)
+        self.fc2 = nn.Linear(128, 64)
+        self.fc3 = nn.Linear(64, action_size)
+        self.relu = nn.ReLU()
+        
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        return self.fc3(x)</code></pre>
+</details>
+<div class="desc"><p>Deep Q-Network for paper selection.</p>
+<p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>torch.nn.modules.module.Module</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="app.rl_selector.DQNNetwork.forward"><code class="name flex">
+<span>def <span class="ident">forward</span></span>(<span>self, x) ‑> Callable[..., Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def forward(self, x):
+    x = self.relu(self.fc1(x))
+    x = self.relu(self.fc2(x))
+    return self.fc3(x)</code></pre>
+</details>
+<div class="desc"><p>Define the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the :class:<code>Module</code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div></div>
+</dd>
+</dl>
+</dd>
+<dt id="app.rl_selector.PaperEnvironment"><code class="flex name class">
+<span>class <span class="ident">PaperEnvironment</span></span>
+<span>(</span><span>papers_data: List[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PaperEnvironment:
+    &#34;&#34;&#34;Environment for RL paper selection.&#34;&#34;&#34;
+    
+    def __init__(self, papers_data: List[Dict[str, Any]]):
+        self.papers = papers_data
+        self.current_state = 0
+        self.visited_papers = set()
+        self.embedding_model = ModelCache.get_sentence_transformer()
+        
+        # Create paper embeddings
+        self.paper_embeddings = self._create_embeddings()
+        
+        # State space: paper features + user preferences
+        self.state_size = len(self.paper_embeddings[0]) + 10  # +10 for user preferences
+        self.action_size = len(papers_data)
+        
+    def _create_embeddings(self) -&gt; np.ndarray:
+        &#34;&#34;&#34;Create embeddings for all papers.&#34;&#34;&#34;
+        paper_texts = []
+        for paper in self.papers:
+            metadata = paper.get(&#39;metadata&#39;, {})
+            text = f&#34;{metadata.get(&#39;title&#39;, &#39;&#39;)} {paper.get(&#39;insights&#39;, &#39;&#39;)}&#34;
+            paper_texts.append(text)
+        
+        embeddings = self.embedding_model.encode(paper_texts)
+        return embeddings
+    
+    def reset(self) -&gt; np.ndarray:
+        &#34;&#34;&#34;Reset environment to initial state.&#34;&#34;&#34;
+        self.current_state = 0
+        self.visited_papers = set()
+        return self._get_state()
+    
+    def _get_state(self) -&gt; np.ndarray:
+        &#34;&#34;&#34;Get current state representation.&#34;&#34;&#34;
+        # Paper embedding
+        paper_embedding = self.paper_embeddings[self.current_state]
+        
+        # User preferences (simulated)
+        user_prefs = np.random.rand(10)  # In real app, this would be learned
+        
+        return np.concatenate([paper_embedding, user_prefs])
+    
+    def step(self, action: int) -&gt; Tuple[np.ndarray, float, bool, Dict]:
+        &#34;&#34;&#34;Take action and return next state, reward, done, info.&#34;&#34;&#34;
+        if action &gt;= len(self.papers):
+            action = len(self.papers) - 1
+        
+        # Calculate reward based on paper relevance
+        reward = self._calculate_reward(action)
+        
+        # Update state
+        self.current_state = action
+        self.visited_papers.add(action)
+        
+        # Check if done (visited all papers or max steps)
+        done = len(self.visited_papers) &gt;= min(10, len(self.papers))
+        
+        next_state = self._get_state()
+        info = {
+            &#39;paper_name&#39;: self.papers[action].get(&#39;paper_name&#39;, f&#39;paper_{action}&#39;),
+            &#39;visited_count&#39;: len(self.visited_papers)
+        }
+        
+        return next_state, reward, done, info
+    
+    def _calculate_reward(self, action: int) -&gt; float:
+        &#34;&#34;&#34;Calculate reward for selecting a paper.&#34;&#34;&#34;
+        paper = self.papers[action]
+        
+        # Base reward for relevance
+        relevance_score = 0.5
+        
+        # Bonus for new papers
+        if action not in self.visited_papers:
+            relevance_score += 0.3
+        
+        # Bonus for papers with insights
+        if &#39;insights&#39; in paper and paper[&#39;insights&#39;]:
+            relevance_score += 0.2
+        
+        # Bonus for papers with hypotheses
+        if &#39;hypotheses&#39; in paper and paper[&#39;hypotheses&#39;]:
+            relevance_score += 0.1
+        
+        return relevance_score</code></pre>
+</details>
+<div class="desc"><p>Environment for RL paper selection.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="app.rl_selector.PaperEnvironment.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self) ‑> numpy.ndarray</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self) -&gt; np.ndarray:
+    &#34;&#34;&#34;Reset environment to initial state.&#34;&#34;&#34;
+    self.current_state = 0
+    self.visited_papers = set()
+    return self._get_state()</code></pre>
+</details>
+<div class="desc"><p>Reset environment to initial state.</p></div>
+</dd>
+<dt id="app.rl_selector.PaperEnvironment.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self, action: int) ‑> Tuple[numpy.ndarray, float, bool, Dict]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self, action: int) -&gt; Tuple[np.ndarray, float, bool, Dict]:
+    &#34;&#34;&#34;Take action and return next state, reward, done, info.&#34;&#34;&#34;
+    if action &gt;= len(self.papers):
+        action = len(self.papers) - 1
+    
+    # Calculate reward based on paper relevance
+    reward = self._calculate_reward(action)
+    
+    # Update state
+    self.current_state = action
+    self.visited_papers.add(action)
+    
+    # Check if done (visited all papers or max steps)
+    done = len(self.visited_papers) &gt;= min(10, len(self.papers))
+    
+    next_state = self._get_state()
+    info = {
+        &#39;paper_name&#39;: self.papers[action].get(&#39;paper_name&#39;, f&#39;paper_{action}&#39;),
+        &#39;visited_count&#39;: len(self.visited_papers)
+    }
+    
+    return next_state, reward, done, info</code></pre>
+</details>
+<div class="desc"><p>Take action and return next state, reward, done, info.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="app.rl_selector.RLPaperRecommender"><code class="flex name class">
+<span>class <span class="ident">RLPaperRecommender</span></span>
+<span>(</span><span>papers_data: List[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RLPaperRecommender:
+    &#34;&#34;&#34;Main RL-based paper recommendation system.&#34;&#34;&#34;
+    
+    def __init__(self, papers_data: List[Dict[str, Any]]):
+        self.papers = papers_data
+        self.environment = PaperEnvironment(papers_data)
+        self.agent = DQNAgent(self.environment.state_size, self.environment.action_size)
+        self.training_history = []
+    
+    def train(self, episodes: int = 100) -&gt; List[float]:
+        &#34;&#34;&#34;Train the RL agent.&#34;&#34;&#34;
+        scores = []
+        
+        for episode in range(episodes):
+            state = self.environment.reset()
+            total_reward = 0
+            
+            for step in range(50):  # Max 50 steps per episode
+                action = self.agent.act(state)
+                next_state, reward, done, info = self.environment.step(action)
+                
+                self.agent.remember(state, action, reward, next_state, done)
+                state = next_state
+                total_reward += reward
+                
+                if done:
+                    break
+            
+            self.agent.replay()
+            scores.append(total_reward)
+            
+            if episode % 10 == 0:
+                print(f&#34;Episode {episode}/{episodes}, Score: {total_reward:.2f}, Epsilon: {self.agent.epsilon:.2f}&#34;)
+        
+        self.training_history = scores
+        return scores
+    
+    def recommend_papers(self, num_recommendations: int = 5) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Recommend papers using trained agent.&#34;&#34;&#34;
+        state = self.environment.reset()
+        recommendations = []
+        visited = set()
+        
+        q_values = self.agent.q_network(torch.FloatTensor(state).unsqueeze(0)).detach().numpy().flatten()
+
+        # Get top N actions based on Q-values
+        top_actions = np.argsort(q_values)[::-1]
+
+        for action in top_actions:
+            if len(recommendations) &gt;= num_recommendations:
+                break
+            
+            if action not in visited:
+                paper = self.papers[action]
+                metadata = paper.get(&#39;metadata&#39;, {})
+                recommendations.append({
+                    &#39;paper_name&#39;: paper.get(&#39;paper_name&#39;, f&#39;paper_{action}&#39;),
+                    &#39;title&#39;: metadata.get(&#39;title&#39;, &#39;Title not available&#39;),
+                    &#39;confidence&#39;: self._get_confidence(action),
+                    &#39;action_id&#39;: action
+                })
+                visited.add(action)
+        
+        return recommendations
+    
+    def _get_confidence(self, action: int) -&gt; float:
+        &#34;&#34;&#34;Get confidence score for an action.&#34;&#34;&#34;
+        state = self.environment._get_state()
+        state_tensor = torch.FloatTensor(state).unsqueeze(0)
+        q_values = self.agent.q_network(state_tensor)
+        return float(q_values[0][action].item())
+    
+    def save_model(self, path: str = &#34;models/rl_paper_recommender.pth&#34;):
+        &#34;&#34;&#34;Save the trained model.&#34;&#34;&#34;
+        Path(path).parent.mkdir(exist_ok=True)
+        self.agent.save(path)
+        
+        # Save training history
+        history_path = path.replace(&#39;.pth&#39;, &#39;_history.json&#39;)
+        with open(history_path, &#39;w&#39;) as f:
+            json.dump(self.training_history, f)
+    
+    def load_model(self, path: str = &#34;models/rl_paper_recommender.pth&#34;):
+        &#34;&#34;&#34;Load a trained model.&#34;&#34;&#34;
+        self.agent.load(path)
+        
+        # Load training history
+        history_path = path.replace(&#39;.pth&#39;, &#39;_history.json&#39;)
+        if Path(history_path).exists():
+            with open(history_path, &#39;r&#39;) as f:
+                self.training_history = json.load(f)</code></pre>
+</details>
+<div class="desc"><p>Main RL-based paper recommendation system.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="app.rl_selector.RLPaperRecommender.load_model"><code class="name flex">
+<span>def <span class="ident">load_model</span></span>(<span>self, path: str = 'models/rl_paper_recommender.pth')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_model(self, path: str = &#34;models/rl_paper_recommender.pth&#34;):
+    &#34;&#34;&#34;Load a trained model.&#34;&#34;&#34;
+    self.agent.load(path)
+    
+    # Load training history
+    history_path = path.replace(&#39;.pth&#39;, &#39;_history.json&#39;)
+    if Path(history_path).exists():
+        with open(history_path, &#39;r&#39;) as f:
+            self.training_history = json.load(f)</code></pre>
+</details>
+<div class="desc"><p>Load a trained model.</p></div>
+</dd>
+<dt id="app.rl_selector.RLPaperRecommender.recommend_papers"><code class="name flex">
+<span>def <span class="ident">recommend_papers</span></span>(<span>self, num_recommendations: int = 5) ‑> List[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def recommend_papers(self, num_recommendations: int = 5) -&gt; List[Dict[str, Any]]:
+    &#34;&#34;&#34;Recommend papers using trained agent.&#34;&#34;&#34;
+    state = self.environment.reset()
+    recommendations = []
+    visited = set()
+    
+    q_values = self.agent.q_network(torch.FloatTensor(state).unsqueeze(0)).detach().numpy().flatten()
+
+    # Get top N actions based on Q-values
+    top_actions = np.argsort(q_values)[::-1]
+
+    for action in top_actions:
+        if len(recommendations) &gt;= num_recommendations:
+            break
+        
+        if action not in visited:
+            paper = self.papers[action]
+            metadata = paper.get(&#39;metadata&#39;, {})
+            recommendations.append({
+                &#39;paper_name&#39;: paper.get(&#39;paper_name&#39;, f&#39;paper_{action}&#39;),
+                &#39;title&#39;: metadata.get(&#39;title&#39;, &#39;Title not available&#39;),
+                &#39;confidence&#39;: self._get_confidence(action),
+                &#39;action_id&#39;: action
+            })
+            visited.add(action)
+    
+    return recommendations</code></pre>
+</details>
+<div class="desc"><p>Recommend papers using trained agent.</p></div>
+</dd>
+<dt id="app.rl_selector.RLPaperRecommender.save_model"><code class="name flex">
+<span>def <span class="ident">save_model</span></span>(<span>self, path: str = 'models/rl_paper_recommender.pth')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_model(self, path: str = &#34;models/rl_paper_recommender.pth&#34;):
+    &#34;&#34;&#34;Save the trained model.&#34;&#34;&#34;
+    Path(path).parent.mkdir(exist_ok=True)
+    self.agent.save(path)
+    
+    # Save training history
+    history_path = path.replace(&#39;.pth&#39;, &#39;_history.json&#39;)
+    with open(history_path, &#39;w&#39;) as f:
+        json.dump(self.training_history, f)</code></pre>
+</details>
+<div class="desc"><p>Save the trained model.</p></div>
+</dd>
+<dt id="app.rl_selector.RLPaperRecommender.train"><code class="name flex">
+<span>def <span class="ident">train</span></span>(<span>self, episodes: int = 100) ‑> List[float]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train(self, episodes: int = 100) -&gt; List[float]:
+    &#34;&#34;&#34;Train the RL agent.&#34;&#34;&#34;
+    scores = []
+    
+    for episode in range(episodes):
+        state = self.environment.reset()
+        total_reward = 0
+        
+        for step in range(50):  # Max 50 steps per episode
+            action = self.agent.act(state)
+            next_state, reward, done, info = self.environment.step(action)
+            
+            self.agent.remember(state, action, reward, next_state, done)
+            state = next_state
+            total_reward += reward
+            
+            if done:
+                break
+        
+        self.agent.replay()
+        scores.append(total_reward)
+        
+        if episode % 10 == 0:
+            print(f&#34;Episode {episode}/{episodes}, Score: {total_reward:.2f}, Epsilon: {self.agent.epsilon:.2f}&#34;)
+    
+    self.training_history = scores
+    return scores</code></pre>
+</details>
+<div class="desc"><p>Train the RL agent.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app" href="index.html">app</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.rl_selector.DQNAgent" href="#app.rl_selector.DQNAgent">DQNAgent</a></code></h4>
+<ul class="">
+<li><code><a title="app.rl_selector.DQNAgent.act" href="#app.rl_selector.DQNAgent.act">act</a></code></li>
+<li><code><a title="app.rl_selector.DQNAgent.load" href="#app.rl_selector.DQNAgent.load">load</a></code></li>
+<li><code><a title="app.rl_selector.DQNAgent.remember" href="#app.rl_selector.DQNAgent.remember">remember</a></code></li>
+<li><code><a title="app.rl_selector.DQNAgent.replay" href="#app.rl_selector.DQNAgent.replay">replay</a></code></li>
+<li><code><a title="app.rl_selector.DQNAgent.save" href="#app.rl_selector.DQNAgent.save">save</a></code></li>
+<li><code><a title="app.rl_selector.DQNAgent.update_target_network" href="#app.rl_selector.DQNAgent.update_target_network">update_target_network</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="app.rl_selector.DQNNetwork" href="#app.rl_selector.DQNNetwork">DQNNetwork</a></code></h4>
+<ul class="">
+<li><code><a title="app.rl_selector.DQNNetwork.forward" href="#app.rl_selector.DQNNetwork.forward">forward</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="app.rl_selector.PaperEnvironment" href="#app.rl_selector.PaperEnvironment">PaperEnvironment</a></code></h4>
+<ul class="">
+<li><code><a title="app.rl_selector.PaperEnvironment.reset" href="#app.rl_selector.PaperEnvironment.reset">reset</a></code></li>
+<li><code><a title="app.rl_selector.PaperEnvironment.step" href="#app.rl_selector.PaperEnvironment.step">step</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="app.rl_selector.RLPaperRecommender" href="#app.rl_selector.RLPaperRecommender">RLPaperRecommender</a></code></h4>
+<ul class="">
+<li><code><a title="app.rl_selector.RLPaperRecommender.load_model" href="#app.rl_selector.RLPaperRecommender.load_model">load_model</a></code></li>
+<li><code><a title="app.rl_selector.RLPaperRecommender.recommend_papers" href="#app.rl_selector.RLPaperRecommender.recommend_papers">recommend_papers</a></code></li>
+<li><code><a title="app.rl_selector.RLPaperRecommender.save_model" href="#app.rl_selector.RLPaperRecommender.save_model">save_model</a></code></li>
+<li><code><a title="app.rl_selector.RLPaperRecommender.train" href="#app.rl_selector.RLPaperRecommender.train">train</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

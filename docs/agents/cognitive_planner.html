@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>agents.cognitive_planner API documentation</title>
+<meta name="description" content="Cognitive Planner Agent for autonomous research task planning and execution.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>agents.cognitive_planner</code></h1>
+</header>
+<section id="section-intro">
+<p>Cognitive Planner Agent for autonomous research task planning and execution.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="agents.cognitive_planner.get_cached_step_result"><code class="name flex">
+<span>def <span class="ident">get_cached_step_result</span></span>(<span>step_name, goal, compute_fn)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cached_step_result(step_name, goal, compute_fn):
+    &#34;&#34;&#34;Cache step results in st.session_state using a unique key.&#34;&#34;&#34;
+    cache_key = f&#34;agentic_{step_name}_{goal}&#34;
+    if cache_key in st.session_state:
+        return st.session_state[cache_key]
+    result = compute_fn()
+    st.session_state[cache_key] = result
+    return result</code></pre>
+</details>
+<div class="desc"><p>Cache step results in st.session_state using a unique key.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="agents.cognitive_planner.CognitivePlanner"><code class="flex name class">
+<span>class <span class="ident">CognitivePlanner</span></span>
+<span>(</span><span>papers_data: List[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CognitivePlanner:
+    &#34;&#34;&#34;Autonomous cognitive planner for research tasks.&#34;&#34;&#34;
+    
+    def __init__(self, papers_data: List[Dict[str, Any]]):
+        &#34;&#34;&#34;Initialize cognitive planner with research papers.&#34;&#34;&#34;
+        self.papers = papers_data
+        self.logger = logging.getLogger(__name__)
+        
+        # Initialize AI components
+        self.generator = ModelCache.get_text_generator()
+        self.rag_system = RAGSystem()
+        self.rl_recommender = RLPaperRecommender(papers_data)
+        self.evo_generator = EvolutionaryHypothesisGenerator(papers_data)
+        
+        # Planning tools
+        self.planning_tools = {
+            &#34;rag_system&#34;: self._analyze_papers,
+            &#34;gap_analysis&#34;: self._identify_research_gaps,
+            &#34;evolutionary_algorithm&#34;: self._generate_hypotheses,
+            &#34;paper_analysis&#34;: self._analyze_papers,
+            &#34;synthesis&#34;: self._synthesize_findings,
+            &#34;recommendations&#34;: self._get_recommendations
+        }
+        
+        # Task management
+        self.current_task = None
+        self.task_history = []
+        
+        # Add papers to RAG system
+        self.rag_system.add_papers_to_index(papers_data)
+        
+        self.logger.info(&#34;✅ Cognitive planner initialized&#34;)
+    
+    def plan_research_task(self, user_goal: str) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Plan a research task based on user goal.&#34;&#34;&#34;
+        self.logger.info(f&#34;Planning research task: {user_goal}&#34;)
+        
+        # Create research task
+        task = ResearchTask(
+            description=f&#34;Research task: {user_goal}&#34;,
+            goal=user_goal,
+            constraints=[&#34;Use available research papers&#34;, &#34;Generate actionable insights&#34;]
+        )
+        
+        self.current_task = task
+        
+        # Generate plan using LLM
+        plan = self._generate_plan(user_goal)
+        
+        # Execute plan
+        results = self._execute_plan(plan)
+        
+        # Update task
+        task.status = &#34;completed&#34;
+        task.completed_at = datetime.now()
+        task.results = results
+        
+        self.task_history.append(task)
+        
+        return {
+            &#34;task&#34;: task.to_dict(),
+            &#34;plan&#34;: plan,
+            &#34;results&#34;: results
+        }
+    
+    def _generate_plan(self, goal: str) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Generate a research plan using LLM.&#34;&#34;&#34;
+        prompt = f&#34;&#34;&#34;Create a comprehensive research plan for: {goal}
+
+The plan should include:
+1. Literature review
+2. Gap analysis
+3. Hypothesis generation
+4. Paper analysis
+5. Synthesis and recommendations
+
+Research Plan:&#34;&#34;&#34;
+        
+        # Generate plan using LLM
+        response = self.generator(
+            prompt,
+            max_length=800,
+            num_return_sequences=1,
+            temperature=0.7
+        )[0][&#39;generated_text&#39;]
+        
+        # Parse and structure the plan
+        plan_steps = [
+            {
+                &#34;step&#34;: &#34;literature_review&#34;,
+                &#34;description&#34;: &#34;Conduct comprehensive literature review&#34;,
+                &#34;tool&#34;: &#34;rag_system&#34;,
+                &#34;expected_outcome&#34;: &#34;Identify relevant papers and key findings&#34;
+            },
+            {
+                &#34;step&#34;: &#34;gap_analysis&#34;, 
+                &#34;description&#34;: &#34;Identify research gaps and opportunities&#34;,
+                &#34;tool&#34;: &#34;gap_analysis&#34;,
+                &#34;expected_outcome&#34;: &#34;List of research gaps and future directions&#34;
+            },
+            {
+                &#34;step&#34;: &#34;hypothesis_generation&#34;,
+                &#34;description&#34;: &#34;Generate research hypotheses&#34;,
+                &#34;tool&#34;: &#34;evolutionary_algorithm&#34;,
+                &#34;expected_outcome&#34;: &#34;Set of testable hypotheses&#34;
+            },
+            {
+                &#34;step&#34;: &#34;paper_analysis&#34;,
+                &#34;description&#34;: &#34;Analyze individual papers in detail&#34;,
+                &#34;tool&#34;: &#34;paper_analysis&#34;,
+                &#34;expected_outcome&#34;: &#34;Detailed insights from each paper&#34;
+            },
+            {
+                &#34;step&#34;: &#34;synthesis&#34;,
+                &#34;description&#34;: &#34;Synthesize findings and provide recommendations&#34;,
+                &#34;tool&#34;: &#34;synthesis&#34;,
+                &#34;expected_outcome&#34;: &#34;Comprehensive research synthesis&#34;
+            }
+        ]
+        
+        return plan_steps
+    
+    def _execute_plan(self, plan: List[Dict[str, Any]]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Execute the research plan with aggressive caching and parallelization.&#34;&#34;&#34;
+        results = {}
+        goal = self.current_task.goal if self.current_task else &#34;research analysis&#34;
+
+        # 1. Literature review (sequential, always first)
+        lit_step = next((s for s in plan if s[&#39;step&#39;] == &#39;literature_review&#39;), None)
+        if lit_step:
+            results[&#39;literature_review&#39;] = get_cached_step_result(&#39;literature_review&#39;, goal, partial(self.planning_tools[lit_step[&#39;tool&#39;]], lit_step))
+
+        # 2. Parallel steps: gap_analysis, hypothesis_generation, paper_analysis
+        parallel_step_names = [&#39;gap_analysis&#39;, &#39;hypothesis_generation&#39;, &#39;paper_analysis&#39;]
+        parallel_steps = [s for s in plan if s[&#39;step&#39;] in parallel_step_names]
+        with ThreadPoolExecutor() as executor:
+            future_to_step = {
+                executor.submit(get_cached_step_result, s[&#39;step&#39;], goal, partial(self.planning_tools[s[&#39;tool&#39;]], s)): s[&#39;step&#39;]
+                for s in parallel_steps
+            }
+            for future in future_to_step:
+                results[future_to_step[future]] = future.result()
+
+        # 3. Synthesis (sequential, always last)
+        synth_step = next((s for s in plan if s[&#39;step&#39;] == &#39;synthesis&#39;), None)
+        if synth_step:
+            results[&#39;synthesis&#39;] = get_cached_step_result(&#39;synthesis&#39;, goal, partial(self.planning_tools[synth_step[&#39;tool&#39;]], synth_step))
+
+        return results
+    
+    def _analyze_papers(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Analyze papers using RAG system.&#34;&#34;&#34;
+        # Get relevant papers for the current goal
+        goal = self.current_task.goal if self.current_task else &#34;research analysis&#34;
+        relevant_papers = self.rag_system.retrieve_relevant_papers(goal, top_k=5)
+        
+        # Generate analysis
+        analysis_prompt = f&#34;Analyze the following papers in relation to: {goal}&#34;
+        analysis = self.rag_system.generate_response(analysis_prompt, relevant_papers)
+        
+        return {
+            &#34;relevant_papers&#34;: len(relevant_papers),
+            &#34;analysis&#34;: analysis,
+            &#34;papers_analyzed&#34;: [p[&#39;metadata&#39;][&#39;paper_name&#39;] for p in relevant_papers]
+        }
+    
+    def _generate_hypotheses(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Generate hypotheses using evolutionary algorithm.&#34;&#34;&#34;
+        hypotheses = self.evo_generator.generate_diverse_hypotheses(num_hypotheses=10)
+        
+        return {
+            &#34;hypotheses_generated&#34;: len(hypotheses),
+            &#34;top_hypotheses&#34;: hypotheses[:5],
+            &#34;method&#34;: &#34;evolutionary_algorithm&#34;
+        }
+    
+    def _conduct_literature_review(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Conduct literature review using RAG.&#34;&#34;&#34;
+        goal = self.current_task.goal if self.current_task else &#34;literature review&#34;
+        
+        # Get comprehensive review
+        review_question = f&#34;What are the main findings and trends in the literature regarding: {goal}&#34;
+        review_result = self.rag_system.answer_question(review_question, top_k=8)
+        
+        return {
+            &#34;literature_summary&#34;: review_result[&#39;answer&#39;],
+            &#34;papers_reviewed&#34;: review_result[&#39;num_papers_retrieved&#39;],
+            &#34;key_findings&#34;: self._extract_key_findings(review_result[&#39;answer&#39;])
+        }
+    
+    def _identify_research_gaps(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Identify research gaps and opportunities.&#34;&#34;&#34;
+        goal = self.current_task.goal if self.current_task else &#34;research gaps&#34;
+        
+        gap_question = f&#34;What are the research gaps and future opportunities in: {goal}&#34;
+        gap_result = self.rag_system.answer_question(gap_question, top_k=8)
+        
+        # Generate additional gaps using LLM
+        gap_prompt = f&#34;&#34;&#34;Based on the research papers, identify specific research gaps in: {goal}
+
+Consider:
+1. Underexplored areas
+2. Methodological limitations
+3. Future research directions
+4. Emerging opportunities
+
+Research Gaps:&#34;&#34;&#34;
+        
+        # Generate additional gaps using LLM
+        additional_gaps = self.generator(
+            gap_prompt,
+            max_length=800,
+            num_return_sequences=1,
+            temperature=0.8
+        )[0][&#39;generated_text&#39;]
+        
+        return {
+            &#34;identified_gaps&#34;: gap_result[&#39;answer&#39;],
+            &#34;additional_gaps&#34;: additional_gaps,
+            &#34;gap_analysis_method&#34;: &#34;rag + llm_synthesis&#34;
+        }
+    
+    def _get_recommendations(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Get paper recommendations using RL.&#34;&#34;&#34;
+        recommendations = self.rl_recommender.recommend_papers(num_recommendations=5)
+        
+        return {
+            &#34;recommendations&#34;: recommendations,
+            &#34;recommendation_method&#34;: &#34;reinforcement_learning&#34;,
+            &#34;confidence_scores&#34;: [r[&#39;confidence&#39;] for r in recommendations]
+        }
+    
+    def _synthesize_findings(self, step: Dict[str, Any]) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Synthesize all findings and provide recommendations.&#34;&#34;&#34;
+        goal = self.current_task.goal if self.current_task else &#34;research synthesis&#34;
+        
+        synthesis_prompt = f&#34;&#34;&#34;Based on the research analysis, provide a comprehensive synthesis for: {goal}
+
+Include:
+1. Key findings
+2. Main trends
+3. Research gaps
+4. Future directions
+5. Practical recommendations
+
+Synthesis:&#34;&#34;&#34;
+        
+        synthesis = self.generator(
+            synthesis_prompt,
+            max_length=800,
+            num_return_sequences=1,
+            temperature=0.7
+        )[0][&#39;generated_text&#39;]
+        
+        return {
+            &#34;synthesis&#34;: synthesis,
+            &#34;synthesis_method&#34;: &#34;llm_generation&#34;,
+            &#34;comprehensive_analysis&#34;: True
+        }
+    
+    def _extract_key_findings(self, text: str) -&gt; List[str]:
+        &#34;&#34;&#34;Extract key findings from text.&#34;&#34;&#34;
+        findings_prompt = f&#34;Extract 5 key findings from this text:\n\n{text}\n\nKey Findings:&#34;
+        
+        findings_response = self.generator(
+            findings_prompt,
+            max_length=400,
+            num_return_sequences=1,
+            temperature=0.6
+        )[0][&#39;generated_text&#39;]
+        
+        # Simple parsing
+        lines = findings_response.split(&#39;\n&#39;)
+        findings = [line.strip() for line in lines if line.strip() and line.strip()[0].isdigit()]
+        
+        return findings[:5] if findings else [&#34;Key findings extraction in progress&#34;]
+    
+    def get_task_history(self) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Get history of completed tasks.&#34;&#34;&#34;
+        return [task.to_dict() for task in self.task_history]
+    
+    def get_current_status(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Get current task status.&#34;&#34;&#34;
+        if self.current_task:
+            return {
+                &#34;current_task&#34;: self.current_task.to_dict(),
+                &#34;total_tasks_completed&#34;: len(self.task_history),
+                &#34;system_status&#34;: &#34;active&#34;
+            }
+        else:
+            return {
+                &#34;current_task&#34;: None,
+                &#34;total_tasks_completed&#34;: len(self.task_history),
+                &#34;system_status&#34;: &#34;idle&#34;
+            }
+    
+    def save_task_results(self, filename: str = &#34;cognitive_planner_results.json&#34;):
+        &#34;&#34;&#34;Save task results to file.&#34;&#34;&#34;
+        Path(&#34;results&#34;).mkdir(exist_ok=True)
+        filepath = Path(&#34;results&#34;) / filename
+        
+        results = {
+            &#34;task_history&#34;: self.get_task_history(),
+            &#34;current_status&#34;: self.get_current_status(),
+            &#34;system_info&#34;: {
+                &#34;total_papers&#34;: len(self.papers),
+                &#34;planning_tools&#34;: list(self.planning_tools.keys()),
+                &#34;last_updated&#34;: datetime.now().isoformat()
+            }
+        }
+        
+        with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        self.logger.info(f&#34;Saved task results to {filepath}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Autonomous cognitive planner for research tasks.</p>
+<p>Initialize cognitive planner with research papers.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="agents.cognitive_planner.CognitivePlanner.get_current_status"><code class="name flex">
+<span>def <span class="ident">get_current_status</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_current_status(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Get current task status.&#34;&#34;&#34;
+    if self.current_task:
+        return {
+            &#34;current_task&#34;: self.current_task.to_dict(),
+            &#34;total_tasks_completed&#34;: len(self.task_history),
+            &#34;system_status&#34;: &#34;active&#34;
+        }
+    else:
+        return {
+            &#34;current_task&#34;: None,
+            &#34;total_tasks_completed&#34;: len(self.task_history),
+            &#34;system_status&#34;: &#34;idle&#34;
+        }</code></pre>
+</details>
+<div class="desc"><p>Get current task status.</p></div>
+</dd>
+<dt id="agents.cognitive_planner.CognitivePlanner.get_task_history"><code class="name flex">
+<span>def <span class="ident">get_task_history</span></span>(<span>self) ‑> List[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_task_history(self) -&gt; List[Dict[str, Any]]:
+    &#34;&#34;&#34;Get history of completed tasks.&#34;&#34;&#34;
+    return [task.to_dict() for task in self.task_history]</code></pre>
+</details>
+<div class="desc"><p>Get history of completed tasks.</p></div>
+</dd>
+<dt id="agents.cognitive_planner.CognitivePlanner.plan_research_task"><code class="name flex">
+<span>def <span class="ident">plan_research_task</span></span>(<span>self, user_goal: str) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plan_research_task(self, user_goal: str) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Plan a research task based on user goal.&#34;&#34;&#34;
+    self.logger.info(f&#34;Planning research task: {user_goal}&#34;)
+    
+    # Create research task
+    task = ResearchTask(
+        description=f&#34;Research task: {user_goal}&#34;,
+        goal=user_goal,
+        constraints=[&#34;Use available research papers&#34;, &#34;Generate actionable insights&#34;]
+    )
+    
+    self.current_task = task
+    
+    # Generate plan using LLM
+    plan = self._generate_plan(user_goal)
+    
+    # Execute plan
+    results = self._execute_plan(plan)
+    
+    # Update task
+    task.status = &#34;completed&#34;
+    task.completed_at = datetime.now()
+    task.results = results
+    
+    self.task_history.append(task)
+    
+    return {
+        &#34;task&#34;: task.to_dict(),
+        &#34;plan&#34;: plan,
+        &#34;results&#34;: results
+    }</code></pre>
+</details>
+<div class="desc"><p>Plan a research task based on user goal.</p></div>
+</dd>
+<dt id="agents.cognitive_planner.CognitivePlanner.save_task_results"><code class="name flex">
+<span>def <span class="ident">save_task_results</span></span>(<span>self, filename: str = 'cognitive_planner_results.json')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_task_results(self, filename: str = &#34;cognitive_planner_results.json&#34;):
+    &#34;&#34;&#34;Save task results to file.&#34;&#34;&#34;
+    Path(&#34;results&#34;).mkdir(exist_ok=True)
+    filepath = Path(&#34;results&#34;) / filename
+    
+    results = {
+        &#34;task_history&#34;: self.get_task_history(),
+        &#34;current_status&#34;: self.get_current_status(),
+        &#34;system_info&#34;: {
+            &#34;total_papers&#34;: len(self.papers),
+            &#34;planning_tools&#34;: list(self.planning_tools.keys()),
+            &#34;last_updated&#34;: datetime.now().isoformat()
+        }
+    }
+    
+    with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    
+    self.logger.info(f&#34;Saved task results to {filepath}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Save task results to file.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="agents.cognitive_planner.ResearchTask"><code class="flex name class">
+<span>class <span class="ident">ResearchTask</span></span>
+<span>(</span><span>description: str, goal: str, constraints: List[str] = [])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResearchTask:
+    &#34;&#34;&#34;Represents a research task with goals and constraints.&#34;&#34;&#34;
+    
+    def __init__(self, description: str, goal: str, constraints: List[str] = []):
+        self.description = description
+        self.goal = goal
+        self.constraints = constraints
+        self.status = &#34;pending&#34;
+        self.created_at = datetime.now()
+        self.completed_at: Optional[datetime] = None
+        self.results = {}
+    
+    def to_dict(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Convert task to dictionary.&#34;&#34;&#34;
+        return {
+            &#34;description&#34;: self.description,
+            &#34;goal&#34;: self.goal,
+            &#34;constraints&#34;: self.constraints,
+            &#34;status&#34;: self.status,
+            &#34;created_at&#34;: self.created_at.isoformat(),
+            &#34;completed_at&#34;: self.completed_at.isoformat() if self.completed_at else None,
+            &#34;results&#34;: self.results
+        }</code></pre>
+</details>
+<div class="desc"><p>Represents a research task with goals and constraints.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="agents.cognitive_planner.ResearchTask.to_dict"><code class="name flex">
+<span>def <span class="ident">to_dict</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_dict(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Convert task to dictionary.&#34;&#34;&#34;
+    return {
+        &#34;description&#34;: self.description,
+        &#34;goal&#34;: self.goal,
+        &#34;constraints&#34;: self.constraints,
+        &#34;status&#34;: self.status,
+        &#34;created_at&#34;: self.created_at.isoformat(),
+        &#34;completed_at&#34;: self.completed_at.isoformat() if self.completed_at else None,
+        &#34;results&#34;: self.results
+    }</code></pre>
+</details>
+<div class="desc"><p>Convert task to dictionary.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="agents" href="index.html">agents</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="agents.cognitive_planner.get_cached_step_result" href="#agents.cognitive_planner.get_cached_step_result">get_cached_step_result</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="agents.cognitive_planner.CognitivePlanner" href="#agents.cognitive_planner.CognitivePlanner">CognitivePlanner</a></code></h4>
+<ul class="">
+<li><code><a title="agents.cognitive_planner.CognitivePlanner.get_current_status" href="#agents.cognitive_planner.CognitivePlanner.get_current_status">get_current_status</a></code></li>
+<li><code><a title="agents.cognitive_planner.CognitivePlanner.get_task_history" href="#agents.cognitive_planner.CognitivePlanner.get_task_history">get_task_history</a></code></li>
+<li><code><a title="agents.cognitive_planner.CognitivePlanner.plan_research_task" href="#agents.cognitive_planner.CognitivePlanner.plan_research_task">plan_research_task</a></code></li>
+<li><code><a title="agents.cognitive_planner.CognitivePlanner.save_task_results" href="#agents.cognitive_planner.CognitivePlanner.save_task_results">save_task_results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="agents.cognitive_planner.ResearchTask" href="#agents.cognitive_planner.ResearchTask">ResearchTask</a></code></h4>
+<ul class="">
+<li><code><a title="agents.cognitive_planner.ResearchTask.to_dict" href="#agents.cognitive_planner.ResearchTask.to_dict">to_dict</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

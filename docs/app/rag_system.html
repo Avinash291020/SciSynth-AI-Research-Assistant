@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>app.rag_system API documentation</title>
+<meta name="description" content="Retrieval-Augmented Generation (RAG) system for research papers.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.rag_system</code></h1>
+</header>
+<section id="section-intro">
+<p>Retrieval-Augmented Generation (RAG) system for research papers.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.rag_system.RAGSystem"><code class="flex name class">
+<span>class <span class="ident">RAGSystem</span></span>
+<span>(</span><span>collection_name: str = 'research_papers')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RAGSystem:
+    def __init__(self, collection_name: str = &#34;research_papers&#34;):
+        &#34;&#34;&#34;Initialize RAG system with vector database and models.&#34;&#34;&#34;
+        self.collection_name = collection_name
+        self.embedding_model = ModelCache.get_sentence_transformer()
+        self.generator = ModelCache.get_text_generator()
+        self.tokenizer = AutoTokenizer.from_pretrained(&#39;google/flan-t5-base&#39;)
+        
+        # Initialize ChromaDB
+        self.client = chromadb.PersistentClient(
+            path=&#34;./data/chroma_db&#34;,
+            settings=Settings(anonymized_telemetry=False)
+        )
+        
+        # Get or create collection
+        try:
+            self.collection = self.client.get_collection(collection_name)
+        except:
+            self.collection = self.client.create_collection(
+                name=collection_name,
+                metadata={&#34;description&#34;: &#34;Research papers for RAG system&#34;}
+            )
+    
+    def add_papers_to_index(self, papers_data: List[Dict[str, Any]]) -&gt; None:
+        &#34;&#34;&#34;Add papers to the vector database.&#34;&#34;&#34;
+        documents = []
+        metadatas = []
+        ids = []
+        
+        for i, paper in enumerate(papers_data):
+            # Create document from paper content
+            doc_content = self._create_document_content(paper)
+            documents.append(doc_content)
+            
+            # Create metadata
+            metadata = {
+                &#34;paper_name&#34;: paper.get(&#34;paper_name&#34;, f&#34;paper_{i}&#34;),
+                &#34;title&#34;: paper.get(&#34;title&#34;, &#34;&#34;),
+                &#34;authors&#34;: paper.get(&#34;authors&#34;, &#34;&#34;),
+                &#34;date&#34;: paper.get(&#34;processed_date&#34;, &#34;&#34;),
+                &#34;type&#34;: &#34;research_paper&#34;
+            }
+            metadatas.append(metadata)
+            ids.append(f&#34;paper_{i}&#34;)
+        
+        # Add to collection
+        if documents:
+            self.collection.add(
+                documents=documents,
+                metadatas=metadatas,
+                ids=ids
+            )
+            print(f&#34;✅ Added {len(documents)} papers to RAG index&#34;)
+    
+    def _create_document_content(self, paper: Dict[str, Any]) -&gt; str:
+        &#34;&#34;&#34;Create document content from paper data with enhanced metadata.&#34;&#34;&#34;
+        content_parts = []
+        
+        # Always include paper name
+        paper_name = paper.get(&#39;paper_name&#39;, &#39;Unknown Paper&#39;)
+        content_parts.append(f&#34;Paper: {paper_name}&#34;)
+        
+        # Use enriched metadata if available
+        metadata = paper.get(&#39;metadata&#39;, {})
+        
+        # Add title from metadata
+        if metadata.get(&#39;title&#39;):
+            content_parts.append(f&#34;Title: {metadata[&#39;title&#39;]}&#34;)
+        
+        # Add authors and affiliations
+        if metadata.get(&#39;authors&#39;):
+            authors_str = &#39;, &#39;.join(metadata[&#39;authors&#39;][:5])  # Limit to first 5 authors
+            content_parts.append(f&#34;Authors: {authors_str}&#34;)
+        
+        if metadata.get(&#39;affiliations&#39;):
+            affil_str = &#39;, &#39;.join(metadata[&#39;affiliations&#39;][:3])  # Limit to first 3 affiliations
+            content_parts.append(f&#34;Affiliations: {affil_str}&#34;)
+        
+        # Add date
+        if metadata.get(&#39;date&#39;):
+            content_parts.append(f&#34;Date: {metadata[&#39;date&#39;]}&#34;)
+        
+        # Add paper type
+        if metadata.get(&#39;paper_type&#39;):
+            content_parts.append(f&#34;Paper Type: {metadata[&#39;paper_type&#39;]}&#34;)
+        
+        # Add keywords from metadata
+        if metadata.get(&#39;keywords&#39;):
+            keywords_str = &#39;, &#39;.join(metadata[&#39;keywords&#39;][:5])
+            content_parts.append(f&#34;Keywords: {keywords_str}&#34;)
+        
+        # Add technical terms from metadata
+        if metadata.get(&#39;technical_terms&#39;):
+            tech_terms_str = &#39;, &#39;.join(metadata[&#39;technical_terms&#39;][:5])
+            content_parts.append(f&#34;Technical Terms: {tech_terms_str}&#34;)
+        
+        # Add section content if available
+        if metadata.get(&#39;sections&#39;):
+            sections = metadata[&#39;sections&#39;]
+            for section_name, section_text in list(sections.items())[:3]:  # Limit to first 3 sections
+                if section_text and len(section_text) &gt; 20:
+                    # Truncate section text to avoid too long content
+                    section_preview = section_text[:200] + &#34;...&#34; if len(section_text) &gt; 200 else section_text
+                    content_parts.append(f&#34;{section_name}: {section_preview}&#34;)
+        
+        # Add references if available
+        if metadata.get(&#39;references&#39;):
+            refs = metadata[&#39;references&#39;]
+            if refs:
+                ref_preview = []
+                for ref in refs[:3]:  # Limit to first 3 references
+                    ref_str = &#34;&#34;
+                    if ref.get(&#39;authors&#39;):
+                        ref_str += f&#34;Authors: {&#39;, &#39;.join(ref[&#39;authors&#39;][:2])} &#34;
+                    if ref.get(&#39;year&#39;):
+                        ref_str += f&#34;({ref[&#39;year&#39;]}) &#34;
+                    if ref.get(&#39;title&#39;):
+                        ref_str += f&#34;Title: {ref[&#39;title&#39;][:100]}&#34;
+                    if ref_str:
+                        ref_preview.append(ref_str)
+                if ref_preview:
+                    content_parts.append(f&#34;References: {&#39;; &#39;.join(ref_preview)}&#34;)
+        
+        # Add DOIs and URLs
+        if metadata.get(&#39;dois&#39;):
+            dois_str = &#39;, &#39;.join(metadata[&#39;dois&#39;][:2])
+            content_parts.append(f&#34;DOIs: {dois_str}&#34;)
+        
+        if metadata.get(&#39;urls&#39;):
+            urls_str = &#39;, &#39;.join(metadata[&#39;urls&#39;][:2])
+            content_parts.append(f&#34;URLs: {urls_str}&#34;)
+        
+        # Fallback to old method if no enriched metadata
+        if len(content_parts) &lt; 3:
+            # Extract title from insights if available
+            title = &#34;&#34;
+            if &#34;insights&#34; in paper and paper[&#34;insights&#34;]:
+                insights = paper[&#34;insights&#34;]
+                if isinstance(insights, str):
+                    lines = insights.split(&#39;\n&#39;)
+                    for line in lines:
+                        line = line.strip()
+                        if line.startswith(&#34;Title:&#34;):
+                            title = line.replace(&#34;Title:&#34;, &#34;&#34;).strip()
+                            if len(title) &gt; 5:
+                                if len(title) &gt; 100:
+                                    title = title[:100] + &#34;...&#34;
+                                content_parts.append(f&#34;Title: {title}&#34;)
+                            break
+            
+            # Add insights (take first meaningful one)
+            if &#34;insights&#34; in paper and paper[&#34;insights&#34;]:
+                insights = paper[&#34;insights&#34;]
+                if isinstance(insights, str):
+                    lines = insights.split(&#39;\n&#39;)
+                    for line in lines:
+                        line = line.strip()
+                        if line and len(line) &gt; 20 and not line.startswith((&#34;Key points:&#34;, &#34;Title:&#34;, &#34;Main Topic:&#34;, &#34;Abstract Summary:&#34;)):
+                            insight_short = line[:150] + &#34;...&#34; if len(line) &gt; 150 else line
+                            content_parts.append(f&#34;Key Insight: {insight_short}&#34;)
+                            break
+            
+            # Add hypotheses (take first meaningful one)
+            if &#34;hypotheses&#34; in paper and paper[&#34;hypotheses&#34;]:
+                hypotheses = paper[&#34;hypotheses&#34;]
+                if isinstance(hypotheses, str):
+                    lines = hypotheses.split(&#39;\n&#39;)
+                    for line in lines:
+                        line = line.strip()
+                        if line and len(line) &gt; 20 and not line.startswith(&#34;Research Hypotheses:&#34;):
+                            hyp_short = line[:150] + &#34;...&#34; if len(line) &gt; 150 else line
+                            content_parts.append(f&#34;Research Hypothesis: {hyp_short}&#34;)
+                            break
+        
+        # Ensure we always have at least basic content
+        if len(content_parts) &lt; 2:
+            content_parts.append(&#34;Content: Research paper with insights and hypotheses&#34;)
+        
+        return &#34;\n&#34;.join(content_parts)
+    
+    def _extract_technical_terms_from_text(self, paper: Dict[str, Any]) -&gt; List[str]:
+        &#34;&#34;&#34;Extract technical terms from paper insights and hypotheses.&#34;&#34;&#34;
+        import re
+        terms = set()
+        
+        # Combine all text from the paper
+        all_text = &#34;&#34;
+        if &#34;insights&#34; in paper and paper[&#34;insights&#34;]:
+            all_text += paper[&#34;insights&#34;] + &#34; &#34;
+        if &#34;hypotheses&#34; in paper and paper[&#34;hypotheses&#34;]:
+            all_text += paper[&#34;hypotheses&#34;] + &#34; &#34;
+        
+        # Find technical terms and abbreviations
+        # Abbreviations with definitions
+        abbrev_pattern = r&#39;\b([A-Z]{2,})\b(?:\s*\(([^)]+)\))?&#39;
+        matches = re.finditer(abbrev_pattern, all_text)
+        for match in matches:
+            abbr = match.group(1)
+            definition = match.group(2)
+            if definition:
+                terms.add(f&#34;{abbr} ({definition})&#34;)
+            else:
+                terms.add(abbr)
+        
+        # Find technical terms in parentheses
+        tech_pattern = r&#39;\(([^)]+(?:algorithm|model|framework|method|technique|system|approach|architecture|protocol|standard)[^)]*)\)&#39;
+        matches = re.finditer(tech_pattern, all_text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find algorithm names
+        algo_pattern = r&#39;Algorithm\s+\d+[:\s]*([A-Za-z\s]+)&#39;
+        matches = re.finditer(algo_pattern, all_text)
+        terms.update(match.group(1).strip() for match in matches)
+        
+        # Find model names
+        model_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Model\b&#39;
+        matches = re.finditer(model_pattern, all_text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find framework names
+        framework_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Framework\b&#39;
+        matches = re.finditer(framework_pattern, all_text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find scientific terms with numbers
+        scientific_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s*\d*[A-Za-z]*)\b&#39;
+        matches = re.finditer(scientific_pattern, all_text)
+        for match in matches:
+            term = match.group(1).strip()
+            if len(term) &gt; 3 and any(c.isdigit() for c in term):
+                terms.add(term)
+        
+        return list(terms)[:10]  # Limit to top 10 terms
+    
+    def _extract_keywords_from_text(self, paper: Dict[str, Any]) -&gt; List[str]:
+        &#34;&#34;&#34;Extract keywords from paper insights.&#34;&#34;&#34;
+        import re
+        keywords = set()
+        
+        if &#34;insights&#34; in paper and paper[&#34;insights&#34;]:
+            insights = paper[&#34;insights&#34;]
+            
+            # Look for keywords section
+            if &#34;Keywords:&#34; in insights:
+                kw_section = insights.split(&#34;Keywords:&#34;)[1].split(&#34;\n&#34;)[0]
+                keywords.update([k.strip() for k in kw_section.split(&#34;,&#34;)])
+            
+            # Extract domain-specific terms
+            domain_patterns = [
+                r&#39;\b(?:neural networks?|deep learning|machine learning|artificial intelligence|AI)\b&#39;,
+                r&#39;\b(?:language models?|LLMs?|transformers?)\b&#39;,
+                r&#39;\b(?:reinforcement learning|RL)\b&#39;,
+                r&#39;\b(?:evolutionary algorithms?|genetic algorithms?)\b&#39;,
+                r&#39;\b(?:symbolic AI|neuro-symbolic|neurosymbolic)\b&#39;,
+                r&#39;\b(?:computer vision|natural language processing|NLP)\b&#39;,
+                r&#39;\b(?:optimization|inference|training)\b&#39;
+            ]
+            
+            for pattern in domain_patterns:
+                matches = re.finditer(pattern, insights, re.IGNORECASE)
+                keywords.update(match.group(0) for match in matches)
+        
+        return list(keywords)[:5]  # Limit to top 5 keywords
+    
+    def retrieve_relevant_papers(self, query: str, top_k: int = 8) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Retrieve relevant papers for a given query.&#34;&#34;&#34;
+        try:
+            results = self.collection.query(
+                query_texts=[query],
+                n_results=top_k
+            )
+            
+            # Check if results are valid
+            if not results or &#39;documents&#39; not in results or not results[&#39;documents&#39;] or not results[&#39;documents&#39;][0]:
+                return []
+            
+            relevant_papers = []
+            documents = results[&#39;documents&#39;][0]
+            metadatas = results.get(&#39;metadatas&#39;, []) or []
+            distances = results.get(&#39;distances&#39;, []) or []
+            
+            # Handle case where metadatas/distances might be nested
+            if metadatas and isinstance(metadatas[0], list):
+                metadatas = metadatas[0]
+            if distances and isinstance(distances[0], list):
+                distances = distances[0]
+            
+            for i in range(len(documents)):
+                paper_info = {
+                    &#39;content&#39;: documents[i],
+                    &#39;metadata&#39;: metadatas[i] if i &lt; len(metadatas) else {},
+                    &#39;distance&#39;: distances[i] if i &lt; len(distances) else None
+                }
+                relevant_papers.append(paper_info)
+            
+            return relevant_papers
+        except Exception as e:
+            print(f&#34;Error retrieving papers: {e}&#34;)
+            return []
+    
+    def generate_response(self, query: str, context_papers: List[Dict[str, Any]]) -&gt; str:
+        &#34;&#34;&#34;Generate a response using retrieved context.&#34;&#34;&#34;
+        try:
+            # Create context from retrieved papers
+            context = self._create_context(context_papers, detailed=True)
+            
+            # Check if this is a comparative question
+            comparison_keywords = [&#34;difference&#34;, &#34;compare&#34;, &#34;contrast&#34;, &#34;versus&#34;, &#34;vs&#34;, &#34;between&#34;, &#34;models&#34;, &#34;approaches&#34;, &#34;methods&#34;, &#34;different&#34;, &#34;learn&#34;, &#34;what different&#34;, &#34;how do they differ&#34;, &#34;distinguish&#34;, &#34;vary&#34;, &#34;variation&#34;]
+            is_comparison = any(keyword in query.lower() for keyword in comparison_keywords)
+            
+            # Additional check for the specific question pattern
+            if &#34;what is the difference between all these research papers&#34; in query.lower():
+                is_comparison = True
+            
+            # For comparative questions, use advanced NLP fallback immediately to avoid poor LLM responses
+            if is_comparison:
+                return self._create_model_comparison_fallback(context_papers)
+            
+            # Create prompt for the LLM
+            prompt = f&#34;&#34;&#34;
+You are an expert AI research assistant. Based on the following research papers, provide a comprehensive answer to this question: {query}
+
+Research Papers Context:
+{context}
+
+Instructions:
+1. Analyze the provided research papers and synthesize key findings
+2. Focus on the most relevant insights related to the question
+3. Provide specific examples and details from the papers
+4. Structure your answer logically with clear sections
+5. Avoid repetition and generic statements
+6. If the question is outside the scope of the papers, clearly state this
+
+Answer:&#34;&#34;&#34;
+        
+            # Generate response using the LLM
+            try:
+                response = self.generator(
+                    prompt,
+                    max_new_tokens=800,  # Increased for more detailed, high-quality responses
+                    do_sample=True,
+                    temperature=0.7,
+                    pad_token_id=self.tokenizer.eos_token_id
+                )
+                
+                if response and len(response) &gt; 0:
+                    # Extract the generated text
+                    generated_text = response[0][&#39;generated_text&#39;]
+                    
+                    # Remove the prompt from the response
+                    if prompt in generated_text:
+                        answer = generated_text.replace(prompt, &#34;&#34;).strip()
+                    else:
+                        answer = generated_text.strip()
+                    
+                    # Clean up any remaining artifacts
+                    answer = answer.replace(&#34;Instructions: Analyze the provided research papers and provide a detailed answer. If the question is about AI tools, identify specific tools, frameworks, algorithms, and technologies mentioned in the papers. For each tool, explain its purpose and application. If the question is about findings or insights, synthesize the key discoveries and methodologies. Provide a comprehensive, well-structured answer with specific examples from the papers.&#34;, &#34;&#34;)
+                    answer = answer.replace(&#34;Answer the question comprehensively, citing specific findings from the papers. Focus on the most relevant insights and key findings related to the question.&#34;, &#34;&#34;)
+                    answer = answer.replace(&#34;Answer:&#34;, &#34;&#34;)
+                    answer = answer.strip()
+                    
+                    # Remove repeated &#39;Model Name:&#39; lines
+                    answer_lines = answer.split(&#39;\n&#39;)
+                    filtered_lines = []
+                    for line in answer_lines:
+                        if line.strip().lower().startswith(&#39;model name:&#39;) and len(line.strip()) &lt; 20:
+                            continue
+                        filtered_lines.append(line)
+                    answer = &#39;\n&#39;.join(filtered_lines)
+                    
+                    # Check for repetitive patterns that indicate poor generation
+                    if self._is_repetitive_or_generic(answer, context_papers):
+                        return self._create_enhanced_fallback_response(query, context_papers)
+                    
+                    return answer
+                else:
+                    return self._create_enhanced_fallback_response(query, context_papers)
+                    
+            except Exception as e:
+                print(f&#34;LLM generation error: {e}&#34;)
+                return self._create_enhanced_fallback_response(query, context_papers)
+            
+        except Exception as e:
+            print(f&#34;Error in generate_response: {e}&#34;)
+            return self._create_enhanced_fallback_response(query, context_papers)
+    
+    def _is_repetitive_or_generic(self, answer: str, context_papers: List[Dict[str, Any]]) -&gt; bool:
+        &#34;&#34;&#34;Check if the answer is repetitive or too generic.&#34;&#34;&#34;
+        # Check for the specific &#34;Model Name: Date:&#34; pattern that indicates poor generation
+        if &#34;Model Name: Date:&#34; in answer or answer.count(&#34;Model Name:&#34;) &gt; 2:
+            return True
+        
+        # Check for repetitive patterns
+        if answer.count(&#34;Paper&#34;) &gt; len(context_papers) * 0.8:  # Too many &#34;Paper X:&#34; mentions
+            return True
+        
+        # Check for the specific &#34;Paper 1: Paper 2:&#34; pattern
+        if &#34;Paper 1:&#34; in answer and &#34;Paper 2:&#34; in answer and len(answer.split(&#34;Paper&#34;)) &gt; 3:
+            return True
+        
+        # Check for repetitive &#34;Paper X:&#34; patterns
+        paper_pattern = r&#34;Paper \d+:&#34;
+        paper_matches = re.findall(paper_pattern, answer)
+        if len(paper_matches) &gt; len(context_papers) * 0.6:
+            return True
+        
+        # Check for repetitive date patterns
+        if answer.count(&#34;Date:&#34;) &gt; 2:
+            return True
+        
+        # Check for repetitive &#34;Model Name:&#34; patterns
+        model_name_pattern = r&#34;Model Name:&#34;
+        model_matches = re.findall(model_name_pattern, answer)
+        if len(model_matches) &gt; 2:
+            return True
+        
+        # Check for generic responses - expanded list
+        generic_phrases = [
+            &#34;I don&#39;t know&#34;, &#34;cannot answer&#34;, &#34;no information&#34;, &#34;not found&#34;,
+            &#34;based on the papers&#34;, &#34;the papers show&#34;, &#34;research indicates&#34;,
+            &#34;we should begin by&#34;, &#34;attempting to define&#34;, &#34;subject matter&#34;,
+            &#34;it depends&#34;, &#34;various factors&#34;, &#34;multiple aspects&#34;, &#34;different perspectives&#34;,
+            &#34;broad range&#34;, &#34;diverse topics&#34;, &#34;many areas&#34;, &#34;several approaches&#34;,
+            &#34;general overview&#34;, &#34;basic understanding&#34;, &#34;fundamental concepts&#34;,
+            &#34;answer the question comprehensively&#34;, &#34;focus on the most relevant&#34;
+        ]
+        if any(phrase in answer.lower() for phrase in generic_phrases):
+            return True
+        
+        # Check if answer is too short or too vague
+        if len(answer) &lt; 100:  # Increased minimum length
+            return True
+        
+        # Check for very generic opening statements
+        generic_openings = [
+            &#34;we should begin by&#34;,
+            &#34;let&#39;s start by&#34;,
+            &#34;first, we need to&#34;,
+            &#34;it&#39;s important to&#34;,
+            &#34;we can see that&#34;,
+            &#34;the research shows&#34;,
+            &#34;based on the information&#34;
+        ]
+        if any(answer.lower().startswith(opening) for opening in generic_openings):
+            return True
+        
+        # Check for repetitive structure
+        answer_lines = answer.split(&#39;\n&#39;)
+        if len(answer_lines) &gt; 2:
+            paper_patterns = []
+            for answer_line in answer_lines:
+                for i in range(1, len(context_papers)+1):
+                    if answer_line.strip().startswith(f&#34;Paper {i}:&#34;):
+                        paper_patterns.append(True)
+                        break
+                else:
+                    paper_patterns.append(False)
+            if sum(paper_patterns) &gt; len(context_papers) * 0.7:  # Too many &#34;Paper X:&#34; lines
+                return True
+        
+        # Check if answer lacks specific content (no model names, technical terms, etc.)
+        specific_indicators = [&#34;model&#34;, &#34;approach&#34;, &#34;method&#34;, &#34;technique&#34;, &#34;algorithm&#34;, &#34;framework&#34;, &#34;system&#34;, &#34;architecture&#34;]
+        if not any(indicator in answer.lower() for indicator in specific_indicators):
+            return True
+        
+        return False
+    
+    def _create_model_comparison_fallback(self, context_papers: List[Dict[str, Any]]) -&gt; str:
+        &#34;&#34;&#34;Create a refined structured model comparison when LLM fails, using enhanced metadata.&#34;&#34;&#34;
+        response_parts = [&#34;**Detailed Model Comparison from Research Papers**\n&#34;]
+        
+        # Patterns for strengths and weaknesses
+        strength_patterns = [
+            r&#34;improv(e|es|ed|ing)&#34;, r&#34;outperform(s|ed)?&#34;, r&#34;robust( to|ness)?&#34;, r&#34;advantage&#34;, r&#34;effective( at|ness)?&#34;, 
+            r&#34;achieve(s|d)? better&#34;, r&#34;state[- ]of[- ]the[- ]art&#34;, r&#34;superior&#34;, r&#34;increase(s|d)?&#34;, r&#34;reduce(s|d)? error&#34;, 
+            r&#34;efficient(ly)?&#34;, r&#34;scalable&#34;, r&#34;accurate(ly)?&#34;, r&#34;novel (approach|method|technique)&#34;, r&#34;successfully&#34;,
+            r&#34;breakthrough&#34;, r&#34;significant(ly)?&#34;, r&#34;outstanding&#34;, r&#34;excellent&#34;, r&#34;remarkable&#34;, r&#34;impressive&#34;
+        ]
+        weakness_patterns = [
+            r&#34;limitation&#34;, r&#34;fail(s|ed)? to&#34;, r&#34;struggle(s|d)? with&#34;, r&#34;less effective&#34;, r&#34;drawback&#34;, 
+            r&#34;require(s|d)? more&#34;, r&#34;suffer(s|ed)? from&#34;, r&#34;problem(s)? with&#34;, r&#34;challenge(s)?&#34;, r&#34;issue(s)?&#34;, 
+            r&#34;high (cost|complexity|variance|error)&#34;, r&#34;sensitive to&#34;, r&#34;cannot&#34;, r&#34;not able to&#34;, r&#34;lack(s|ed)?&#34;,
+            r&#34;difficult&#34;, r&#34;expensive&#34;, r&#34;slow&#34;, r&#34;inaccurate&#34;, r&#34;unreliable&#34;, r&#34;restricted&#34;
+        ]
+        
+        def extract_sentences(text, patterns):
+            sentences = re.split(r&#39;(?&lt;=[.!?])\s+&#39;, text)
+            found = []
+            for sent in sentences:
+                for pat in patterns:
+                    if re.search(pat, sent, re.IGNORECASE):
+                        found.append(sent.strip())
+                        break
+            return found
+        
+        # Extract model information from each paper
+        models_info = []
+        for i, paper in enumerate(context_papers, 1):
+            content = paper[&#39;content&#39;]
+            metadata = paper.get(&#39;metadata&#39;, {})
+            paper_name = metadata.get(&#39;paper_name&#39;, f&#39;Paper {i}&#39;)
+            
+            # Use enriched metadata for better information
+            title = metadata.get(&#39;title&#39;, paper_name)
+            authors = metadata.get(&#39;authors&#39;, [])
+            affiliations = metadata.get(&#39;affiliations&#39;, [])
+            paper_type = metadata.get(&#39;paper_type&#39;, &#39;unknown&#39;)
+            date = metadata.get(&#39;date&#39;, &#39;&#39;)
+            keywords = metadata.get(&#39;keywords&#39;, [])
+            technical_terms = metadata.get(&#39;technical_terms&#39;, [])
+            sections = metadata.get(&#39;sections&#39;, {})
+            references = metadata.get(&#39;references&#39;, [])
+            dois = metadata.get(&#39;dois&#39;, [])
+            urls = metadata.get(&#39;urls&#39;, [])
+            
+            # Extract key features from metadata
+            key_features = []
+            if keywords:
+                key_features.append(f&#34;Keywords: {&#39;, &#39;.join(keywords[:3])}&#34;)
+            if technical_terms:
+                key_features.append(f&#34;Technical Terms: {&#39;, &#39;.join(technical_terms[:3])}&#34;)
+            if paper_type and paper_type != &#39;unknown&#39;:
+                key_features.append(f&#34;Type: {paper_type}&#34;)
+            
+            # Extract strengths and weaknesses from section content
+            strengths = []
+            weaknesses = []
+            all_text = &#34;&#34;
+            
+            # Combine section text for analysis
+            for section_name, section_text in sections.items():
+                all_text += f&#34; {section_text}&#34;
+                if section_text:
+                    analysis_text = section_text
+                    strengths.extend(extract_sentences(analysis_text, strength_patterns))
+                    weaknesses.extend(extract_sentences(analysis_text, weakness_patterns))
+            
+            # If no sections, try from content
+            if not strengths and not weaknesses:
+                if &#34;Key Insight:&#34; in content:
+                    insight_start = content.find(&#34;Key Insight:&#34;) + 12
+                    insight_end = content.find(&#34;\n&#34;, insight_start)
+                    if insight_end &gt; insight_start:
+                        insight_text = content[insight_start:insight_end].strip()
+                    else:
+                        insight_text = content[insight_start:].strip()
+                    strengths = extract_sentences(insight_text, strength_patterns)
+                    weaknesses = extract_sentences(insight_text, weakness_patterns)
+            
+            # Create summary of key features
+            if not key_features:
+                if &#34;Key Insight:&#34; in content:
+                    insight_start = content.find(&#34;Key Insight:&#34;) + 12
+                    insight_end = content.find(&#34;\n&#34;, insight_start)
+                    if insight_end &gt; insight_start:
+                        insight_text = content[insight_start:insight_end].strip()
+                        if insight_text:
+                            key_features.append(insight_text[:100] + &#34;...&#34; if len(insight_text) &gt; 100 else insight_text)
+            
+            # If still no key features, use a default
+            if not key_features:
+                key_features.append(&#34;Research paper on AI and machine learning&#34;)
+            
+            models_info.append({
+                &#34;name&#34;: title,
+                &#34;authors&#34;: authors,
+                &#34;affiliations&#34;: affiliations,
+                &#34;paper_type&#34;: paper_type,
+                &#34;features&#34;: &#34;; &#34;.join(key_features[:2]) if key_features else &#34;-&#34;,
+                &#34;strengths&#34;: &#34;; &#34;.join(strengths[:2]) if strengths else &#34;-&#34;,
+                &#34;weaknesses&#34;: &#34;; &#34;.join(weaknesses[:2]) if weaknesses else &#34;-&#34;,
+                &#34;paper_name&#34;: paper_name,
+                &#34;year&#34;: date or &#34;-&#34;,
+                &#34;keywords&#34;: keywords,
+                &#34;technical_terms&#34;: technical_terms,
+                &#34;references_count&#34;: len(references),
+                &#34;dois&#34;: dois,
+                &#34;urls&#34;: urls
+            })
+        
+        # Create detailed comparison table
+        response_parts.append(&#34;| Paper | Authors | Type | Key Features | Strengths | Weaknesses | Year |&#34;)
+        response_parts.append(&#34;|-------|---------|------|--------------|-----------|------------|------|&#34;)
+        
+        for model in models_info[:10]:  # Limit to top 10 models
+            name = model[&#39;name&#39;][:40] + &#34;...&#34; if len(model[&#39;name&#39;]) &gt; 40 else model[&#39;name&#39;]
+            authors_str = &#39;, &#39;.join(model[&#39;authors&#39;][:2]) if model[&#39;authors&#39;] else &#34;-&#34;
+            authors_str = authors_str[:30] + &#34;...&#34; if len(authors_str) &gt; 30 else authors_str
+            paper_type = model[&#39;paper_type&#39;][:15] if model[&#39;paper_type&#39;] != &#39;unknown&#39; else &#34;-&#34;
+            features = model[&#39;features&#39;][:80] + &#34;...&#34; if len(model[&#39;features&#39;]) &gt; 80 else model[&#39;features&#39;]
+            strengths = model[&#39;strengths&#39;][:60] + &#34;...&#34; if len(model[&#39;strengths&#39;]) &gt; 60 else model[&#39;strengths&#39;]
+            weaknesses = model[&#39;weaknesses&#39;][:60] + &#34;...&#34; if len(model[&#39;weaknesses&#39;]) &gt; 60 else model[&#39;weaknesses&#39;]
+            
+            response_parts.append(f&#34;| {name} | {authors_str} | {paper_type} | {features} | {strengths} | {weaknesses} | {model[&#39;year&#39;]} |&#34;)
+        
+        # Add detailed analysis section
+        response_parts.append(f&#34;\n**Detailed Analysis:**&#34;)
+        response_parts.append(f&#34;This comparison analyzes {len(models_info)} research papers covering various AI approaches:&#34;)
+        
+        # Group papers by type
+        paper_types = {}
+        for model in models_info:
+            ptype = model[&#39;paper_type&#39;]
+            if ptype not in paper_types:
+                paper_types[ptype] = []
+            paper_types[ptype].append(model)
+        
+        for ptype, papers in paper_types.items():
+            if ptype != &#39;unknown&#39;:
+                response_parts.append(f&#34;\n**{ptype.title()} Papers ({len(papers)} papers):**&#34;)
+                for paper in papers[:3]:  # Show first 3 of each type
+                    response_parts.append(f&#34;• {paper[&#39;name&#39;]}: {paper[&#39;features&#39;][:100]}...&#34;)
+        
+        # Add citation analysis if available
+        papers_with_refs = [m for m in models_info if m[&#39;references_count&#39;] &gt; 0]
+        if papers_with_refs:
+            response_parts.append(f&#34;\n**Citation Analysis:**&#34;)
+            response_parts.append(f&#34;• Papers with references: {len(papers_with_refs)}/{len(models_info)}&#34;)
+            papers_with_dois = [m for m in models_info if m[&#39;dois&#39;]]
+            response_parts.append(f&#34;• Papers with DOIs: {len(papers_with_dois)}/{len(models_info)}&#34;)
+        
+        # Add affiliation analysis
+        all_affiliations = []
+        for model in models_info:
+            all_affiliations.extend(model[&#39;affiliations&#39;])
+        if all_affiliations:
+            unique_affiliations = list(set(all_affiliations))
+            response_parts.append(f&#34;\n**Top Institutions:**&#34;)
+            for affil in unique_affiliations[:5]:
+                count = all_affiliations.count(affil)
+                response_parts.append(f&#34;• {affil}: {count} papers&#34;)
+        
+        response_parts.append(f&#34;\n**Summary:** This comprehensive analysis shows the diversity of AI research approaches, &#34;)
+        response_parts.append(&#34;from large language models to specialized neural networks and hybrid symbolic systems. &#34;)
+        response_parts.append(&#34;Each paper contributes unique insights to the broader AI landscape.&#34;)
+        
+        return &#34;\n&#34;.join(response_parts)
+    
+    def _create_enhanced_fallback_response(self, query: str, context_papers: List[Dict[str, Any]]) -&gt; str:
+        &#34;&#34;&#34;Create an enhanced fallback response with more specific information.&#34;&#34;&#34;
+        # Check if the query is likely out-of-scope (no relevant tools, keywords, or findings found)
+        keywords = [&#34;blockchain&#34;, &#34;CRISPR&#34;, &#34;underwater vehicles&#34;, &#34;medical data privacy&#34;]
+        if any(kw.lower() in query.lower() for kw in keywords):
+            return f&#34;❗ No relevant papers found on the topic: &#39;{query}&#39;. The current research collection does not cover this subject.&#34;
+
+        response_parts = [f&#34;**AI Tools and Technologies from Research Papers**\n&#34;]
+        
+        # Extract specific AI tools and technologies from the papers
+        ai_tools_found = []
+        for i, paper in enumerate(context_papers, 1):
+            content = paper[&#39;content&#39;]
+            title = paper[&#39;metadata&#39;].get(&#39;title&#39;, paper[&#39;metadata&#39;].get(&#39;paper_name&#39;, f&#39;Paper {i}&#39;))
+            
+            # Extract technical terms that might be AI tools
+            if &#34;Technical Terms:&#34; in content:
+                tech_start = content.find(&#34;Technical Terms:&#34;) + 16
+                tech_end = content.find(&#34;\n&#34;, tech_start)
+                if tech_end &gt; tech_start:
+                    tech_terms = content[tech_start:tech_end].strip()
+                    if tech_terms and len(tech_terms) &gt; 5:
+                        ai_tools_found.append(f&#34;• **{title}**: {tech_terms}&#34;)
+            
+            # Extract insights that mention tools or technologies
+            if &#34;Key Insight:&#34; in content:
+                insight_start = content.find(&#34;Key Insight:&#34;) + 12
+                insight_end = content.find(&#34;\n&#34;, insight_start)
+                if insight_end &gt; insight_start:
+                    insight = content[insight_start:insight_end].strip()
+                    if insight and len(insight) &gt; 20:
+                        tool_keywords = [&#39;tool&#39;, &#39;framework&#39;, &#39;model&#39;, &#39;algorithm&#39;, &#39;system&#39;, &#39;platform&#39;, &#39;library&#39;, &#39;API&#39;]
+                        if any(keyword in insight.lower() for keyword in tool_keywords):
+                            ai_tools_found.append(f&#34;• **{title}**: {insight}&#34;)
+            
+            # Extract hypotheses that might mention tools
+            if &#34;Research Hypothesis:&#34; in content:
+                hyp_start = content.find(&#34;Research Hypothesis:&#34;) + 20
+                hyp_end = content.find(&#34;\n&#34;, hyp_start)
+                if hyp_end &gt; hyp_start:
+                    hypothesis = content[hyp_start:hyp_end].strip()
+                    if hypothesis and len(hypothesis) &gt; 20:
+                        tool_keywords = [&#39;tool&#39;, &#39;framework&#39;, &#39;model&#39;, &#39;algorithm&#39;, &#39;system&#39;, &#39;platform&#39;, &#39;library&#39;, &#39;API&#39;]
+                        if any(keyword in hypothesis.lower() for keyword in tool_keywords):
+                            ai_tools_found.append(f&#34;• **{title}** (Hypothesis): {hypothesis}&#34;)
+        
+        if ai_tools_found:
+            response_parts.append(&#34;\n**AI Tools and Technologies Identified:**\n&#34;)
+            response_parts.extend(ai_tools_found[:8])  # Limit to top 8 tools
+        else:
+            response_parts.append(&#34;\n**Key Research Papers on AI Tools:**\n&#34;)
+            for i, paper in enumerate(context_papers, 1):
+                title = paper[&#39;metadata&#39;].get(&#39;title&#39;, paper[&#39;metadata&#39;].get(&#39;paper_name&#39;, f&#39;Paper {i}&#39;))
+                response_parts.append(f&#34;• {title}&#34;)
+        
+        response_parts.append(f&#34;\n**Summary:** Based on the analysis of {len(context_papers)} research papers, &#34;)
+        response_parts.append(&#34;these papers cover various AI tools, frameworks, and technologies including &#34;)
+        response_parts.append(&#34;neural networks, language models, evolutionary algorithms, and neuro-symbolic systems. &#34;)
+        response_parts.append(&#34;Each paper provides insights into different aspects of AI tool development and application.&#34;)
+        
+        return &#34;\n&#34;.join(response_parts)
+    
+    def _create_context(self, papers: List[Dict[str, Any]], detailed: bool = False) -&gt; str:
+        &#34;&#34;&#34;Create context string from retrieved papers. If detailed, include more metadata.&#34;&#34;&#34;
+        context_parts = []
+        for i, paper in enumerate(papers, 1):
+            paper_title = paper[&#39;metadata&#39;].get(&#39;title&#39;, f&#39;Paper {i}&#39;)
+            paper_name = paper[&#39;metadata&#39;].get(&#39;paper_name&#39;, f&#39;Paper {i}&#39;)
+            content = paper[&#39;content&#39;]
+            metadata = paper.get(&#39;metadata&#39;, {})
+            # Extract model name from title or content
+            model_name = paper_title
+            if &#34;Title:&#34; in content:
+                title_start = content.find(&#34;Title:&#34;) + 6
+                title_end = content.find(&#34;\n&#34;, title_start)
+                if title_end &gt; title_start:
+                    extracted_title = content[title_start:title_end].strip()
+                    if extracted_title and len(extracted_title) &gt; 5:
+                        model_name = extracted_title
+            # Extract unique features from insight or technical terms
+            unique_features = &#34;&#34;
+            if &#34;Key Insight:&#34; in content:
+                insight_start = content.find(&#34;Key Insight:&#34;) + 12
+                insight_end = content.find(&#34;\n&#34;, insight_start)
+                if insight_end &gt; insight_start:
+                    unique_features = content[insight_start:insight_end].strip()
+                else:
+                    unique_features = content[insight_start:].strip()
+            elif &#34;Technical Terms:&#34; in content:
+                tech_start = content.find(&#34;Technical Terms:&#34;) + 16
+                tech_end = content.find(&#34;\n&#34;, tech_start)
+                if tech_end &gt; tech_start:
+                    unique_features = content[tech_start:tech_end].strip()
+            # Short summary from first 1-2 sentences of insight
+            summary = &#34;&#34;
+            if unique_features:
+                sentences = unique_features.split(&#39;.&#39;)
+                summary = &#39;. &#39;.join(sentences[:2]).strip()
+                if summary and not summary.endswith(&#39;.&#39;):
+                    summary += &#39;.&#39;
+            # Compose context for this paper
+            paper_context = f&#34;Model Name: {model_name}&#34;
+            if unique_features:
+                paper_context += f&#34;\nUnique Features: {unique_features}&#34;
+            if summary:
+                paper_context += f&#34;\nSummary: {summary}&#34;
+            if detailed:
+                # Add more metadata if available
+                if metadata.get(&#39;authors&#39;):
+                    paper_context += f&#34;\nAuthors: {metadata[&#39;authors&#39;]}&#34;
+                if metadata.get(&#39;date&#39;):
+                    paper_context += f&#34;\nDate: {metadata[&#39;date&#39;]}&#34;
+                if metadata.get(&#39;keywords&#39;):
+                    paper_context += f&#34;\nKeywords: {&#39;, &#39;.join(metadata[&#39;keywords&#39;])}&#34;
+            context_parts.append(paper_context)
+        return &#34;\n\n&#34;.join(context_parts)
+    
+    def answer_question(self, question: str, top_k: int = 8) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Answer a question using RAG system.&#34;&#34;&#34;
+        # Retrieve relevant papers
+        relevant_papers = self.retrieve_relevant_papers(question, top_k=top_k)
+        
+        if not relevant_papers:
+            return {
+                &#34;answer&#34;: f&#34;I couldn&#39;t find relevant papers to answer: {question}&#34;,
+                &#34;relevant_papers&#34;: [],
+                &#34;num_papers_retrieved&#34;: 0
+            }
+        
+        # Generate response
+        answer = self.generate_response(question, relevant_papers)
+        
+        return {
+            &#34;answer&#34;: answer,
+            &#34;relevant_papers&#34;: relevant_papers,
+            &#34;num_papers_retrieved&#34;: len(relevant_papers)
+        }
+    
+    def get_collection_stats(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Get statistics about the collection.&#34;&#34;&#34;
+        try:
+            count = self.collection.count()
+            return {
+                &#34;total_documents&#34;: count,
+                &#34;collection_name&#34;: self.collection_name
+            }
+        except Exception as e:
+            return {&#34;error&#34;: str(e)}</code></pre>
+</details>
+<div class="desc"><p>Initialize RAG system with vector database and models.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="app.rag_system.RAGSystem.add_papers_to_index"><code class="name flex">
+<span>def <span class="ident">add_papers_to_index</span></span>(<span>self, papers_data: List[Dict[str, Any]]) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_papers_to_index(self, papers_data: List[Dict[str, Any]]) -&gt; None:
+    &#34;&#34;&#34;Add papers to the vector database.&#34;&#34;&#34;
+    documents = []
+    metadatas = []
+    ids = []
+    
+    for i, paper in enumerate(papers_data):
+        # Create document from paper content
+        doc_content = self._create_document_content(paper)
+        documents.append(doc_content)
+        
+        # Create metadata
+        metadata = {
+            &#34;paper_name&#34;: paper.get(&#34;paper_name&#34;, f&#34;paper_{i}&#34;),
+            &#34;title&#34;: paper.get(&#34;title&#34;, &#34;&#34;),
+            &#34;authors&#34;: paper.get(&#34;authors&#34;, &#34;&#34;),
+            &#34;date&#34;: paper.get(&#34;processed_date&#34;, &#34;&#34;),
+            &#34;type&#34;: &#34;research_paper&#34;
+        }
+        metadatas.append(metadata)
+        ids.append(f&#34;paper_{i}&#34;)
+    
+    # Add to collection
+    if documents:
+        self.collection.add(
+            documents=documents,
+            metadatas=metadatas,
+            ids=ids
+        )
+        print(f&#34;✅ Added {len(documents)} papers to RAG index&#34;)</code></pre>
+</details>
+<div class="desc"><p>Add papers to the vector database.</p></div>
+</dd>
+<dt id="app.rag_system.RAGSystem.answer_question"><code class="name flex">
+<span>def <span class="ident">answer_question</span></span>(<span>self, question: str, top_k: int = 8) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def answer_question(self, question: str, top_k: int = 8) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Answer a question using RAG system.&#34;&#34;&#34;
+    # Retrieve relevant papers
+    relevant_papers = self.retrieve_relevant_papers(question, top_k=top_k)
+    
+    if not relevant_papers:
+        return {
+            &#34;answer&#34;: f&#34;I couldn&#39;t find relevant papers to answer: {question}&#34;,
+            &#34;relevant_papers&#34;: [],
+            &#34;num_papers_retrieved&#34;: 0
+        }
+    
+    # Generate response
+    answer = self.generate_response(question, relevant_papers)
+    
+    return {
+        &#34;answer&#34;: answer,
+        &#34;relevant_papers&#34;: relevant_papers,
+        &#34;num_papers_retrieved&#34;: len(relevant_papers)
+    }</code></pre>
+</details>
+<div class="desc"><p>Answer a question using RAG system.</p></div>
+</dd>
+<dt id="app.rag_system.RAGSystem.generate_response"><code class="name flex">
+<span>def <span class="ident">generate_response</span></span>(<span>self, query: str, context_papers: List[Dict[str, Any]]) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def generate_response(self, query: str, context_papers: List[Dict[str, Any]]) -&gt; str:
+        &#34;&#34;&#34;Generate a response using retrieved context.&#34;&#34;&#34;
+        try:
+            # Create context from retrieved papers
+            context = self._create_context(context_papers, detailed=True)
+            
+            # Check if this is a comparative question
+            comparison_keywords = [&#34;difference&#34;, &#34;compare&#34;, &#34;contrast&#34;, &#34;versus&#34;, &#34;vs&#34;, &#34;between&#34;, &#34;models&#34;, &#34;approaches&#34;, &#34;methods&#34;, &#34;different&#34;, &#34;learn&#34;, &#34;what different&#34;, &#34;how do they differ&#34;, &#34;distinguish&#34;, &#34;vary&#34;, &#34;variation&#34;]
+            is_comparison = any(keyword in query.lower() for keyword in comparison_keywords)
+            
+            # Additional check for the specific question pattern
+            if &#34;what is the difference between all these research papers&#34; in query.lower():
+                is_comparison = True
+            
+            # For comparative questions, use advanced NLP fallback immediately to avoid poor LLM responses
+            if is_comparison:
+                return self._create_model_comparison_fallback(context_papers)
+            
+            # Create prompt for the LLM
+            prompt = f&#34;&#34;&#34;
+You are an expert AI research assistant. Based on the following research papers, provide a comprehensive answer to this question: {query}
+
+Research Papers Context:
+{context}
+
+Instructions:
+1. Analyze the provided research papers and synthesize key findings
+2. Focus on the most relevant insights related to the question
+3. Provide specific examples and details from the papers
+4. Structure your answer logically with clear sections
+5. Avoid repetition and generic statements
+6. If the question is outside the scope of the papers, clearly state this
+
+Answer:&#34;&#34;&#34;
+        
+            # Generate response using the LLM
+            try:
+                response = self.generator(
+                    prompt,
+                    max_new_tokens=800,  # Increased for more detailed, high-quality responses
+                    do_sample=True,
+                    temperature=0.7,
+                    pad_token_id=self.tokenizer.eos_token_id
+                )
+                
+                if response and len(response) &gt; 0:
+                    # Extract the generated text
+                    generated_text = response[0][&#39;generated_text&#39;]
+                    
+                    # Remove the prompt from the response
+                    if prompt in generated_text:
+                        answer = generated_text.replace(prompt, &#34;&#34;).strip()
+                    else:
+                        answer = generated_text.strip()
+                    
+                    # Clean up any remaining artifacts
+                    answer = answer.replace(&#34;Instructions: Analyze the provided research papers and provide a detailed answer. If the question is about AI tools, identify specific tools, frameworks, algorithms, and technologies mentioned in the papers. For each tool, explain its purpose and application. If the question is about findings or insights, synthesize the key discoveries and methodologies. Provide a comprehensive, well-structured answer with specific examples from the papers.&#34;, &#34;&#34;)
+                    answer = answer.replace(&#34;Answer the question comprehensively, citing specific findings from the papers. Focus on the most relevant insights and key findings related to the question.&#34;, &#34;&#34;)
+                    answer = answer.replace(&#34;Answer:&#34;, &#34;&#34;)
+                    answer = answer.strip()
+                    
+                    # Remove repeated &#39;Model Name:&#39; lines
+                    answer_lines = answer.split(&#39;\n&#39;)
+                    filtered_lines = []
+                    for line in answer_lines:
+                        if line.strip().lower().startswith(&#39;model name:&#39;) and len(line.strip()) &lt; 20:
+                            continue
+                        filtered_lines.append(line)
+                    answer = &#39;\n&#39;.join(filtered_lines)
+                    
+                    # Check for repetitive patterns that indicate poor generation
+                    if self._is_repetitive_or_generic(answer, context_papers):
+                        return self._create_enhanced_fallback_response(query, context_papers)
+                    
+                    return answer
+                else:
+                    return self._create_enhanced_fallback_response(query, context_papers)
+                    
+            except Exception as e:
+                print(f&#34;LLM generation error: {e}&#34;)
+                return self._create_enhanced_fallback_response(query, context_papers)
+            
+        except Exception as e:
+            print(f&#34;Error in generate_response: {e}&#34;)
+            return self._create_enhanced_fallback_response(query, context_papers)</code></pre>
+</details>
+<div class="desc"><p>Generate a response using retrieved context.</p></div>
+</dd>
+<dt id="app.rag_system.RAGSystem.get_collection_stats"><code class="name flex">
+<span>def <span class="ident">get_collection_stats</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_collection_stats(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Get statistics about the collection.&#34;&#34;&#34;
+    try:
+        count = self.collection.count()
+        return {
+            &#34;total_documents&#34;: count,
+            &#34;collection_name&#34;: self.collection_name
+        }
+    except Exception as e:
+        return {&#34;error&#34;: str(e)}</code></pre>
+</details>
+<div class="desc"><p>Get statistics about the collection.</p></div>
+</dd>
+<dt id="app.rag_system.RAGSystem.retrieve_relevant_papers"><code class="name flex">
+<span>def <span class="ident">retrieve_relevant_papers</span></span>(<span>self, query: str, top_k: int = 8) ‑> List[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieve_relevant_papers(self, query: str, top_k: int = 8) -&gt; List[Dict[str, Any]]:
+    &#34;&#34;&#34;Retrieve relevant papers for a given query.&#34;&#34;&#34;
+    try:
+        results = self.collection.query(
+            query_texts=[query],
+            n_results=top_k
+        )
+        
+        # Check if results are valid
+        if not results or &#39;documents&#39; not in results or not results[&#39;documents&#39;] or not results[&#39;documents&#39;][0]:
+            return []
+        
+        relevant_papers = []
+        documents = results[&#39;documents&#39;][0]
+        metadatas = results.get(&#39;metadatas&#39;, []) or []
+        distances = results.get(&#39;distances&#39;, []) or []
+        
+        # Handle case where metadatas/distances might be nested
+        if metadatas and isinstance(metadatas[0], list):
+            metadatas = metadatas[0]
+        if distances and isinstance(distances[0], list):
+            distances = distances[0]
+        
+        for i in range(len(documents)):
+            paper_info = {
+                &#39;content&#39;: documents[i],
+                &#39;metadata&#39;: metadatas[i] if i &lt; len(metadatas) else {},
+                &#39;distance&#39;: distances[i] if i &lt; len(distances) else None
+            }
+            relevant_papers.append(paper_info)
+        
+        return relevant_papers
+    except Exception as e:
+        print(f&#34;Error retrieving papers: {e}&#34;)
+        return []</code></pre>
+</details>
+<div class="desc"><p>Retrieve relevant papers for a given query.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app" href="index.html">app</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.rag_system.RAGSystem" href="#app.rag_system.RAGSystem">RAGSystem</a></code></h4>
+<ul class="">
+<li><code><a title="app.rag_system.RAGSystem.add_papers_to_index" href="#app.rag_system.RAGSystem.add_papers_to_index">add_papers_to_index</a></code></li>
+<li><code><a title="app.rag_system.RAGSystem.answer_question" href="#app.rag_system.RAGSystem.answer_question">answer_question</a></code></li>
+<li><code><a title="app.rag_system.RAGSystem.generate_response" href="#app.rag_system.RAGSystem.generate_response">generate_response</a></code></li>
+<li><code><a title="app.rag_system.RAGSystem.get_collection_stats" href="#app.rag_system.RAGSystem.get_collection_stats">get_collection_stats</a></code></li>
+<li><code><a title="app.rag_system.RAGSystem.retrieve_relevant_papers" href="#app.rag_system.RAGSystem.retrieve_relevant_papers">retrieve_relevant_papers</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

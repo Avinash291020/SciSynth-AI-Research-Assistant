@@ -4,7 +4,7 @@ nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {
     "display_name": "Python 3",
     "language": "python",
-    "name": "python3"
+    "name": "python3",
 }
 
 # Cell 0 - Markdown
@@ -16,7 +16,7 @@ cell0 = {
 This notebook demonstrates how to use SciSynth's dataset recommendation system to find relevant datasets for research hypotheses. The system analyzes hypotheses and suggests datasets that could be useful for testing them.
 
 ## Setup
-First, let's import the required modules:"""
+First, let's import the required modules:""",
 }
 nb.cells.append(nbf.from_dict(cell0))
 
@@ -27,7 +27,7 @@ cell1 = {
     "source": """from app.data_recommender import recommend_datasets, extract_keywords
 import pandas as pd""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell1))
 
@@ -37,7 +37,7 @@ cell2 = {
     "metadata": {},
     "source": """## 1. Extract Keywords from Hypotheses
 
-Let's start by extracting keywords from some example hypotheses:"""
+Let's start by extracting keywords from some example hypotheses:""",
 }
 nb.cells.append(nbf.from_dict(cell2))
 
@@ -50,7 +50,7 @@ keywords = extract_keywords(hypothesis)
 print("Extracted Keywords:")
 print(keywords)""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell3))
 
@@ -60,7 +60,7 @@ cell4 = {
     "metadata": {},
     "source": """## 2. Get Dataset Recommendations
 
-Now let's get dataset recommendations for multiple hypotheses:"""
+Now let's get dataset recommendations for multiple hypotheses:""",
 }
 nb.cells.append(nbf.from_dict(cell4))
 
@@ -83,7 +83,7 @@ for rec in recommendations:
     for dataset in rec['datasets']:
         print(f"- {dataset}")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell5))
 
@@ -93,7 +93,7 @@ cell6 = {
     "metadata": {},
     "source": """## 3. Analyze Recommendations
 
-Let's create a summary of the recommendations:"""
+Let's create a summary of the recommendations:""",
 }
 nb.cells.append(nbf.from_dict(cell6))
 
@@ -114,10 +114,10 @@ summary_df = pd.DataFrame(summary_data)
 print("\\nRecommendation Summary:")
 print(summary_df)""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell7))
 
 # Write the notebook to a file
-with open('examples/dataset_recommendation.ipynb', 'w', encoding='utf-8') as f:
-    nbf.write(nb, f) 
+with open("examples/dataset_recommendation.ipynb", "w", encoding="utf-8") as f:
+    nbf.write(nb, f)

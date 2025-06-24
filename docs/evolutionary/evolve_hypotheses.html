@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>evolutionary.evolve_hypotheses API documentation</title>
+<meta name="description" content="Evolutionary Algorithms for hypothesis generation and optimization.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>evolutionary.evolve_hypotheses</code></h1>
+</header>
+<section id="section-intro">
+<p>Evolutionary Algorithms for hypothesis generation and optimization.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator"><code class="flex name class">
+<span>class <span class="ident">EvolutionaryHypothesisGenerator</span></span>
+<span>(</span><span>papers_data: List[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EvolutionaryHypothesisGenerator:
+    &#34;&#34;&#34;Evolutionary algorithm for generating and optimizing hypotheses.&#34;&#34;&#34;
+    
+    def __init__(self, papers_data: List[Dict[str, Any]]):
+        self.papers = papers_data
+        self.embedding_model = ModelCache.get_sentence_transformer()
+        
+        # Extract components from papers
+        self.components = self._extract_components()
+        self.relationships = [&#34;improves&#34;, &#34;enhances&#34;, &#34;reduces&#34;, &#34;affects&#34;, &#34;influences&#34;, 
+                            &#34;correlates with&#34;, &#34;predicts&#34;, &#34;determines&#34;, &#34;enables&#34;, &#34;supports&#34;]
+        self.variables = [&#34;performance&#34;, &#34;accuracy&#34;, &#34;efficiency&#34;, &#34;robustness&#34;, 
+                         &#34;generalization&#34;, &#34;interpretability&#34;, &#34;scalability&#34;, &#34;reliability&#34;]
+        
+        # Initialize DEAP
+        self._setup_deap()
+    
+    def _extract_components(self) -&gt; List[str]:
+        &#34;&#34;&#34;Extract research components from papers.&#34;&#34;&#34;
+        components = set()
+        
+        for paper in self.papers:
+            insights = paper.get(&#39;insights&#39;, &#39;&#39;)
+            title = paper.get(&#39;title&#39;, &#39;&#39;)
+            
+            # Extract key terms
+            text = f&#34;{title} {insights}&#34;.lower()
+            
+            # Common AI/ML components
+            ai_components = [
+                &#34;neural networks&#34;, &#34;deep learning&#34;, &#34;machine learning&#34;, &#34;artificial intelligence&#34;,
+                &#34;reinforcement learning&#34;, &#34;natural language processing&#34;, &#34;computer vision&#34;,
+                &#34;robotics&#34;, &#34;optimization&#34;, &#34;data mining&#34;, &#34;pattern recognition&#34;,
+                &#34;knowledge representation&#34;, &#34;reasoning&#34;, &#34;planning&#34;, &#34;decision making&#34;
+            ]
+            
+            for component in ai_components:
+                if component in text:
+                    components.add(component)
+        
+        return list(components) if components else [&#34;neural networks&#34;, &#34;deep learning&#34;, &#34;machine learning&#34;]
+    
+    def _custom_mutator(self, individual: List[Any]) -&gt; Tuple[List[Any],]:
+        &#34;&#34;&#34;Custom mutation function to replace one part of the hypothesis.&#34;&#34;&#34;
+        index_to_mutate = random.randint(0, 2)
+        
+        if index_to_mutate == 0:
+            individual[0] = self.toolbox.component()
+        elif index_to_mutate == 1:
+            individual[1] = self.toolbox.relationship()
+        else:  # index_to_mutate == 2
+            individual[2] = self.toolbox.variable()
+            
+        return individual,
+
+    def _setup_deap(self):
+        &#34;&#34;&#34;Setup DEAP evolutionary algorithm framework.&#34;&#34;&#34;
+        # Create fitness class
+        if not hasattr(creator, &#34;FitnessMax&#34;):
+            creator.create(&#34;FitnessMax&#34;, base.Fitness, weights=(1.0,))
+        
+        # Create individual class
+        if not hasattr(creator, &#34;Individual&#34;):
+            creator.create(&#34;Individual&#34;, list, fitness=creator.FitnessMax)
+        
+        # Create toolbox
+        self.toolbox = base.Toolbox()
+        
+        # Attribute generators
+        self.toolbox.register(&#34;component&#34;, random.choice, self.components)
+        self.toolbox.register(&#34;relationship&#34;, random.choice, self.relationships)
+        self.toolbox.register(&#34;variable&#34;, random.choice, self.variables)
+        
+        # Structure initializers
+        self.toolbox.register(&#34;individual&#34;, tools.initCycle, creator.Individual,
+                            (self.toolbox.component, self.toolbox.relationship, self.toolbox.variable), n=1)
+        self.toolbox.register(&#34;population&#34;, tools.initRepeat, list, self.toolbox.individual)
+        
+        # Genetic operators
+        self.toolbox.register(&#34;evaluate&#34;, self._evaluate_hypothesis)
+        self.toolbox.register(&#34;mate&#34;, tools.cxTwoPoint)
+        self.toolbox.register(&#34;mutate&#34;, self._custom_mutator)
+        self.toolbox.register(&#34;select&#34;, tools.selTournament, tournsize=3)
+    
+    def _evaluate_hypothesis(self, individual) -&gt; Tuple[float]:
+        &#34;&#34;&#34;Evaluate the fitness of a hypothesis.&#34;&#34;&#34;
+        if not individual:
+            return (0.0,)
+        
+        # Create hypothesis string
+        hypothesis = f&#34;{individual[0]} {individual[1]} {individual[2]}.&#34;
+        
+        # Calculate fitness based on relevance to papers
+        fitness = self._calculate_relevance(hypothesis)
+        
+        return (fitness,)
+    
+    def _calculate_relevance(self, hypothesis: str) -&gt; float:
+        &#34;&#34;&#34;Calculate relevance of hypothesis to research papers.&#34;&#34;&#34;
+        if not self.papers:
+            return 0.5  # Default score
+        
+        # Encode hypothesis
+        hypothesis_embedding = self.embedding_model.encode([hypothesis])
+        
+        # Calculate similarity with all papers
+        similarities = []
+        for paper in self.papers:
+            paper_text = f&#34;{paper.get(&#39;title&#39;, &#39;&#39;)} {paper.get(&#39;insights&#39;, &#39;&#39;)}&#34;
+            if paper_text.strip():
+                paper_embedding = self.embedding_model.encode([paper_text])
+                similarity = np.dot(hypothesis_embedding[0], paper_embedding[0]) / (
+                    np.linalg.norm(hypothesis_embedding[0]) * np.linalg.norm(paper_embedding[0])
+                )
+                similarities.append(similarity)
+        
+        # Return average similarity
+        return np.mean(similarities) if similarities else 0.0
+    
+    def evolve_hypotheses(self, population_size: int = 50, generations: int = 20) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Evolve hypotheses using genetic algorithm.&#34;&#34;&#34;
+        # Create initial population
+        pop = self.toolbox.population(n=population_size)
+        
+        # Statistics
+        stats = tools.Statistics(lambda ind: ind.fitness.values)
+        stats.register(&#34;avg&#34;, np.mean)
+        stats.register(&#34;std&#34;, np.std)
+        stats.register(&#34;min&#34;, np.min)
+        stats.register(&#34;max&#34;, np.max)
+        
+        # Hall of fame
+        hof = tools.HallOfFame(10)
+        
+        # Run evolution
+        pop, logbook = algorithms.eaSimple(pop, self.toolbox, cxpb=0.7, mutpb=0.2, 
+                                         ngen=generations, stats=stats, halloffame=hof, verbose=True)
+        
+        # Convert results to readable format
+        evolved_hypotheses = []
+        for i, individual in enumerate(hof):
+            hypothesis = f&#34;{individual[0]} {individual[1]} {individual[2]}.&#34;
+            fitness = individual.fitness.values[0]
+            
+            evolved_hypotheses.append({
+                &#39;hypothesis&#39;: hypothesis,
+                &#39;fitness&#39;: fitness,
+                &#39;rank&#39;: i + 1,
+                &#39;components&#39;: list(individual)
+            })
+        
+        return evolved_hypotheses
+    
+    def generate_diverse_hypotheses(self, num_hypotheses: int = 10) -&gt; List[Dict[str, Any]]:
+        &#34;&#34;&#34;Generate diverse hypotheses using evolutionary approach.&#34;&#34;&#34;
+        # Run evolution
+        evolved = self.evolve_hypotheses(population_size=30, generations=15)
+        
+        # Add some random hypotheses for diversity
+        diverse_hypotheses = evolved[:num_hypotheses//2]
+        
+        for _ in range(num_hypotheses - len(diverse_hypotheses)):
+            component = random.choice(self.components)
+            relationship = random.choice(self.relationships)
+            variable = random.choice(self.variables)
+            
+            hypothesis = f&#34;{component} {relationship} {variable}.&#34;
+            fitness = self._calculate_relevance(hypothesis)
+            
+            diverse_hypotheses.append({
+                &#39;hypothesis&#39;: hypothesis,
+                &#39;fitness&#39;: fitness,
+                &#39;rank&#39;: len(diverse_hypotheses) + 1,
+                &#39;components&#39;: [component, relationship, variable]
+            })
+        
+        # Sort by fitness
+        diverse_hypotheses.sort(key=lambda x: x[&#39;fitness&#39;], reverse=True)
+        
+        return diverse_hypotheses
+    
+    def optimize_hypothesis(self, initial_hypothesis: str, iterations: int = 100) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Optimize a specific hypothesis using evolutionary approach.&#34;&#34;&#34;
+        # Parse initial hypothesis
+        words = initial_hypothesis.split()
+        if len(words) &lt; 3:
+            return {&#39;hypothesis&#39;: initial_hypothesis, &#39;fitness&#39;: 0.0, &#39;optimized&#39;: False}
+        
+        # Create initial individual
+        initial_individual = creator.Individual([words[0], words[1], words[2]])
+        
+        # Setup optimization
+        self.toolbox.register(&#34;evaluate&#34;, self._evaluate_hypothesis)
+        
+        # Run optimization
+        best_individual = initial_individual
+        best_fitness = self.toolbox.evaluate(initial_individual)[0]
+        
+        for _ in range(iterations):
+            # Create offspring
+            offspring = self.toolbox.clone(best_individual)
+            
+            # Mutate
+            self.toolbox.mutate(offspring)
+            
+            # Evaluate
+            fitness = self.toolbox.evaluate(offspring)[0]
+            
+            # Update if better
+            if fitness &gt; best_fitness:
+                best_individual = offspring
+                best_fitness = fitness
+        
+        optimized_hypothesis = f&#34;{best_individual[0]} {best_individual[1]} {best_individual[2]}.&#34;
+        
+        return {
+            &#39;original_hypothesis&#39;: initial_hypothesis,
+            &#39;optimized_hypothesis&#39;: optimized_hypothesis,
+            &#39;original_fitness&#39;: self._evaluate_hypothesis(initial_individual)[0],
+            &#39;optimized_fitness&#39;: best_fitness,
+            &#39;improvement&#39;: best_fitness - self._evaluate_hypothesis(initial_individual)[0],
+            &#39;optimized&#39;: True
+        }
+    
+    def save_results(self, hypotheses: List[Dict[str, Any]], filename: str = &#34;evolved_hypotheses.json&#34;):
+        &#34;&#34;&#34;Save evolved hypotheses to file.&#34;&#34;&#34;
+        Path(&#34;results&#34;).mkdir(exist_ok=True)
+        filepath = Path(&#34;results&#34;) / filename
+        
+        with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            json.dump(hypotheses, f, indent=2, ensure_ascii=False)
+        
+        print(f&#34;✅ Saved {len(hypotheses)} evolved hypotheses to {filepath}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Evolutionary algorithm for generating and optimizing hypotheses.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.evolve_hypotheses"><code class="name flex">
+<span>def <span class="ident">evolve_hypotheses</span></span>(<span>self, population_size: int = 50, generations: int = 20) ‑> List[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def evolve_hypotheses(self, population_size: int = 50, generations: int = 20) -&gt; List[Dict[str, Any]]:
+    &#34;&#34;&#34;Evolve hypotheses using genetic algorithm.&#34;&#34;&#34;
+    # Create initial population
+    pop = self.toolbox.population(n=population_size)
+    
+    # Statistics
+    stats = tools.Statistics(lambda ind: ind.fitness.values)
+    stats.register(&#34;avg&#34;, np.mean)
+    stats.register(&#34;std&#34;, np.std)
+    stats.register(&#34;min&#34;, np.min)
+    stats.register(&#34;max&#34;, np.max)
+    
+    # Hall of fame
+    hof = tools.HallOfFame(10)
+    
+    # Run evolution
+    pop, logbook = algorithms.eaSimple(pop, self.toolbox, cxpb=0.7, mutpb=0.2, 
+                                     ngen=generations, stats=stats, halloffame=hof, verbose=True)
+    
+    # Convert results to readable format
+    evolved_hypotheses = []
+    for i, individual in enumerate(hof):
+        hypothesis = f&#34;{individual[0]} {individual[1]} {individual[2]}.&#34;
+        fitness = individual.fitness.values[0]
+        
+        evolved_hypotheses.append({
+            &#39;hypothesis&#39;: hypothesis,
+            &#39;fitness&#39;: fitness,
+            &#39;rank&#39;: i + 1,
+            &#39;components&#39;: list(individual)
+        })
+    
+    return evolved_hypotheses</code></pre>
+</details>
+<div class="desc"><p>Evolve hypotheses using genetic algorithm.</p></div>
+</dd>
+<dt id="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.generate_diverse_hypotheses"><code class="name flex">
+<span>def <span class="ident">generate_diverse_hypotheses</span></span>(<span>self, num_hypotheses: int = 10) ‑> List[Dict[str, Any]]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_diverse_hypotheses(self, num_hypotheses: int = 10) -&gt; List[Dict[str, Any]]:
+    &#34;&#34;&#34;Generate diverse hypotheses using evolutionary approach.&#34;&#34;&#34;
+    # Run evolution
+    evolved = self.evolve_hypotheses(population_size=30, generations=15)
+    
+    # Add some random hypotheses for diversity
+    diverse_hypotheses = evolved[:num_hypotheses//2]
+    
+    for _ in range(num_hypotheses - len(diverse_hypotheses)):
+        component = random.choice(self.components)
+        relationship = random.choice(self.relationships)
+        variable = random.choice(self.variables)
+        
+        hypothesis = f&#34;{component} {relationship} {variable}.&#34;
+        fitness = self._calculate_relevance(hypothesis)
+        
+        diverse_hypotheses.append({
+            &#39;hypothesis&#39;: hypothesis,
+            &#39;fitness&#39;: fitness,
+            &#39;rank&#39;: len(diverse_hypotheses) + 1,
+            &#39;components&#39;: [component, relationship, variable]
+        })
+    
+    # Sort by fitness
+    diverse_hypotheses.sort(key=lambda x: x[&#39;fitness&#39;], reverse=True)
+    
+    return diverse_hypotheses</code></pre>
+</details>
+<div class="desc"><p>Generate diverse hypotheses using evolutionary approach.</p></div>
+</dd>
+<dt id="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.optimize_hypothesis"><code class="name flex">
+<span>def <span class="ident">optimize_hypothesis</span></span>(<span>self, initial_hypothesis: str, iterations: int = 100) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def optimize_hypothesis(self, initial_hypothesis: str, iterations: int = 100) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Optimize a specific hypothesis using evolutionary approach.&#34;&#34;&#34;
+    # Parse initial hypothesis
+    words = initial_hypothesis.split()
+    if len(words) &lt; 3:
+        return {&#39;hypothesis&#39;: initial_hypothesis, &#39;fitness&#39;: 0.0, &#39;optimized&#39;: False}
+    
+    # Create initial individual
+    initial_individual = creator.Individual([words[0], words[1], words[2]])
+    
+    # Setup optimization
+    self.toolbox.register(&#34;evaluate&#34;, self._evaluate_hypothesis)
+    
+    # Run optimization
+    best_individual = initial_individual
+    best_fitness = self.toolbox.evaluate(initial_individual)[0]
+    
+    for _ in range(iterations):
+        # Create offspring
+        offspring = self.toolbox.clone(best_individual)
+        
+        # Mutate
+        self.toolbox.mutate(offspring)
+        
+        # Evaluate
+        fitness = self.toolbox.evaluate(offspring)[0]
+        
+        # Update if better
+        if fitness &gt; best_fitness:
+            best_individual = offspring
+            best_fitness = fitness
+    
+    optimized_hypothesis = f&#34;{best_individual[0]} {best_individual[1]} {best_individual[2]}.&#34;
+    
+    return {
+        &#39;original_hypothesis&#39;: initial_hypothesis,
+        &#39;optimized_hypothesis&#39;: optimized_hypothesis,
+        &#39;original_fitness&#39;: self._evaluate_hypothesis(initial_individual)[0],
+        &#39;optimized_fitness&#39;: best_fitness,
+        &#39;improvement&#39;: best_fitness - self._evaluate_hypothesis(initial_individual)[0],
+        &#39;optimized&#39;: True
+    }</code></pre>
+</details>
+<div class="desc"><p>Optimize a specific hypothesis using evolutionary approach.</p></div>
+</dd>
+<dt id="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.save_results"><code class="name flex">
+<span>def <span class="ident">save_results</span></span>(<span>self,<br>hypotheses: List[Dict[str, Any]],<br>filename: str = 'evolved_hypotheses.json')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_results(self, hypotheses: List[Dict[str, Any]], filename: str = &#34;evolved_hypotheses.json&#34;):
+    &#34;&#34;&#34;Save evolved hypotheses to file.&#34;&#34;&#34;
+    Path(&#34;results&#34;).mkdir(exist_ok=True)
+    filepath = Path(&#34;results&#34;) / filename
+    
+    with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        json.dump(hypotheses, f, indent=2, ensure_ascii=False)
+    
+    print(f&#34;✅ Saved {len(hypotheses)} evolved hypotheses to {filepath}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Save evolved hypotheses to file.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="evolutionary.evolve_hypotheses.HypothesisGene"><code class="flex name class">
+<span>class <span class="ident">HypothesisGene</span></span>
+<span>(</span><span>components: List[str], relationships: List[str], variables: List[str])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HypothesisGene:
+    &#34;&#34;&#34;Represents a hypothesis gene in the evolutionary algorithm.&#34;&#34;&#34;
+    
+    def __init__(self, components: List[str], relationships: List[str], variables: List[str]):
+        self.components = components
+        self.relationships = relationships
+        self.variables = variables
+    
+    def to_string(self) -&gt; str:
+        &#34;&#34;&#34;Convert gene to hypothesis string.&#34;&#34;&#34;
+        if not self.components or not self.relationships or not self.variables:
+            return &#34;Insufficient components for hypothesis generation.&#34;
+        
+        component = random.choice(self.components)
+        relationship = random.choice(self.relationships)
+        variable = random.choice(self.variables)
+        
+        return f&#34;{component} {relationship} {variable}.&#34;
+    
+    def mutate(self, mutation_rate: float = 0.1):
+        &#34;&#34;&#34;Mutate the hypothesis gene.&#34;&#34;&#34;
+        if random.random() &lt; mutation_rate:
+            # Add new component
+            new_components = [&#34;neural networks&#34;, &#34;deep learning&#34;, &#34;reinforcement learning&#34;, 
+                            &#34;natural language processing&#34;, &#34;computer vision&#34;, &#34;robotics&#34;]
+            self.components.append(random.choice(new_components))
+        
+        if random.random() &lt; mutation_rate:
+            # Add new relationship
+            new_relationships = [&#34;improves&#34;, &#34;enhances&#34;, &#34;reduces&#34;, &#34;affects&#34;, &#34;influences&#34;, 
+                               &#34;correlates with&#34;, &#34;predicts&#34;, &#34;determines&#34;]
+            self.relationships.append(random.choice(new_relationships))
+        
+        if random.random() &lt; mutation_rate:
+            # Add new variable
+            new_variables = [&#34;performance&#34;, &#34;accuracy&#34;, &#34;efficiency&#34;, &#34;robustness&#34;, 
+                           &#34;generalization&#34;, &#34;interpretability&#34;, &#34;scalability&#34;]
+            self.variables.append(random.choice(new_variables))</code></pre>
+</details>
+<div class="desc"><p>Represents a hypothesis gene in the evolutionary algorithm.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="evolutionary.evolve_hypotheses.HypothesisGene.mutate"><code class="name flex">
+<span>def <span class="ident">mutate</span></span>(<span>self, mutation_rate: float = 0.1)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mutate(self, mutation_rate: float = 0.1):
+    &#34;&#34;&#34;Mutate the hypothesis gene.&#34;&#34;&#34;
+    if random.random() &lt; mutation_rate:
+        # Add new component
+        new_components = [&#34;neural networks&#34;, &#34;deep learning&#34;, &#34;reinforcement learning&#34;, 
+                        &#34;natural language processing&#34;, &#34;computer vision&#34;, &#34;robotics&#34;]
+        self.components.append(random.choice(new_components))
+    
+    if random.random() &lt; mutation_rate:
+        # Add new relationship
+        new_relationships = [&#34;improves&#34;, &#34;enhances&#34;, &#34;reduces&#34;, &#34;affects&#34;, &#34;influences&#34;, 
+                           &#34;correlates with&#34;, &#34;predicts&#34;, &#34;determines&#34;]
+        self.relationships.append(random.choice(new_relationships))
+    
+    if random.random() &lt; mutation_rate:
+        # Add new variable
+        new_variables = [&#34;performance&#34;, &#34;accuracy&#34;, &#34;efficiency&#34;, &#34;robustness&#34;, 
+                       &#34;generalization&#34;, &#34;interpretability&#34;, &#34;scalability&#34;]
+        self.variables.append(random.choice(new_variables))</code></pre>
+</details>
+<div class="desc"><p>Mutate the hypothesis gene.</p></div>
+</dd>
+<dt id="evolutionary.evolve_hypotheses.HypothesisGene.to_string"><code class="name flex">
+<span>def <span class="ident">to_string</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_string(self) -&gt; str:
+    &#34;&#34;&#34;Convert gene to hypothesis string.&#34;&#34;&#34;
+    if not self.components or not self.relationships or not self.variables:
+        return &#34;Insufficient components for hypothesis generation.&#34;
+    
+    component = random.choice(self.components)
+    relationship = random.choice(self.relationships)
+    variable = random.choice(self.variables)
+    
+    return f&#34;{component} {relationship} {variable}.&#34;</code></pre>
+</details>
+<div class="desc"><p>Convert gene to hypothesis string.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="evolutionary" href="index.html">evolutionary</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator" href="#evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator">EvolutionaryHypothesisGenerator</a></code></h4>
+<ul class="">
+<li><code><a title="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.evolve_hypotheses" href="#evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.evolve_hypotheses">evolve_hypotheses</a></code></li>
+<li><code><a title="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.generate_diverse_hypotheses" href="#evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.generate_diverse_hypotheses">generate_diverse_hypotheses</a></code></li>
+<li><code><a title="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.optimize_hypothesis" href="#evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.optimize_hypothesis">optimize_hypothesis</a></code></li>
+<li><code><a title="evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.save_results" href="#evolutionary.evolve_hypotheses.EvolutionaryHypothesisGenerator.save_results">save_results</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="evolutionary.evolve_hypotheses.HypothesisGene" href="#evolutionary.evolve_hypotheses.HypothesisGene">HypothesisGene</a></code></h4>
+<ul class="">
+<li><code><a title="evolutionary.evolve_hypotheses.HypothesisGene.mutate" href="#evolutionary.evolve_hypotheses.HypothesisGene.mutate">mutate</a></code></li>
+<li><code><a title="evolutionary.evolve_hypotheses.HypothesisGene.to_string" href="#evolutionary.evolve_hypotheses.HypothesisGene.to_string">to_string</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

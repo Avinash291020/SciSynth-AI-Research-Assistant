@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>agents.orchestrator API documentation</title>
+<meta name="description" content="Orchestrator for coordinating all AI systems in the research assistant.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>agents.orchestrator</code></h1>
+</header>
+<section id="section-intro">
+<p>Orchestrator for coordinating all AI systems in the research assistant.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="agents.orchestrator.ResearchOrchestrator"><code class="flex name class">
+<span>class <span class="ident">ResearchOrchestrator</span></span>
+<span>(</span><span>papers_data: List[Dict[str, Any]])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResearchOrchestrator:
+    &#34;&#34;&#34;Main orchestrator that coordinates all AI systems.&#34;&#34;&#34;
+    
+    def __init__(self, papers_data: List[Dict[str, Any]]):
+        self.papers = papers_data
+        self.generator = ModelCache.get_text_generator()
+        
+        # Initialize all AI systems
+        self.rag_system = RAGSystem()
+        self.rl_recommender = RLPaperRecommender(papers_data)
+        self.evo_generator = EvolutionaryHypothesisGenerator(papers_data)
+        self.cognitive_planner = CognitivePlanner(papers_data)
+        
+        # System status
+        self.systems_status = {
+            &#34;rag&#34;: &#34;initialized&#34;,
+            &#34;rl&#34;: &#34;initialized&#34;, 
+            &#34;evolutionary&#34;: &#34;initialized&#34;,
+            &#34;cognitive_planner&#34;: &#34;initialized&#34;
+        }
+        
+        # Setup logger first
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
+        
+        # Initialize systems
+        self._initialize_systems()
+    
+    def _initialize_systems(self):
+        &#34;&#34;&#34;Initialize all AI systems.&#34;&#34;&#34;
+        try:
+            # Initialize RAG with papers
+            self.rag_system.add_papers_to_index(self.papers)
+            self.systems_status[&#34;rag&#34;] = &#34;ready&#34;
+            self.logger.info(&#34;✅ RAG system initialized&#34;)
+            
+            # RL system is ready (no training needed initially)
+            self.systems_status[&#34;rl&#34;] = &#34;ready&#34;
+            self.logger.info(&#34;✅ RL system initialized&#34;)
+            
+            # Evolutionary system is ready
+            self.systems_status[&#34;evolutionary&#34;] = &#34;ready&#34;
+            self.logger.info(&#34;✅ Evolutionary system initialized&#34;)
+            
+            # Cognitive planner is ready
+            self.systems_status[&#34;cognitive_planner&#34;] = &#34;ready&#34;
+            self.logger.info(&#34;✅ Cognitive planner initialized&#34;)
+            
+        except Exception as e:
+            self.logger.error(f&#34;Error initializing systems: {str(e)}&#34;)
+    
+    def comprehensive_research_analysis(self, research_question: str) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Perform comprehensive research analysis using all AI systems.&#34;&#34;&#34;
+        self.logger.info(f&#34;Starting comprehensive analysis for: {research_question}&#34;)
+        
+        results = {
+            &#34;research_question&#34;: research_question,
+            &#34;timestamp&#34;: datetime.now().isoformat(),
+            &#34;systems_used&#34;: list(self.systems_status.keys()),
+            &#34;analysis_results&#34;: {}
+        }
+        
+        # 1. RAG-based literature review
+        try:
+            rag_results = self.rag_system.answer_question(research_question, top_k=5)
+            results[&#34;analysis_results&#34;][&#34;rag_literature_review&#34;] = {
+                &#34;answer&#34;: rag_results[&#34;answer&#34;],
+                &#34;papers_retrieved&#34;: rag_results[&#34;num_papers_retrieved&#34;],
+                &#34;relevant_papers&#34;: [p[&#34;metadata&#34;][&#34;paper_name&#34;] for p in rag_results[&#34;relevant_papers&#34;]]
+            }
+            self.logger.info(&#34;✅ RAG literature review completed&#34;)
+        except Exception as e:
+            self.logger.error(f&#34;RAG error: {str(e)}&#34;)
+            results[&#34;analysis_results&#34;][&#34;rag_literature_review&#34;] = {&#34;error&#34;: str(e)}
+        
+        # 2. RL-based paper recommendations
+        try:
+            recommendations = self.rl_recommender.recommend_papers(num_recommendations=5)
+            results[&#34;analysis_results&#34;][&#34;rl_recommendations&#34;] = {
+                &#34;recommendations&#34;: recommendations,
+                &#34;recommendation_method&#34;: &#34;reinforcement_learning&#34;
+            }
+            self.logger.info(&#34;✅ RL recommendations completed&#34;)
+        except Exception as e:
+            self.logger.error(f&#34;RL error: {str(e)}&#34;)
+            results[&#34;analysis_results&#34;][&#34;rl_recommendations&#34;] = {&#34;error&#34;: str(e)}
+        
+        # 3. Evolutionary hypothesis generation
+        try:
+            hypotheses = self.evo_generator.generate_diverse_hypotheses(num_hypotheses=8)
+            results[&#34;analysis_results&#34;][&#34;evolutionary_hypotheses&#34;] = {
+                &#34;hypotheses&#34;: hypotheses[:5],  # Top 5
+                &#34;total_generated&#34;: len(hypotheses),
+                &#34;method&#34;: &#34;evolutionary_algorithm&#34;
+            }
+            self.logger.info(&#34;✅ Evolutionary hypothesis generation completed&#34;)
+        except Exception as e:
+            self.logger.error(f&#34;Evolutionary error: {str(e)}&#34;)
+            results[&#34;analysis_results&#34;][&#34;evolutionary_hypotheses&#34;] = {&#34;error&#34;: str(e)}
+        
+        # 4. Cognitive planning and synthesis
+        try:
+            cognitive_results = self.cognitive_planner.plan_research_task(research_question)
+            results[&#34;analysis_results&#34;][&#34;cognitive_planning&#34;] = {
+                &#34;task_results&#34;: cognitive_results[&#34;results&#34;],
+                &#34;plan_executed&#34;: cognitive_results[&#34;plan&#34;],
+                &#34;method&#34;: &#34;autonomous_cognitive_planning&#34;
+            }
+            self.logger.info(&#34;✅ Cognitive planning completed&#34;)
+        except Exception as e:
+            self.logger.error(f&#34;Cognitive planning error: {str(e)}&#34;)
+            results[&#34;analysis_results&#34;][&#34;cognitive_planning&#34;] = {&#34;error&#34;: str(e)}
+        
+        # 5. Generate final synthesis
+        try:
+            final_synthesis = self._generate_final_synthesis(results[&#34;analysis_results&#34;])
+            results[&#34;final_synthesis&#34;] = final_synthesis
+            self.logger.info(&#34;✅ Final synthesis completed&#34;)
+        except Exception as e:
+            self.logger.error(f&#34;Synthesis error: {str(e)}&#34;)
+            results[&#34;final_synthesis&#34;] = {&#34;error&#34;: str(e)}
+        
+        return results
+    
+    def _generate_final_synthesis(self, analysis_results: Dict[str, Any]) -&gt; Dict[str, Any]:
+        synthesis_prompt = &#34;&#34;&#34;Synthesize the following research analysis results:
+
+1. RAG Literature Review: {rag_review}
+2. RL Recommendations: {rl_recs}
+3. Evolutionary Hypotheses: {evo_hypotheses}
+4. Cognitive Planning: {cognitive_results}
+
+Generate a comprehensive synthesis that includes:
+- Key findings and insights
+- Research gaps and opportunities
+- Future research directions
+- Practical recommendations
+- Confidence levels in different findings
+
+Final Synthesis:&#34;&#34;&#34;
+        rag_review = analysis_results.get(&#34;rag_literature_review&#34;, {}).get(&#34;answer&#34;, &#34;No RAG results available&#34;)
+        rl_recs = str(analysis_results.get(&#34;rl_recommendations&#34;, {}).get(&#34;recommendations&#34;, []))
+        evo_hypotheses = str(analysis_results.get(&#34;evolutionary_hypotheses&#34;, {}).get(&#34;hypotheses&#34;, []))
+        cognitive_results = str(analysis_results.get(&#34;cognitive_planning&#34;, {}).get(&#34;task_results&#34;, {}))
+        full_prompt = synthesis_prompt.format(
+            rag_review=rag_review[:300],
+            rl_recs=rl_recs[:200],
+            evo_hypotheses=evo_hypotheses[:200],
+            cognitive_results=cognitive_results[:200]
+        )
+        synthesis = self.generator(
+            full_prompt,
+            max_length=800,
+            num_return_sequences=1,
+            temperature=0.7
+        )[0][&#39;generated_text&#39;]
+        return {
+            &#34;synthesis&#34;: synthesis,
+            &#34;synthesis_method&#34;: &#34;multi_ai_system_integration&#34;,
+            &#34;confidence&#34;: &#34;high&#34;,
+            &#34;systems_integrated&#34;: len(analysis_results)
+        }
+    
+    def get_system_status(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Get status of all AI systems.&#34;&#34;&#34;
+        return {
+            &#34;systems_status&#34;: self.systems_status,
+            &#34;total_papers&#34;: len(self.papers),
+            &#34;orchestrator_status&#34;: &#34;active&#34;,
+            &#34;last_updated&#34;: datetime.now().isoformat()
+        }
+    
+    def train_rl_system(self, episodes: int = 50) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Train the RL recommendation system.&#34;&#34;&#34;
+        try:
+            self.logger.info(&#34;Training RL system...&#34;)
+            scores = self.rl_recommender.train(episodes=episodes)
+            
+            # Save trained model
+            self.rl_recommender.save_model()
+            
+            return {
+                &#34;training_completed&#34;: True,
+                &#34;episodes&#34;: episodes,
+                &#34;final_score&#34;: scores[-1] if scores else 0,
+                &#34;average_score&#34;: sum(scores) / len(scores) if scores else 0,
+                &#34;model_saved&#34;: True
+            }
+        except Exception as e:
+            self.logger.error(f&#34;RL training error: {str(e)}&#34;)
+            return {&#34;training_completed&#34;: False, &#34;error&#34;: str(e)}
+    
+    def ask_question(self, question: str, use_all_systems: bool = True) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Ask a question using the orchestrator.&#34;&#34;&#34;
+        if use_all_systems:
+            return self.comprehensive_research_analysis(question)
+        else:
+            # Use only RAG for simple questions
+            return {
+                &#34;question&#34;: question,
+                &#34;answer&#34;: self.rag_system.answer_question(question),
+                &#34;method&#34;: &#34;rag_only&#34;
+            }
+    
+    def generate_research_report(self, topic: str) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Generate a comprehensive research report.&#34;&#34;&#34;
+        self.logger.info(f&#34;Generating research report for: {topic}&#34;)
+        
+        # Perform comprehensive analysis
+        analysis = self.comprehensive_research_analysis(topic)
+        
+        # Generate report structure
+        report = {
+            &#34;title&#34;: f&#34;Research Report: {topic}&#34;,
+            &#34;generated_at&#34;: datetime.now().isoformat(),
+            &#34;executive_summary&#34;: analysis[&#34;final_synthesis&#34;][&#34;synthesis&#34;][:500] + &#34;...&#34;,
+            &#34;sections&#34;: {
+                &#34;literature_review&#34;: analysis[&#34;analysis_results&#34;].get(&#34;rag_literature_review&#34;, {}),
+                &#34;recommendations&#34;: analysis[&#34;analysis_results&#34;].get(&#34;rl_recommendations&#34;, {}),
+                &#34;hypotheses&#34;: analysis[&#34;analysis_results&#34;].get(&#34;evolutionary_hypotheses&#34;, {}),
+                &#34;research_plan&#34;: analysis[&#34;analysis_results&#34;].get(&#34;cognitive_planning&#34;, {}),
+                &#34;synthesis&#34;: analysis[&#34;final_synthesis&#34;]
+            },
+            &#34;methodology&#34;: {
+                &#34;rag_system&#34;: &#34;Retrieval-Augmented Generation for literature review&#34;,
+                &#34;rl_system&#34;: &#34;Reinforcement Learning for paper recommendations&#34;,
+                &#34;evolutionary_system&#34;: &#34;Evolutionary Algorithms for hypothesis generation&#34;,
+                &#34;cognitive_system&#34;: &#34;Autonomous cognitive planning and synthesis&#34;
+            }
+        }
+        
+        return report
+    
+    def save_results(self, results: Dict[str, Any], filename: str = &#34;orchestrator_results.json&#34;):
+        &#34;&#34;&#34;Save orchestrator results to file.&#34;&#34;&#34;
+        Path(&#34;results&#34;).mkdir(exist_ok=True)
+        filepath = Path(&#34;results&#34;) / filename
+        
+        with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        
+        self.logger.info(f&#34;✅ Saved orchestrator results to {filepath}&#34;)
+    
+    def get_ai_capabilities_summary(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;Get summary of all AI capabilities.&#34;&#34;&#34;
+        return {
+            &#34;generative_ai&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;text generation&#34;, &#34;hypothesis generation&#34;, &#34;synthesis&#34;],
+                &#34;models&#34;: [&#34;T5&#34;, &#34;Sentence Transformers&#34;]
+            },
+            &#34;agentic_ai&#34;: {
+                &#34;status&#34;: &#34;active&#34;, 
+                &#34;capabilities&#34;: [&#34;autonomous planning&#34;, &#34;task execution&#34;, &#34;goal-oriented behavior&#34;],
+                &#34;components&#34;: [&#34;cognitive planner&#34;, &#34;orchestrator&#34;]
+            },
+            &#34;rag&#34;: {
+                &#34;status&#34;: self.systems_status[&#34;rag&#34;],
+                &#34;capabilities&#34;: [&#34;document retrieval&#34;, &#34;contextual generation&#34;, &#34;question answering&#34;],
+                &#34;database&#34;: &#34;ChromaDB&#34;
+            },
+            &#34;symbolic_ai&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;rule-based reasoning&#34;, &#34;logical inference&#34;, &#34;structured analysis&#34;],
+                &#34;components&#34;: [&#34;citation extraction&#34;, &#34;network analysis&#34;]
+            },
+            &#34;neuro_symbolic_ai&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;neural-symbolic integration&#34;, &#34;hybrid reasoning&#34;],
+                &#34;components&#34;: [&#34;RAG + symbolic rules&#34;, &#34;neural embeddings + logical analysis&#34;]
+            },
+            &#34;machine_learning&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;supervised learning&#34;, &#34;unsupervised learning&#34;, &#34;embedding generation&#34;],
+                &#34;models&#34;: [&#34;Sentence Transformers&#34;, &#34;scikit-learn&#34;]
+            },
+            &#34;deep_learning&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;neural networks&#34;, &#34;transformers&#34;, &#34;deep representations&#34;],
+                &#34;models&#34;: [&#34;T5&#34;, &#34;Sentence Transformers&#34;, &#34;PyTorch&#34;]
+            },
+            &#34;reinforcement_learning&#34;: {
+                &#34;status&#34;: self.systems_status[&#34;rl&#34;],
+                &#34;capabilities&#34;: [&#34;Q-learning&#34;, &#34;policy optimization&#34;, &#34;recommendation systems&#34;],
+                &#34;components&#34;: [&#34;DQN agent&#34;, &#34;paper recommendation&#34;]
+            },
+            &#34;evolutionary_algorithms&#34;: {
+                &#34;status&#34;: self.systems_status[&#34;evolutionary&#34;],
+                &#34;capabilities&#34;: [&#34;genetic algorithms&#34;, &#34;hypothesis evolution&#34;, &#34;optimization&#34;],
+                &#34;components&#34;: [&#34;DEAP framework&#34;, &#34;hypothesis generation&#34;]
+            },
+            &#34;llm&#34;: {
+                &#34;status&#34;: &#34;active&#34;,
+                &#34;capabilities&#34;: [&#34;text generation&#34;, &#34;comprehension&#34;, &#34;reasoning&#34;],
+                &#34;models&#34;: [&#34;T5&#34;, &#34;local transformers&#34;]
+            }
+        }</code></pre>
+</details>
+<div class="desc"><p>Main orchestrator that coordinates all AI systems.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="agents.orchestrator.ResearchOrchestrator.ask_question"><code class="name flex">
+<span>def <span class="ident">ask_question</span></span>(<span>self, question: str, use_all_systems: bool = True) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ask_question(self, question: str, use_all_systems: bool = True) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Ask a question using the orchestrator.&#34;&#34;&#34;
+    if use_all_systems:
+        return self.comprehensive_research_analysis(question)
+    else:
+        # Use only RAG for simple questions
+        return {
+            &#34;question&#34;: question,
+            &#34;answer&#34;: self.rag_system.answer_question(question),
+            &#34;method&#34;: &#34;rag_only&#34;
+        }</code></pre>
+</details>
+<div class="desc"><p>Ask a question using the orchestrator.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.comprehensive_research_analysis"><code class="name flex">
+<span>def <span class="ident">comprehensive_research_analysis</span></span>(<span>self, research_question: str) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def comprehensive_research_analysis(self, research_question: str) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Perform comprehensive research analysis using all AI systems.&#34;&#34;&#34;
+    self.logger.info(f&#34;Starting comprehensive analysis for: {research_question}&#34;)
+    
+    results = {
+        &#34;research_question&#34;: research_question,
+        &#34;timestamp&#34;: datetime.now().isoformat(),
+        &#34;systems_used&#34;: list(self.systems_status.keys()),
+        &#34;analysis_results&#34;: {}
+    }
+    
+    # 1. RAG-based literature review
+    try:
+        rag_results = self.rag_system.answer_question(research_question, top_k=5)
+        results[&#34;analysis_results&#34;][&#34;rag_literature_review&#34;] = {
+            &#34;answer&#34;: rag_results[&#34;answer&#34;],
+            &#34;papers_retrieved&#34;: rag_results[&#34;num_papers_retrieved&#34;],
+            &#34;relevant_papers&#34;: [p[&#34;metadata&#34;][&#34;paper_name&#34;] for p in rag_results[&#34;relevant_papers&#34;]]
+        }
+        self.logger.info(&#34;✅ RAG literature review completed&#34;)
+    except Exception as e:
+        self.logger.error(f&#34;RAG error: {str(e)}&#34;)
+        results[&#34;analysis_results&#34;][&#34;rag_literature_review&#34;] = {&#34;error&#34;: str(e)}
+    
+    # 2. RL-based paper recommendations
+    try:
+        recommendations = self.rl_recommender.recommend_papers(num_recommendations=5)
+        results[&#34;analysis_results&#34;][&#34;rl_recommendations&#34;] = {
+            &#34;recommendations&#34;: recommendations,
+            &#34;recommendation_method&#34;: &#34;reinforcement_learning&#34;
+        }
+        self.logger.info(&#34;✅ RL recommendations completed&#34;)
+    except Exception as e:
+        self.logger.error(f&#34;RL error: {str(e)}&#34;)
+        results[&#34;analysis_results&#34;][&#34;rl_recommendations&#34;] = {&#34;error&#34;: str(e)}
+    
+    # 3. Evolutionary hypothesis generation
+    try:
+        hypotheses = self.evo_generator.generate_diverse_hypotheses(num_hypotheses=8)
+        results[&#34;analysis_results&#34;][&#34;evolutionary_hypotheses&#34;] = {
+            &#34;hypotheses&#34;: hypotheses[:5],  # Top 5
+            &#34;total_generated&#34;: len(hypotheses),
+            &#34;method&#34;: &#34;evolutionary_algorithm&#34;
+        }
+        self.logger.info(&#34;✅ Evolutionary hypothesis generation completed&#34;)
+    except Exception as e:
+        self.logger.error(f&#34;Evolutionary error: {str(e)}&#34;)
+        results[&#34;analysis_results&#34;][&#34;evolutionary_hypotheses&#34;] = {&#34;error&#34;: str(e)}
+    
+    # 4. Cognitive planning and synthesis
+    try:
+        cognitive_results = self.cognitive_planner.plan_research_task(research_question)
+        results[&#34;analysis_results&#34;][&#34;cognitive_planning&#34;] = {
+            &#34;task_results&#34;: cognitive_results[&#34;results&#34;],
+            &#34;plan_executed&#34;: cognitive_results[&#34;plan&#34;],
+            &#34;method&#34;: &#34;autonomous_cognitive_planning&#34;
+        }
+        self.logger.info(&#34;✅ Cognitive planning completed&#34;)
+    except Exception as e:
+        self.logger.error(f&#34;Cognitive planning error: {str(e)}&#34;)
+        results[&#34;analysis_results&#34;][&#34;cognitive_planning&#34;] = {&#34;error&#34;: str(e)}
+    
+    # 5. Generate final synthesis
+    try:
+        final_synthesis = self._generate_final_synthesis(results[&#34;analysis_results&#34;])
+        results[&#34;final_synthesis&#34;] = final_synthesis
+        self.logger.info(&#34;✅ Final synthesis completed&#34;)
+    except Exception as e:
+        self.logger.error(f&#34;Synthesis error: {str(e)}&#34;)
+        results[&#34;final_synthesis&#34;] = {&#34;error&#34;: str(e)}
+    
+    return results</code></pre>
+</details>
+<div class="desc"><p>Perform comprehensive research analysis using all AI systems.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.generate_research_report"><code class="name flex">
+<span>def <span class="ident">generate_research_report</span></span>(<span>self, topic: str) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_research_report(self, topic: str) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Generate a comprehensive research report.&#34;&#34;&#34;
+    self.logger.info(f&#34;Generating research report for: {topic}&#34;)
+    
+    # Perform comprehensive analysis
+    analysis = self.comprehensive_research_analysis(topic)
+    
+    # Generate report structure
+    report = {
+        &#34;title&#34;: f&#34;Research Report: {topic}&#34;,
+        &#34;generated_at&#34;: datetime.now().isoformat(),
+        &#34;executive_summary&#34;: analysis[&#34;final_synthesis&#34;][&#34;synthesis&#34;][:500] + &#34;...&#34;,
+        &#34;sections&#34;: {
+            &#34;literature_review&#34;: analysis[&#34;analysis_results&#34;].get(&#34;rag_literature_review&#34;, {}),
+            &#34;recommendations&#34;: analysis[&#34;analysis_results&#34;].get(&#34;rl_recommendations&#34;, {}),
+            &#34;hypotheses&#34;: analysis[&#34;analysis_results&#34;].get(&#34;evolutionary_hypotheses&#34;, {}),
+            &#34;research_plan&#34;: analysis[&#34;analysis_results&#34;].get(&#34;cognitive_planning&#34;, {}),
+            &#34;synthesis&#34;: analysis[&#34;final_synthesis&#34;]
+        },
+        &#34;methodology&#34;: {
+            &#34;rag_system&#34;: &#34;Retrieval-Augmented Generation for literature review&#34;,
+            &#34;rl_system&#34;: &#34;Reinforcement Learning for paper recommendations&#34;,
+            &#34;evolutionary_system&#34;: &#34;Evolutionary Algorithms for hypothesis generation&#34;,
+            &#34;cognitive_system&#34;: &#34;Autonomous cognitive planning and synthesis&#34;
+        }
+    }
+    
+    return report</code></pre>
+</details>
+<div class="desc"><p>Generate a comprehensive research report.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.get_ai_capabilities_summary"><code class="name flex">
+<span>def <span class="ident">get_ai_capabilities_summary</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_ai_capabilities_summary(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Get summary of all AI capabilities.&#34;&#34;&#34;
+    return {
+        &#34;generative_ai&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;text generation&#34;, &#34;hypothesis generation&#34;, &#34;synthesis&#34;],
+            &#34;models&#34;: [&#34;T5&#34;, &#34;Sentence Transformers&#34;]
+        },
+        &#34;agentic_ai&#34;: {
+            &#34;status&#34;: &#34;active&#34;, 
+            &#34;capabilities&#34;: [&#34;autonomous planning&#34;, &#34;task execution&#34;, &#34;goal-oriented behavior&#34;],
+            &#34;components&#34;: [&#34;cognitive planner&#34;, &#34;orchestrator&#34;]
+        },
+        &#34;rag&#34;: {
+            &#34;status&#34;: self.systems_status[&#34;rag&#34;],
+            &#34;capabilities&#34;: [&#34;document retrieval&#34;, &#34;contextual generation&#34;, &#34;question answering&#34;],
+            &#34;database&#34;: &#34;ChromaDB&#34;
+        },
+        &#34;symbolic_ai&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;rule-based reasoning&#34;, &#34;logical inference&#34;, &#34;structured analysis&#34;],
+            &#34;components&#34;: [&#34;citation extraction&#34;, &#34;network analysis&#34;]
+        },
+        &#34;neuro_symbolic_ai&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;neural-symbolic integration&#34;, &#34;hybrid reasoning&#34;],
+            &#34;components&#34;: [&#34;RAG + symbolic rules&#34;, &#34;neural embeddings + logical analysis&#34;]
+        },
+        &#34;machine_learning&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;supervised learning&#34;, &#34;unsupervised learning&#34;, &#34;embedding generation&#34;],
+            &#34;models&#34;: [&#34;Sentence Transformers&#34;, &#34;scikit-learn&#34;]
+        },
+        &#34;deep_learning&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;neural networks&#34;, &#34;transformers&#34;, &#34;deep representations&#34;],
+            &#34;models&#34;: [&#34;T5&#34;, &#34;Sentence Transformers&#34;, &#34;PyTorch&#34;]
+        },
+        &#34;reinforcement_learning&#34;: {
+            &#34;status&#34;: self.systems_status[&#34;rl&#34;],
+            &#34;capabilities&#34;: [&#34;Q-learning&#34;, &#34;policy optimization&#34;, &#34;recommendation systems&#34;],
+            &#34;components&#34;: [&#34;DQN agent&#34;, &#34;paper recommendation&#34;]
+        },
+        &#34;evolutionary_algorithms&#34;: {
+            &#34;status&#34;: self.systems_status[&#34;evolutionary&#34;],
+            &#34;capabilities&#34;: [&#34;genetic algorithms&#34;, &#34;hypothesis evolution&#34;, &#34;optimization&#34;],
+            &#34;components&#34;: [&#34;DEAP framework&#34;, &#34;hypothesis generation&#34;]
+        },
+        &#34;llm&#34;: {
+            &#34;status&#34;: &#34;active&#34;,
+            &#34;capabilities&#34;: [&#34;text generation&#34;, &#34;comprehension&#34;, &#34;reasoning&#34;],
+            &#34;models&#34;: [&#34;T5&#34;, &#34;local transformers&#34;]
+        }
+    }</code></pre>
+</details>
+<div class="desc"><p>Get summary of all AI capabilities.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.get_system_status"><code class="name flex">
+<span>def <span class="ident">get_system_status</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_system_status(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Get status of all AI systems.&#34;&#34;&#34;
+    return {
+        &#34;systems_status&#34;: self.systems_status,
+        &#34;total_papers&#34;: len(self.papers),
+        &#34;orchestrator_status&#34;: &#34;active&#34;,
+        &#34;last_updated&#34;: datetime.now().isoformat()
+    }</code></pre>
+</details>
+<div class="desc"><p>Get status of all AI systems.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.save_results"><code class="name flex">
+<span>def <span class="ident">save_results</span></span>(<span>self, results: Dict[str, Any], filename: str = 'orchestrator_results.json')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_results(self, results: Dict[str, Any], filename: str = &#34;orchestrator_results.json&#34;):
+    &#34;&#34;&#34;Save orchestrator results to file.&#34;&#34;&#34;
+    Path(&#34;results&#34;).mkdir(exist_ok=True)
+    filepath = Path(&#34;results&#34;) / filename
+    
+    with open(filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    
+    self.logger.info(f&#34;✅ Saved orchestrator results to {filepath}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Save orchestrator results to file.</p></div>
+</dd>
+<dt id="agents.orchestrator.ResearchOrchestrator.train_rl_system"><code class="name flex">
+<span>def <span class="ident">train_rl_system</span></span>(<span>self, episodes: int = 50) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def train_rl_system(self, episodes: int = 50) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;Train the RL recommendation system.&#34;&#34;&#34;
+    try:
+        self.logger.info(&#34;Training RL system...&#34;)
+        scores = self.rl_recommender.train(episodes=episodes)
+        
+        # Save trained model
+        self.rl_recommender.save_model()
+        
+        return {
+            &#34;training_completed&#34;: True,
+            &#34;episodes&#34;: episodes,
+            &#34;final_score&#34;: scores[-1] if scores else 0,
+            &#34;average_score&#34;: sum(scores) / len(scores) if scores else 0,
+            &#34;model_saved&#34;: True
+        }
+    except Exception as e:
+        self.logger.error(f&#34;RL training error: {str(e)}&#34;)
+        return {&#34;training_completed&#34;: False, &#34;error&#34;: str(e)}</code></pre>
+</details>
+<div class="desc"><p>Train the RL recommendation system.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="agents" href="index.html">agents</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="agents.orchestrator.ResearchOrchestrator" href="#agents.orchestrator.ResearchOrchestrator">ResearchOrchestrator</a></code></h4>
+<ul class="">
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.ask_question" href="#agents.orchestrator.ResearchOrchestrator.ask_question">ask_question</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.comprehensive_research_analysis" href="#agents.orchestrator.ResearchOrchestrator.comprehensive_research_analysis">comprehensive_research_analysis</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.generate_research_report" href="#agents.orchestrator.ResearchOrchestrator.generate_research_report">generate_research_report</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.get_ai_capabilities_summary" href="#agents.orchestrator.ResearchOrchestrator.get_ai_capabilities_summary">get_ai_capabilities_summary</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.get_system_status" href="#agents.orchestrator.ResearchOrchestrator.get_system_status">get_system_status</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.save_results" href="#agents.orchestrator.ResearchOrchestrator.save_results">save_results</a></code></li>
+<li><code><a title="agents.orchestrator.ResearchOrchestrator.train_rl_system" href="#agents.orchestrator.ResearchOrchestrator.train_rl_system">train_rl_system</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
