@@ -13,6 +13,8 @@ on:
       - '**/*.py'
       - '**/*.md'
       - 'docs/**'
+permissions:
+  contents: write
 
 jobs:
   docs:

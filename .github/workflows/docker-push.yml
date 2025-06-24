@@ -9,7 +9,7 @@ on:
 
 # Add permissions for workflow operations
 permissions:
-  contents: read
+  contents: write
   packages: write
   security-events: write
 
@@ -91,6 +91,7 @@ jobs:
         with:
           name: build-metadata
           path: build_metadata.json
+          include-hidden-files: true
 
       - name: Generate SBOM
         uses: anchore/sbom-action@v0
@@ -104,6 +105,7 @@ jobs:
         with:
           name: sbom
           path: sbom.json
+          include-hidden-files: true
 
       - name: Create GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
