@@ -34,7 +34,7 @@ setup(
         "tqdm",  # For progress bars
         "numpy",  # Required for various computations
         "plotly",  # For interactive visualizations
-        "seaborn"  # For statistical visualizations
+        "seaborn",  # For statistical visualizations
     ],
     python_requires=">=3.8",
     classifiers=[
@@ -46,4 +46,4 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
     ],
-) 
+)

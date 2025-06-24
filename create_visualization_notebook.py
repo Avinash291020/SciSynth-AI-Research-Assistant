@@ -4,7 +4,7 @@ nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {
     "display_name": "Python 3",
     "language": "python",
-    "name": "python3"
+    "name": "python3",
 }
 
 # Cell 0 - Markdown
@@ -13,7 +13,7 @@ cell0 = {
     "metadata": {},
     "source": """# SciSynth Visualization Examples 📊
 
-This notebook demonstrates various visualization techniques available in SciSynth for analyzing research results and hypotheses."""
+This notebook demonstrates various visualization techniques available in SciSynth for analyzing research results and hypotheses.""",
 }
 nb.cells.append(nbf.from_dict(cell0))
 
@@ -30,7 +30,7 @@ import numpy as np
 plt.style.use('seaborn')
 sns.set_palette("husl")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell1))
 
@@ -40,7 +40,7 @@ cell2 = {
     "metadata": {},
     "source": """## 1. Hypothesis Confidence Distribution
 
-First, let's visualize the confidence scores for different hypotheses:"""
+First, let's visualize the confidence scores for different hypotheses:""",
 }
 nb.cells.append(nbf.from_dict(cell2))
 
@@ -76,7 +76,7 @@ for bar in bars:
 plt.tight_layout()
 plt.show()""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell3))
 
@@ -86,7 +86,7 @@ cell4 = {
     "metadata": {},
     "source": """## 2. Research Progress Timeline
 
-Next, let's create a timeline visualization of research milestones:"""
+Next, let's create a timeline visualization of research milestones:""",
 }
 nb.cells.append(nbf.from_dict(cell4))
 
@@ -131,7 +131,7 @@ ax.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell5))
 
@@ -141,7 +141,7 @@ cell6 = {
     "metadata": {},
     "source": """## 3. Model Performance Comparison
 
-Finally, let's create a heatmap to compare different model performances:"""
+Finally, let's create a heatmap to compare different model performances:""",
 }
 nb.cells.append(nbf.from_dict(cell6))
 
@@ -172,10 +172,10 @@ plt.title('Model Performance Comparison')
 plt.tight_layout()
 plt.show()""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell7))
 
 # Write the notebook to a file
-with open('examples/visualization_examples.ipynb', 'w', encoding='utf-8') as f:
-    nbf.write(nb, f) 
+with open("examples/visualization_examples.ipynb", "w", encoding="utf-8") as f:
+    nbf.write(nb, f)

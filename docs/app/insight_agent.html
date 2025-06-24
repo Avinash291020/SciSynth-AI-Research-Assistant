@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>app.insight_agent API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.insight_agent</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="app.insight_agent.clean_title"><code class="name flex">
+<span>def <span class="ident">clean_title</span></span>(<span>title: str) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_title(title: str) -&gt; str:
+    &#34;&#34;&#34;Clean and format the title.&#34;&#34;&#34;
+    # Remove author names and affiliations (typically after commas or numbers)
+    title = re.split(r&#39;[,\d]&#39;, title)[0].strip()
+    
+    # Remove dates in parentheses
+    title = re.sub(r&#39;\s*\([^)]*\)&#39;, &#39;&#39;, title)
+    
+    # Remove special characters but keep basic punctuation
+    title = re.sub(r&#39;[^\w\s.,;:!?-]&#39;, &#39;&#39;, title)
+    
+    # Fix spacing
+    title = re.sub(r&#39;\s+&#39;, &#39; &#39;, title).strip()
+    
+    return title</code></pre>
+</details>
+<div class="desc"><p>Clean and format the title.</p></div>
+</dd>
+<dt id="app.insight_agent.extract_title_and_abstract"><code class="name flex">
+<span>def <span class="ident">extract_title_and_abstract</span></span>(<span>text: str) ‑> Tuple[str, str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_title_and_abstract(text: str) -&gt; Tuple[str, str]:
+    &#34;&#34;&#34;Extract title and abstract from the text.&#34;&#34;&#34;
+    lines = text.split(&#39;\n&#39;)
+    title = &#34;&#34;
+    abstract = &#34;&#34;
+    
+    # Find title (first substantial line that&#39;s not a header)
+    for line in lines:
+        line = line.strip()
+        if (len(line) &gt; 20 and  # Must be substantial
+            not line.lower().startswith((&#39;abstract&#39;, &#39;keywords&#39;, &#39;introduction&#39;, &#39;contents&#39;)) and
+            not re.match(r&#39;^\d+\.&#39;, line)):  # Not a numbered section
+            title = clean_title(line)
+            break
+    
+    # Find abstract
+    abstract_started = False
+    abstract_lines = []
+    
+    for i, line in enumerate(lines):
+        line = line.strip()
+        if line.lower().startswith(&#39;abstract&#39;):
+            abstract_started = True
+            continue
+        elif abstract_started:
+            if line.lower().startswith((&#39;keywords&#39;, &#39;introduction&#39;, &#39;contents&#39;)) or re.match(r&#39;^\d+\.&#39;, line):
+                break
+            if line:  # Non-empty line
+                # Clean the line
+                line = re.sub(r&#39;[^\w\s.,;:!?()-]&#39;, &#39;&#39;, line)
+                line = re.sub(r&#39;\s+&#39;, &#39; &#39;, line).strip()
+                abstract_lines.append(line)
+    
+    abstract = &#39; &#39;.join(abstract_lines)
+    
+    return title, abstract</code></pre>
+</details>
+<div class="desc"><p>Extract title and abstract from the text.</p></div>
+</dd>
+<dt id="app.insight_agent.extract_topic"><code class="name flex">
+<span>def <span class="ident">extract_topic</span></span>(<span>title: str, abstract: str) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_topic(title: str, abstract: str) -&gt; str:
+    &#34;&#34;&#34;Extract the main topic from title and abstract.&#34;&#34;&#34;
+    # Try to get topic from title first
+    if &#39;:&#39; in title:
+        topic = title.split(&#39;:&#39;)[0].strip()
+    else:
+        # Use the first part of the title
+        words = title.split()
+        if len(words) &gt; 5:
+            topic = &#39; &#39;.join(words[:5]) + &#34;...&#34;
+        else:
+            topic = title
+    
+    # If topic is too short, try to augment with abstract
+    if len(topic.split()) &lt; 3 and abstract:
+        first_sentence = re.split(r&#39;(?&lt;=[.!?])\s+&#39;, abstract)[0]
+        topic = f&#34;{topic} - {first_sentence}&#34;
+    
+    # Limit length
+    words = topic.split()
+    if len(words) &gt; 10:
+        topic = &#39; &#39;.join(words[:10]) + &#34;...&#34;
+    
+    return topic</code></pre>
+</details>
+<div class="desc"><p>Extract the main topic from title and abstract.</p></div>
+</dd>
+<dt id="app.insight_agent.generate_insights"><code class="name flex">
+<span>def <span class="ident">generate_insights</span></span>(<span>chunks: List[str]) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_insights(chunks: List[str]) -&gt; str:
+    &#34;&#34;&#34;Generate insights from the document chunks.&#34;&#34;&#34;
+    if not chunks:
+        return &#34;No text content available for analysis.&#34;
+    
+    # Get title and abstract
+    title, abstract = extract_title_and_abstract(chunks[0])
+    if not title:
+        title = &#34;Untitled Document&#34;
+    
+    # Extract main topic
+    topic = extract_topic(title, abstract)
+    
+    # Generate insights
+    insights = [
+        &#34;Title:&#34;,
+        title,
+        &#34;\nMain Topic:&#34;,
+        f&#34;This paper focuses on {topic}&#34;,
+        &#34;\nAbstract Summary:&#34;
+    ]
+    
+    if abstract:
+        insights.append(abstract)
+    else:
+        # If no abstract found, use first few chunks
+        summary = []
+        for chunk in chunks[1:3]:
+            # Get first sentence of each chunk
+            sentences = re.split(r&#39;(?&lt;=[.!?])\s+&#39;, chunk)
+            if sentences:
+                summary.append(sentences[0])
+        insights.append(&#39; &#39;.join(summary))
+    
+    # Add key points from later chunks
+    insights.append(&#34;\nKey Points:&#34;)
+    point_count = 0
+    
+    for chunk in chunks[1:5]:  # Look at next few chunks
+        sentences = re.split(r&#39;(?&lt;=[.!?])\s+&#39;, chunk)
+        for sentence in sentences:
+            # Clean the sentence
+            sentence = re.sub(r&#39;[^\w\s.,;:!?()-]&#39;, &#39;&#39;, sentence)
+            sentence = re.sub(r&#39;\s+&#39;, &#39; &#39;, sentence).strip()
+            
+            # Only use substantial sentences that aren&#39;t headers
+            if (len(sentence) &gt; 50 and 
+                not sentence.endswith(&#39;:&#39;) and 
+                not sentence.startswith((&#39;Keywords&#39;, &#39;Abstract&#39;, &#39;Introduction&#39;)) and
+                not re.match(r&#39;^\d+\.&#39;, sentence)):
+                point_count += 1
+                insights.append(f&#34;{point_count}. {sentence}&#34;)
+                if point_count &gt;= 3:  # Limit to 3 key points
+                    break
+        if point_count &gt;= 3:
+            break
+    
+    # If no key points were found, add a placeholder
+    if point_count == 0:
+        insights.append(&#34;1. No substantial key points found in the text.&#34;)
+    
+    return &#34;\n&#34;.join(insights)</code></pre>
+</details>
+<div class="desc"><p>Generate insights from the document chunks.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app" href="index.html">app</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="app.insight_agent.clean_title" href="#app.insight_agent.clean_title">clean_title</a></code></li>
+<li><code><a title="app.insight_agent.extract_title_and_abstract" href="#app.insight_agent.extract_title_and_abstract">extract_title_and_abstract</a></code></li>
+<li><code><a title="app.insight_agent.extract_topic" href="#app.insight_agent.extract_topic">extract_topic</a></code></li>
+<li><code><a title="app.insight_agent.generate_insights" href="#app.insight_agent.generate_insights">generate_insights</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

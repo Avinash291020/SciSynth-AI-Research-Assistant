@@ -11,14 +11,17 @@ from agents.orchestrator import ResearchOrchestrator
 # Optional: Symbolic/Neuro-Symbolic
 try:
     from logic.consistency_checker import check_consistency
+
     symbolic_available = True
 except ImportError:
     symbolic_available = False
 
+
 def print_header(title):
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print(f"{title}")
-    print("="*60)
+    print("=" * 60)
+
 
 def main():
     # Load research papers
@@ -26,7 +29,7 @@ def main():
     if not papers_path.exists():
         print("ERROR: results/all_papers_results.json not found.")
         return
-    with open(papers_path, 'r', encoding='utf-8') as f:
+    with open(papers_path, "r", encoding="utf-8") as f:
         papers = json.load(f)
     print(f"Loaded {len(papers)} papers.")
 
@@ -37,8 +40,11 @@ def main():
         rag.add_papers_to_index(papers)
         question = "What are the key advances in neuro-symbolic AI?"
         result = rag.answer_question(question, top_k=3)
-        print("RAG Answer:", result['answer'][:300], "...\n")
-        print("Relevant papers:", [p['metadata'].get('paper_name') for p in result['relevant_papers']])
+        print("RAG Answer:", result["answer"][:300], "...\n")
+        print(
+            "Relevant papers:",
+            [p["metadata"].get("paper_name") for p in result["relevant_papers"]],
+        )
         print("PASS: RAG system works.")
     except Exception as e:
         print("FAIL: RAG system error:", e)
@@ -70,9 +76,11 @@ def main():
     print_header("Cognitive Planner Test")
     try:
         planner = CognitivePlanner(papers)
-        plan_result = planner.plan_research_task("How can reinforcement learning improve scientific discovery?")
-        print("Cognitive Plan:", plan_result['plan'])
-        print("Cognitive Results:", plan_result['results'])
+        plan_result = planner.plan_research_task(
+            "How can reinforcement learning improve scientific discovery?"
+        )
+        print("Cognitive Plan:", plan_result["plan"])
+        print("Cognitive Results:", plan_result["results"])
         print("PASS: Cognitive planner works.")
     except Exception as e:
         print("FAIL: Cognitive planner error:", e)
@@ -82,8 +90,10 @@ def main():
     print_header("Orchestrator (All Systems) Test")
     try:
         orchestrator = ResearchOrchestrator(papers)
-        analysis = orchestrator.comprehensive_research_analysis("What are the main trends in AI research?")
-        print("Orchestrator Synthesis:", analysis.get('final_synthesis', {}))
+        analysis = orchestrator.comprehensive_research_analysis(
+            "What are the main trends in AI research?"
+        )
+        print("Orchestrator Synthesis:", analysis.get("final_synthesis", {}))
         print("PASS: Orchestrator works.")
     except Exception as e:
         print("FAIL: Orchestrator error:", e)
@@ -101,7 +111,10 @@ def main():
             print("FAIL: Symbolic/Neuro-Symbolic AI error:", e)
             traceback.print_exc()
     else:
-        print("Symbolic/Neuro-Symbolic AI not available (consistency_checker not found).")
+        print(
+            "Symbolic/Neuro-Symbolic AI not available (consistency_checker not found)."
+        )
+
 
 if __name__ == "__main__":
-    main() 
+    main()

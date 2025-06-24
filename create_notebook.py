@@ -5,7 +5,7 @@ nb = nbf.v4.new_notebook()
 nb.metadata.kernelspec = {
     "display_name": "Python 3",
     "language": "python",
-    "name": "python3"
+    "name": "python3",
 }
 
 # Cell 0 - Markdown
@@ -23,7 +23,7 @@ This notebook demonstrates the basic workflow of using SciSynth to analyze a res
 5. Visualizing results and citation networks
 
 ## Setup
-First, let's import the required modules:"""
+First, let's import the required modules:""",
 }
 nb.cells.append(nbf.from_dict(cell0))
 
@@ -41,7 +41,7 @@ from app.citation_network import CitationNetwork
 import matplotlib.pyplot as plt
 import pandas as pd""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell1))
 
@@ -51,7 +51,7 @@ cell2 = {
     "metadata": {},
     "source": """## 1. Load and Process a Research Paper
 
-First, we'll load a sample research paper and process it into manageable chunks:"""
+First, we'll load a sample research paper and process it into manageable chunks:""",
 }
 nb.cells.append(nbf.from_dict(cell2))
 
@@ -65,7 +65,7 @@ text = extract_text_from_pdf(paper_path)
 index = chunk_and_index(text)
 print(f"Processed {len(text.split())} words from the paper")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell3))
 
@@ -75,7 +75,7 @@ cell4 = {
     "metadata": {},
     "source": """## 2. Generate Insights
 
-Next, we'll use our insight generation system to extract key points from the paper:"""
+Next, we'll use our insight generation system to extract key points from the paper:""",
 }
 nb.cells.append(nbf.from_dict(cell4))
 
@@ -89,7 +89,7 @@ for i, insight in enumerate(insights.split('\\n'), 1):
     if insight.strip():
         print(f"{i}. {insight.strip()}")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell5))
 
@@ -99,7 +99,7 @@ cell6 = {
     "metadata": {},
     "source": """## 3. Generate Hypotheses
 
-Based on the insights, we'll generate testable research hypotheses:"""
+Based on the insights, we'll generate testable research hypotheses:""",
 }
 nb.cells.append(nbf.from_dict(cell6))
 
@@ -113,7 +113,7 @@ for i, hypothesis in enumerate(hypotheses.split('\\n'), 1):
     if hypothesis.strip():
         print(f"{i}. {hypothesis.strip()}")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell7))
 
@@ -123,7 +123,7 @@ cell8 = {
     "metadata": {},
     "source": """## 4. Test a Simple Model
 
-Let's test a simple model on our sample dataset to evaluate our hypotheses:"""
+Let's test a simple model on our sample dataset to evaluate our hypotheses:""",
 }
 nb.cells.append(nbf.from_dict(cell8))
 
@@ -143,7 +143,7 @@ for metric, value in results.items():
     else:
         print(f"\\n{metric}: {value:.3f}")""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell9))
 
@@ -153,7 +153,7 @@ cell10 = {
     "metadata": {},
     "source": """## 5. Visualize Results
 
-Finally, let's create visualizations of our results and the citation network:"""
+Finally, let's create visualizations of our results and the citation network:""",
 }
 nb.cells.append(nbf.from_dict(cell10))
 
@@ -181,10 +181,10 @@ plt.figure(figsize=(12, 8))
 network.visualize_network()
 plt.show()""",
     "execution_count": None,
-    "outputs": []
+    "outputs": [],
 }
 nb.cells.append(nbf.from_dict(cell11))
 
 # Write the notebook to a file
-with open('examples/basic_research_pipeline.ipynb', 'w', encoding='utf-8') as f:
-    nbf.write(nb, f) 
+with open("examples/basic_research_pipeline.ipynb", "w", encoding="utf-8") as f:
+    nbf.write(nb, f)
