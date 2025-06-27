@@ -62,8 +62,11 @@ jobs:
       with:
         file: ./coverage.xml
         flags: unittests
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 58808185eb7ffa9dc1328739f6aa84c9130c06b1
   build:
     needs: test
     runs-on: ubuntu-latest
