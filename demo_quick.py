@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Quick Demo Script for SciSynth: AI-Powered Research Assistant for Scientific Discovery
 Demonstrates production-level AI engineering capabilities

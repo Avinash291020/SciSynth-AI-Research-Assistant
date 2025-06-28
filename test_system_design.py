@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Test script for system_design.py to verify all fixes work correctly.
 """

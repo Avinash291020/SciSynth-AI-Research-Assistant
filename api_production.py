@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Production-Level FastAPI Application for SciSynth AI Research Assistant.
 

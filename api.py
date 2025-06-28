@@ -1,5 +1,13 @@
+# -*- coding: utf-8 -*-
 """
-FastAPI application to expose the SciSynth AI Research Assistant functionality.
+FastAPI Application for SciSynth AI Research Assistant.
+
+This module provides a RESTful API for:
+- Research paper processing and analysis
+- AI-powered insights and recommendations
+- Data visualization endpoints
+- Hypothesis generation
+- Citation network analysis
 """
 
 import os

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Application entry point for SciSynth AI Research Assistant.
+"""
+
 """Wrapper script to run the Streamlit app with correct Python path."""
 
 import os

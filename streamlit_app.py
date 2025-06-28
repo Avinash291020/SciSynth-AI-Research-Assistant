@@ -1,4 +1,15 @@
-"""Streamlit UI for SciSynth Research Paper Analysis."""
+# -*- coding: utf-8 -*-
+"""
+SciSynth AI Research Assistant - Streamlit Application.
+
+This application provides a comprehensive interface for:
+- Research paper analysis and processing
+- Multi-paradigm AI capabilities (LLM, RAG, RL, Evolutionary, Symbolic)
+- Advanced data visualization and insights
+- Interactive hypothesis generation
+- Citation network analysis
+- Production-ready AI engineering features
+"""
 
 import os
 import sys
