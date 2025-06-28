@@ -65,4 +65,5 @@ cvxpy
 black
 flake8
 mypy
-pre-commit 
+pre-commit
+types-setuptools 
