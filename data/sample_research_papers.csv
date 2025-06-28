@@ -1,0 +1,4 @@
+title,abstract,authors,year,category,citations,keywords
+Advanced Transformer Architectures for Natural Language Processing,This paper presents novel transformer architectures that improve upon the original attention mechanism...,"['Smith, J.', 'Johnson, A.', 'Brown, M.']",2023,NLP,150,"['transformer', 'attention', 'NLP', 'deep learning']"
+Reinforcement Learning in Drug Discovery: A Comprehensive Survey,We survey recent advances in applying reinforcement learning to drug discovery...,"['Davis, R.', 'Wilson, K.', 'Taylor, S.']",2023,Drug Discovery,89,"['reinforcement learning', 'drug discovery', 'molecular design']"
+Multi-Modal AI Systems for Scientific Research,"This work introduces multi-modal AI systems that can process text, images, and structured data...","['Anderson, L.', 'Martinez, P.', 'Garcia, C.']",2023,Multi-Modal AI,234,"['multi-modal', 'AI', 'scientific research', 'computer vision']"

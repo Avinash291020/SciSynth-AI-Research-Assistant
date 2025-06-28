@@ -1,0 +1,466 @@
+name: Enhanced CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: '3.9'
+  DOCKER_REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Code Quality and Security
+  code-quality:
+    name: Code Quality & Security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install black flake8 mypy bandit safety pre-commit
+
+      - name: Run pre-commit hooks
+        run: |
+          pre-commit install
+          pre-commit run --all-files
+
+      - name: Code formatting check (Black)
+        run: |
+          black --check --diff .
+
+      - name: Linting (Flake8)
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+
+      - name: Type checking (MyPy)
+        run: |
+          mypy app/ --ignore-missing-imports --disallow-untyped-defs
+
+      - name: Security scanning (Bandit)
+        run: |
+          bandit -r app/ -f json -o bandit-report.json || true
+          bandit -r app/ -f txt -o bandit-report.txt
+
+      - name: Dependency vulnerability scan (Safety)
+        run: |
+          safety check --json --output safety-report.json || true
+          safety check --output safety-report.txt
+
+      - name: Upload security reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-reports
+          path: |
+            bandit-report.json
+            bandit-report.txt
+            safety-report.json
+            safety-report.txt
+
+  # Testing
+  test:
+    name: Comprehensive Testing
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+        include:
+          - python-version: '3.9'
+            tox-env: py39
+          - python-version: '3.10'
+            tox-env: py310
+          - python-version: '3.11'
+            tox-env: py311
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov pytest-mock pytest-asyncio pytest-xdist
+          pip install tox
+
+      - name: Run unit tests
+        run: |
+          pytest tests/ -v --cov=app --cov-report=xml --cov-report=html --cov-report=term-missing
+          coverage xml
+
+      - name: Run integration tests
+        run: |
+          pytest tests/integration/ -v --integration
+
+      - name: Run performance tests
+        run: |
+          pytest tests/performance/ -v --benchmark-only
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.python-version }}
+          path: |
+            htmlcov/
+            .coverage
+            pytest.xml
+
+  # ML Model Testing
+  ml-testing:
+    name: ML Model Testing
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install ML dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install mlflow wandb optuna
+
+      - name: Run ML model tests
+        run: |
+          python -m pytest tests/test_ml_models.py -v
+
+      - name: Model performance validation
+        run: |
+          python scripts/validate_models.py
+
+      - name: Upload ML test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ml-test-results
+          path: |
+            mlflow/
+            model_validation_results.json
+
+  # Performance Testing
+  performance:
+    name: Performance Testing
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install locust
+
+      - name: Run load testing
+        run: |
+          locust -f tests/load_test.py --headless --users 10 --spawn-rate 2 --run-time 60s
+
+      - name: Run memory profiling
+        run: |
+          python scripts/memory_profiler.py
+
+      - name: Upload performance results
+        uses: actions/upload-artifact@v3
+        with:
+          name: performance-results
+          path: |
+            locust_stats.csv
+            memory_profile.json
+
+  # Build and Package
+  build:
+    name: Build and Package
+    runs-on: ubuntu-latest
+    needs: [test, ml-testing, performance]
+    outputs:
+      image-tag: ${{ steps.meta.outputs.tags }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build Python package
+        run: |
+          python setup.py sdist bdist_wheel
+          pip install twine
+          twine check dist/*
+
+      - name: Upload Python package
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-package
+          path: dist/
+
+  # Security Scanning
+  security-scan:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image-tag }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Run Snyk container scan
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image-tag }}
+          args: --severity-threshold=high
+
+  # Deployment
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [build, security-scan]
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Deploy to staging environment
+        run: |
+          echo "Deploying to staging environment"
+          # Add your staging deployment logic here
+          # Example: kubectl apply -f k8s/staging/
+
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests against staging"
+          # Add smoke test logic here
+
+      - name: Notify deployment
+        uses: 8398a7/action-slack@v3
+        with:
+          status: success
+          channel: '#deployments'
+          text: 'Staging deployment successful!'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build, security-scan]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Deploy to production environment
+        run: |
+          echo "Deploying to production environment"
+          # Add your production deployment logic here
+          # Example: kubectl apply -f k8s/production/
+
+      - name: Run health checks
+        run: |
+          echo "Running health checks"
+          # Add health check logic here
+
+      - name: Notify deployment
+        uses: 8398a7/action-slack@v3
+        with:
+          status: success
+          channel: '#deployments'
+          text: 'Production deployment successful!'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  # Release
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [build, security-scan]
+    if: github.event_name == 'release'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          release_name: Release ${{ github.event.release.tag_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Python package to PyPI
+        if: startsWith(github.event.release.tag_name, 'v')
+        run: |
+          pip install twine
+          twine upload --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }} dist/*
+
+  # Monitoring and Alerts
+  monitoring:
+    name: Monitoring Setup
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Setup monitoring
+        run: |
+          echo "Setting up monitoring and alerting"
+          # Add monitoring setup logic here
+
+      - name: Configure alerts
+        run: |
+          echo "Configuring alerting rules"
+          # Add alert configuration logic here
+
+  # Documentation
+  documentation:
+    name: Update Documentation
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pdoc mkdocs
+
+      - name: Generate API documentation
+        run: |
+          pdoc --html --output-dir docs/api app/
+
+      - name: Build documentation site
+        run: |
+          mkdocs build
+
+      - name: Deploy documentation
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+
+  # Final Status
+  status:
+    name: Pipeline Status
+    runs-on: ubuntu-latest
+    needs: [code-quality, test, ml-testing, performance, build, security-scan, deploy-production]
+    if: always()
+    steps:
+      - name: Pipeline Summary
+        run: |
+          echo "=== CI/CD Pipeline Summary ==="
+          echo "Code Quality: ${{ needs.code-quality.result }}"
+          echo "Tests: ${{ needs.test.result }}"
+          echo "ML Testing: ${{ needs.ml-testing.result }}"
+          echo "Performance: ${{ needs.performance.result }}"
+          echo "Build: ${{ needs.build.result }}"
+          echo "Security: ${{ needs.security-scan.result }}"
+          echo "Deployment: ${{ needs.deploy-production.result }}"
+          
+          if [[ "${{ needs.code-quality.result }}" == "success" && 
+                "${{ needs.test.result }}" == "success" && 
+                "${{ needs.build.result }}" == "success" ]]; then
+            echo "✅ All critical stages passed!"
+          else
+            echo "❌ Some stages failed!"
+            exit 1
+          fi 

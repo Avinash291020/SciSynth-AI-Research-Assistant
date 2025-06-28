@@ -21,4 +21,48 @@ protobuf==3.20.3
 langchain>=0.0.200
 llama-index>=0.10.0,<0.11.0
 pdoc
-huggingface_hub==0.16.4 
+huggingface_hub==0.16.4
+# Production-level additions
+fastapi
+uvicorn[standard]
+pydantic
+mlflow
+dvc
+tensorboard
+wandb
+optuna
+ray[tune]
+prometheus-client
+structlog
+redis
+celery
+kubernetes
+docker
+# Advanced ML/DL
+tensorflow
+keras
+xgboost
+lightgbm
+catboost
+# Data processing
+apache-beam
+dask
+vaex
+# Monitoring & observability
+grafana-api
+jaeger-client
+opentelemetry-api
+opentelemetry-sdk
+# Cloud & deployment
+boto3
+google-cloud-aiplatform
+azure-ml
+# Math & optimization
+scipy
+sympy
+cvxpy
+# Testing & quality
+black
+flake8
+mypy
+pre-commit 
