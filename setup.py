@@ -6,8 +6,8 @@ setup(
     description="An Autonomous AI Research Assistant",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Avinash Kumar",
+    author_email="ak3578431@gmail.com",
     packages=find_packages(),
     install_requires=[
         "PyMuPDF",  # PDF processing library

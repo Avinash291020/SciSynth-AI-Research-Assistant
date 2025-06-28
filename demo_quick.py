@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quick Demo Script for SciSynth AI Research Assistant
+Quick Demo Script for SciSynth: AI-Powered Research Assistant for Scientific Discovery
 Demonstrates production-level AI engineering capabilities
 """
 
@@ -399,7 +399,7 @@ def demo_security_features():
 
 def main():
     """Run the complete demo."""
-    print_header("SciSynth AI Research Assistant - Production Demo")
+    print_header("SciSynth: AI-Powered Research Assistant for Scientific Discovery - Production Demo")
     
     print_info("This demo showcases production-level AI engineering capabilities")
     print_info("Demonstrating: Advanced ML/DL, Scalable Architecture, DevOps, Security")
@@ -493,9 +493,10 @@ def main():
     print("  • Production system design expertise")
     
     print_header("Demo Complete")
-    print_success("SciSynth AI Research Assistant demo completed successfully!")
+    print_success("SciSynth: AI-Powered Research Assistant for Scientific Discovery demo completed successfully!")
     print_info("Check the documentation for detailed implementation guides")
-    print_info("GitHub: https://github.com/your-username/SciSynth-AI-Research-Assistant")
+    print_info("GitHub: https://github.com/Avinash291020/SciSynth-AI-Research-Assistant")
+    print_info("Contact: ak3578431@gmail.com")
 
 if __name__ == "__main__":
     main() 

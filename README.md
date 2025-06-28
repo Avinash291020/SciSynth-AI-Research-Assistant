@@ -1,11 +1,11 @@
-# 🚀 SciSynth AI Research Assistant - Production-Grade AI Engineering Platform
+# 🚀 SciSynth: AI-Powered Research Assistant for Scientific Discovery
 
 > **Enterprise-ready AI research platform with production-level ML/DL capabilities, scalable architecture, and comprehensive DevOps integration.**
 
-[![CI/CD Pipeline](https://github.com/your-username/SciSynth-AI-Research-Assistant/workflows/Enhanced%20CI%2FCD%20Pipeline/badge.svg)](https://github.com/your-username/SciSynth-AI-Research-Assistant/actions)
+[![CI/CD Pipeline](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/workflows/Enhanced%20CI%2FCD%20Pipeline/badge.svg)](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/actions)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Production Ready](https://img.shields.io/badge/Production-Ready-green.svg)](https://github.com/your-username/SciSynth-AI-Research-Assistant)
+[![Production Ready](https://img.shields.io/badge/Production-Ready-green.svg)](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant)
 
 ---
 
@@ -175,7 +175,7 @@ class ScalableSystem:
 ### **Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/SciSynth-AI-Research-Assistant.git
+git clone https://github.com/Avinash291020/SciSynth-AI-Research-Assistant.git
 cd SciSynth-AI-Research-Assistant
 
 # Install dependencies
@@ -385,9 +385,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 **Support**
 
 - **Documentation**: [docs/](docs/)
-- **Issues**: [GitHub Issues](https://github.com/your-username/SciSynth-AI-Research-Assistant/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/SciSynth-AI-Research-Assistant/discussions)
-- **Email**: support@scisynth.ai
+- **Issues**: [GitHub Issues](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/discussions)
+- **Email**: ak3578431@gmail.com
 
 ---
 

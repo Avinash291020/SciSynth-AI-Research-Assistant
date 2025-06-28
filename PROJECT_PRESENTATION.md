@@ -1,8 +1,8 @@
-# 🎯 SciSynth AI Research Assistant - Professional Presentation
+# 🎯 SciSynth: AI-Powered Research Assistant for Scientific Discovery - Professional Presentation
 
 ## Executive Summary
 
-**SciSynth AI Research Assistant** is a **production-grade AI engineering platform** that demonstrates senior-level capabilities in machine learning, system design, and DevOps. This project showcases the skills needed for **Senior AI Engineer** and **ML Engineer** positions at top-tier companies.
+**SciSynth: AI-Powered Research Assistant for Scientific Discovery** is a **production-grade AI engineering platform** that demonstrates senior-level capabilities in machine learning, system design, and DevOps. This project showcases the skills needed for **Senior AI Engineer** and **ML Engineer** positions at top-tier companies.
 
 ---
 
@@ -351,9 +351,9 @@ This project positions you for:
 ## 📞 **Contact & Support**
 
 - **Documentation**: [docs/](docs/)
-- **GitHub**: [Repository](https://github.com/your-username/SciSynth-AI-Research-Assistant)
-- **Issues**: [GitHub Issues](https://github.com/your-username/SciSynth-AI-Research-Assistant/issues)
-- **Email**: support@scisynth.ai
+- **GitHub**: [Repository](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant)
+- **Issues**: [GitHub Issues](https://github.com/Avinash291020/SciSynth-AI-Research-Assistant/issues)
+- **Email**: ak3578431@gmail.com
 
 ---
 
