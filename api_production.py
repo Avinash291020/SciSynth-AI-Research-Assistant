@@ -52,9 +52,20 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-# Redis configuration
+# Redis configuration - Use sync Redis client
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-redis_client = redis.from_url(REDIS_URL)
+redis_client: Optional[redis.Redis] = None
+try:
+    redis_client = redis.Redis.from_url(REDIS_URL, decode_responses=True)
+    # Test connection
+    redis_client.ping()  # type: ignore
+    logger.info("Redis connection established")
+except Exception as e:
+    logger.warning(f"Redis connection failed: {e}")
+    redis_client = None
+
+# For async Redis operations, we'll use a sync client but handle it properly
+# In production, consider using aioredis for true async support
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -78,7 +89,7 @@ executor = ThreadPoolExecutor(max_workers=10)
 class UserCreate(BaseModel):
     """User registration model."""
     username: str = Field(..., min_length=3, max_length=50)
-    email: str = Field(..., regex=r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+    email: str = Field(..., pattern=r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
     password: str = Field(..., min_length=8)
 
 class UserLogin(BaseModel):
@@ -90,10 +101,10 @@ class ResearchQuery(BaseModel):
     """Enhanced research query model."""
     question: str = Field(..., min_length=10, max_length=1000)
     use_all_systems: bool = True
-    priority: str = Field(default="normal", regex="^(low|normal|high|urgent)$")
+    priority: str = Field(default="normal", pattern="^(low|normal|high|urgent)$")
     max_tokens: int = Field(default=1000, ge=100, le=5000)
     include_citations: bool = True
-    analysis_depth: str = Field(default="standard", regex="^(basic|standard|comprehensive)$")
+    analysis_depth: str = Field(default="standard", pattern="^(basic|standard|comprehensive)$")
 
 class AnalysisResult(BaseModel):
     """Analysis result model."""
@@ -150,10 +161,10 @@ def verify_token(token: str) -> Dict[str, Any]:
         return payload
     except jwt.ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token expired")
-    except jwt.JWTError:
+    except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
-async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)) -> Dict[str, Any]:
+def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)) -> Dict[str, Any]:
     """Get current authenticated user."""
     token = credentials.credentials
     payload = verify_token(token)
@@ -161,12 +172,19 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
     if username is None:
         raise HTTPException(status_code=401, detail="Invalid token")
     
-    # Check if user exists in Redis
-    user_data = redis_client.hgetall(f"user:{username}")
-    if not user_data:
-        raise HTTPException(status_code=401, detail="User not found")
+    # Check if user exists in Redis - handle sync Redis operations
+    if redis_client is None:
+        raise HTTPException(status_code=503, detail="Database not available")
     
-    return {"username": username, "user_id": user_data.get(b"user_id", b"").decode()}
+    try:
+        user_data: Dict[str, str] = redis_client.hgetall(f"user:{username}")  # type: ignore
+        if not user_data:
+            raise HTTPException(status_code=401, detail="User not found")
+        
+        return {"username": username, "user_id": user_data.get("user_id", "")}
+    except Exception as e:
+        logger.error("Redis operation failed", error=str(e))
+        raise HTTPException(status_code=500, detail="Database error")
 
 # --- Rate Limiting ---
 
@@ -220,7 +238,7 @@ async def lifespan(app: FastAPI):
     
     # Test Redis connection
     try:
-        redis_client.ping()
+        redis_client.ping()  # type: ignore
         logger.info("Redis connection established")
     except Exception as e:
         logger.error("Redis connection failed", error=str(e))
@@ -319,7 +337,7 @@ async def health_check():
     
     # Check Redis status
     try:
-        redis_client.ping()
+        redis_client.ping()  # type: ignore
         redis_status = "connected"
     except:
         redis_status = "disconnected"
@@ -356,7 +374,7 @@ async def metrics():
 async def register_user(user: UserCreate):
     """Register a new user."""
     # Check if user already exists
-    if redis_client.exists(f"user:{user.username}"):
+    if redis_client.exists(f"user:{user.username}"):  # type: ignore
         raise HTTPException(status_code=400, detail="Username already registered")
     
     # Create user
@@ -373,7 +391,7 @@ async def register_user(user: UserCreate):
     }
     
     # Store in Redis
-    redis_client.hmset(f"user:{user.username}", user_data)
+    redis_client.hmset(f"user:{user.username}", user_data)  # type: ignore
     
     logger.info("User registered", username=user.username, user_id=user_id)
     
@@ -383,12 +401,12 @@ async def register_user(user: UserCreate):
 async def login_user(user: UserLogin):
     """Authenticate user and return access token."""
     # Get user data
-    user_data = redis_client.hgetall(f"user:{user.username}")
+    user_data: Dict[str, str] = redis_client.hgetall(f"user:{user.username}")  # type: ignore
     if not user_data:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
     # Verify password
-    hashed_password = user_data[b"hashed_password"].decode()
+    hashed_password = user_data["hashed_password"]
     if not verify_password(user.password, hashed_password):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
@@ -399,7 +417,7 @@ async def login_user(user: UserLogin):
     )
     
     # Update last login
-    redis_client.hset(f"user:{user.username}", "last_login", datetime.utcnow().isoformat())
+    redis_client.hset(f"user:{user.username}", "last_login", datetime.utcnow().isoformat())  # type: ignore
     
     logger.info("User logged in", username=user.username)
     
@@ -468,14 +486,10 @@ async def analyze_research_question(
         )
         
         # Store result in Redis
-        redis_client.setex(
-            f"analysis:{query_id}",
-            3600,  # 1 hour TTL
-            json.dumps(analysis_result.dict(), default=str)
-        )
+        redis_client.setex(f"analysis:{query_id}", 3600, json.dumps(analysis_result.dict(), default=str))  # type: ignore
         
         # Update user stats
-        redis_client.hincrby(f"user:{current_user['username']}", "request_count", 1)
+        redis_client.hincrby(f"user:{current_user['username']}", "request_count", 1)  # type: ignore
         
         logger.info(
             "Analysis completed",
@@ -509,7 +523,7 @@ async def get_analysis_result(
 ):
     """Get analysis result by query ID."""
     # Get result from Redis
-    result_data = redis_client.get(f"analysis:{query_id}")
+    result_data: Optional[str] = redis_client.get(f"analysis:{query_id}")  # type: ignore
     if not result_data:
         raise HTTPException(status_code=404, detail="Analysis result not found")
     
@@ -519,14 +533,14 @@ async def get_analysis_result(
 @app.get("/user/stats", tags=["User"])
 async def get_user_stats(current_user: Dict[str, Any] = Depends(get_current_user)):
     """Get user statistics."""
-    user_data = redis_client.hgetall(f"user:{current_user['username']}")
+    user_data: Dict[str, str] = redis_client.hgetall(f"user:{current_user['username']}")  # type: ignore
     
     stats = {
         "username": current_user["username"],
         "user_id": current_user["user_id"],
-        "total_requests": int(user_data.get(b"request_count", 0)),
-        "created_at": user_data.get(b"created_at", "").decode(),
-        "last_login": user_data.get(b"last_login", "").decode()
+        "total_requests": int(user_data.get("request_count", 0)),
+        "created_at": user_data.get("created_at", ""),
+        "last_login": user_data.get("last_login", "")
     }
     
     return stats
@@ -548,37 +562,9 @@ async def websocket_endpoint(websocket: WebSocket, user_id: str):
     except WebSocketDisconnect:
         logger.info("WebSocket disconnected", user_id=user_id)
 
-# --- Background Tasks ---
-
-async def cleanup_expired_sessions():
-    """Clean up expired user sessions."""
-    while True:
-        try:
-            current_time = datetime.utcnow()
-            expired_sessions = []
-            
-            for session_id, session in user_sessions.items():
-                if (current_time - session.last_activity).seconds > 3600:  # 1 hour
-                    expired_sessions.append(session_id)
-            
-            for session_id in expired_sessions:
-                del user_sessions[session_id]
-            
-            if expired_sessions:
-                logger.info("Cleaned up expired sessions", count=len(expired_sessions))
-            
-            await asyncio.sleep(300)  # Run every 5 minutes
-            
-        except Exception as e:
-            logger.error("Error in session cleanup", error=str(e))
-            await asyncio.sleep(60)
-
 # --- Main entry point ---
 
 if __name__ == "__main__":
-    # Start background tasks
-    asyncio.create_task(cleanup_expired_sessions())
-    
     # Run the application
     uvicorn.run(
         app,
