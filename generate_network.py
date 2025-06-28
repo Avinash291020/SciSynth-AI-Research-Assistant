@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Generate citation network visualizations.
+"""
+
 #!/usr/bin/env python3
 """Generate citation network analysis for existing papers."""
 

@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Enhanced paper enrichment with full processing capabilities.
+"""
+
 import json
 import re
 from pathlib import Path

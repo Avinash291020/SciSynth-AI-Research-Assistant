@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Quick test to verify advanced NLP fallback is working."""
 
 import json

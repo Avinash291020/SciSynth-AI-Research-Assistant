@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Test suite for final fixes.
+"""
+
 #!/usr/bin/env python3
 """Final test to verify the improved RAG system handles comparative questions properly."""
 

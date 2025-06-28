@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Test suite for simple RAG functionality.
+"""
+
 #!/usr/bin/env python3
 """Simple test for improved RAG system."""
 

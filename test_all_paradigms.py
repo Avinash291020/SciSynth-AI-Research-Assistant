@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Test suite for all AI paradigms.
+"""
+
 import json
 import traceback
 from pathlib import Path

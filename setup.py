@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+Setup configuration for SciSynth AI Research Assistant.
+"""
+
 from setuptools import setup, find_packages
 
 setup(
