@@ -23,12 +23,9 @@ from dataclasses import dataclass, field
 from collections import defaultdict, deque
 import weakref
 import gc
-import psutil
 import numpy as np
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
-import ray
-from ray import serve
 import redis
 import structlog
 from functools import lru_cache, wraps
@@ -40,8 +37,24 @@ import cProfile
 import pstats
 import io
 
-# Configure structured logging
+# Configure structured logging first
 logger = structlog.get_logger()
+
+# Optional imports with fallbacks
+try:
+    import ray  # type: ignore
+    from ray import serve  # type: ignore
+    RAY_AVAILABLE = True
+except ImportError:
+    RAY_AVAILABLE = False
+    logger.warning("Ray not available - distributed processing will be disabled")
+
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    PSUTIL_AVAILABLE = False
+    logger.warning("psutil not available - memory monitoring will be limited")
 
 @dataclass
 class SystemConfig:
@@ -64,21 +77,43 @@ class MemoryManager:
     def __init__(self, max_memory_gb: float = 8.0):
         self.max_memory_bytes = max_memory_gb * 1024**3
         self.memory_usage = deque(maxlen=1000)
-        self.large_objects = weakref.WeakSet()
+        self.large_objects = set()
         self.memory_threshold = 0.8  # 80% of max memory
         
     def get_memory_usage(self) -> Dict[str, float]:
         """Get current memory usage statistics."""
-        process = psutil.Process()
-        memory_info = process.memory_info()
-        
-        stats = {
-            "rss_gb": memory_info.rss / 1024**3,
-            "vms_gb": memory_info.vms / 1024**3,
-            "percent": process.memory_percent(),
-            "available_gb": psutil.virtual_memory().available / 1024**3,
-            "total_gb": psutil.virtual_memory().total / 1024**3
-        }
+        if PSUTIL_AVAILABLE:
+            process = psutil.Process()
+            memory_info = process.memory_info()
+            
+            stats = {
+                "rss_gb": memory_info.rss / 1024**3,
+                "vms_gb": memory_info.vms / 1024**3,
+                "percent": process.memory_percent(),
+                "available_gb": psutil.virtual_memory().available / 1024**3,
+                "total_gb": psutil.virtual_memory().total / 1024**3
+            }
+        else:
+            # Fallback memory monitoring without psutil
+            import resource
+            try:
+                memory_usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+                stats = {
+                    "rss_gb": memory_usage / 1024**3 if hasattr(resource, 'RUSAGE_SELF') else 0.0,
+                    "vms_gb": 0.0,
+                    "percent": 0.0,
+                    "available_gb": 0.0,
+                    "total_gb": 0.0
+                }
+            except (ImportError, AttributeError):
+                # Windows fallback
+                stats = {
+                    "rss_gb": 0.0,
+                    "vms_gb": 0.0,
+                    "percent": 0.0,
+                    "available_gb": 0.0,
+                    "total_gb": 0.0
+                }
         
         self.memory_usage.append(stats)
         return stats
@@ -147,10 +182,20 @@ class CacheManager:
         self.current_size = 0
         self.cache = {}
         self.access_times = {}
-        self.redis_client = redis.from_url(redis_url)
         self.cache_hits = 0
         self.cache_misses = 0
         
+        # Initialize Redis client with error handling
+        self.redis_client = None
+        try:
+            self.redis_client = redis.from_url(redis_url)
+            # Test connection
+            self.redis_client.ping()
+            logger.info("Redis cache initialized successfully")
+        except Exception as e:
+            logger.warning("Redis cache initialization failed, using local cache only", error=str(e))
+            self.redis_client = None
+    
     def _get_object_size(self, obj: Any) -> int:
         """Estimate object size in bytes."""
         try:
@@ -180,14 +225,19 @@ class CacheManager:
             return self.cache[key]
         
         # Try Redis cache
-        try:
-            redis_value = self.redis_client.get(key)
-            if redis_value:
-                value = pickle.loads(redis_value)
-                self.cache_hits += 1
-                return value
-        except Exception as e:
-            logger.warning("Redis cache access failed", error=str(e))
+        if self.redis_client:
+            try:
+                redis_value: Optional[Union[str, bytes]] = self.redis_client.get(key)  # type: ignore
+                if redis_value:
+                    # Handle both string and bytes responses from Redis
+                    if isinstance(redis_value, bytes):
+                        value = pickle.loads(redis_value)
+                    else:
+                        value = pickle.loads(redis_value.encode('utf-8'))
+                    self.cache_hits += 1
+                    return value
+            except Exception as e:
+                logger.warning("Redis cache access failed", error=str(e))
         
         self.cache_misses += 1
         return None
@@ -205,10 +255,11 @@ class CacheManager:
         self.current_size += size
         
         # Store in Redis for persistence
-        try:
-            self.redis_client.setex(key, ttl, pickle.dumps(value))
-        except Exception as e:
-            logger.warning("Redis cache storage failed", error=str(e))
+        if self.redis_client:
+            try:
+                self.redis_client.setex(key, ttl, pickle.dumps(value))
+            except Exception as e:
+                logger.warning("Redis cache storage failed", error=str(e))
     
     def get_stats(self) -> Dict[str, Any]:
         """Get cache statistics."""
@@ -275,19 +326,30 @@ class PerformanceProfiler:
     def __init__(self):
         self.profiles = {}
         self.tracemalloc_enabled = False
+        self.profile_counter = 0
         
     def start_profiling(self, name: str):
         """Start profiling for a specific operation."""
-        if not self.tracemalloc_enabled:
-            tracemalloc.start()
-            self.tracemalloc_enabled = True
+        # Make profile name unique to avoid conflicts
+        unique_name = f"{name}_{self.profile_counter}"
+        self.profile_counter += 1
         
-        self.profiles[name] = {
+        if not self.tracemalloc_enabled:
+            try:
+                tracemalloc.start()
+                self.tracemalloc_enabled = True
+            except RuntimeError:
+                # tracemalloc already started
+                pass
+        
+        self.profiles[unique_name] = {
             'start_time': time.time(),
-            'start_snapshot': tracemalloc.take_snapshot(),
-            'profiler': cProfile.Profile()
+            'start_snapshot': tracemalloc.take_snapshot() if self.tracemalloc_enabled else None,
+            'profiler': cProfile.Profile(),
+            'original_name': name
         }
-        self.profiles[name]['profiler'].enable()
+        self.profiles[unique_name]['profiler'].enable()
+        return unique_name
     
     def stop_profiling(self, name: str) -> Dict[str, Any]:
         """Stop profiling and return results."""
@@ -302,9 +364,17 @@ class PerformanceProfiler:
         ps = pstats.Stats(profile_data['profiler'], stream=s).sort_stats('cumulative')
         ps.print_stats(20)  # Top 20 functions
         
-        # Get memory snapshot
-        end_snapshot = tracemalloc.take_snapshot()
-        memory_stats = end_snapshot.compare_to(profile_data['start_snapshot'], 'lineno')
+        # Get memory snapshot if available
+        memory_stats = []
+        peak_memory_mb = 0.0
+        if self.tracemalloc_enabled and profile_data['start_snapshot']:
+            try:
+                end_snapshot = tracemalloc.take_snapshot()
+                memory_stats = end_snapshot.compare_to(profile_data['start_snapshot'], 'lineno')
+                memory_stats = memory_stats[:10]  # Top 10 memory differences
+                peak_memory_mb = tracemalloc.get_traced_memory()[1] / 1024**2
+            except Exception as e:
+                logger.warning("Memory profiling failed", error=str(e))
         
         # Calculate timing
         duration = time.time() - profile_data['start_time']
@@ -312,8 +382,8 @@ class PerformanceProfiler:
         results = {
             'duration': duration,
             'profile_stats': s.getvalue(),
-            'memory_stats': memory_stats[:10],  # Top 10 memory differences
-            'peak_memory_mb': tracemalloc.get_traced_memory()[1] / 1024**2
+            'memory_stats': memory_stats,
+            'peak_memory_mb': peak_memory_mb
         }
         
         del self.profiles[name]
@@ -324,37 +394,93 @@ class DistributedProcessor:
     """Distributed processing using Ray."""
     
     def __init__(self, ray_address: str = "auto"):
-        if not ray.is_initialized():
-            ray.init(address=ray_address)
-        self.cluster_resources = ray.cluster_resources()
-        logger.info("Ray initialized", resources=self.cluster_resources)
+        self.ray_available = RAY_AVAILABLE
+        if self.ray_available:
+            try:
+                if not ray.is_initialized():
+                    ray.init(address=ray_address)
+                self.cluster_resources = ray.cluster_resources()
+                logger.info("Ray initialized", resources=self.cluster_resources)
+            except Exception as e:
+                logger.warning("Ray initialization failed", error=str(e))
+                self.ray_available = False
+        else:
+            logger.info("Ray not available - using local processing")
+            self.cluster_resources = {}
     
-    @ray.remote
     def process_chunk(self, data_chunk: List[Any], processor_func: Callable) -> List[Any]:
+        """Process a chunk of data locally or remotely."""
+        if self.ray_available and RAY_AVAILABLE:
+            # Use Ray remote processing
+            try:
+                remote_func = ray.remote(self._process_chunk_remote)
+                return ray.get(remote_func.remote(data_chunk, processor_func))
+            except Exception as e:
+                logger.warning("Ray processing failed, falling back to local", error=str(e))
+                return [processor_func(item) for item in data_chunk]
+        else:
+            # Local processing
+            return [processor_func(item) for item in data_chunk]
+    
+    def _process_chunk_remote(self, data_chunk: List[Any], processor_func: Callable) -> List[Any]:
         """Process a chunk of data remotely."""
         return [processor_func(item) for item in data_chunk]
     
     def process_distributed(self, data: List[Any], processor_func: Callable, chunk_size: int = 100) -> List[Any]:
-        """Process data in parallel using Ray."""
+        """Process data in parallel using Ray or local processing."""
         # Split data into chunks
         chunks = [data[i:i + chunk_size] for i in range(0, len(data), chunk_size)]
         
-        # Submit tasks to Ray
-        futures = [self.process_chunk.remote(chunk, processor_func) for chunk in chunks]
-        
-        # Collect results
-        results = ray.get(futures)
-        
-        # Flatten results
-        return [item for sublist in results for item in sublist]
+        if self.ray_available:
+            try:
+                # Apply ray.remote decorator conditionally
+                if RAY_AVAILABLE:
+                    remote_func = ray.remote(self._process_chunk_remote)
+                    futures = [remote_func.remote(chunk, processor_func) for chunk in chunks]
+                else:
+                    return self._process_locally(chunks, processor_func)
+                
+                # Collect results
+                results = ray.get(futures)
+                
+                # Flatten results
+                return [item for sublist in results for item in sublist]
+            except Exception as e:
+                logger.warning("Ray distributed processing failed, using local", error=str(e))
+                # Fallback to local processing
+                return self._process_locally(chunks, processor_func)
+        else:
+            # Local processing
+            return self._process_locally(chunks, processor_func)
+    
+    def _process_locally(self, chunks: List[List[Any]], processor_func: Callable) -> List[Any]:
+        """Process chunks locally using ThreadPoolExecutor."""
+        results = []
+        with ThreadPoolExecutor(max_workers=min(len(chunks), 4)) as executor:
+            futures = [executor.submit(self.process_chunk, chunk, processor_func) for chunk in chunks]
+            for future in futures:
+                results.extend(future.result())
+        return results
     
     def get_cluster_stats(self) -> Dict[str, Any]:
-        """Get Ray cluster statistics."""
-        return {
-            "nodes": len(ray.nodes()),
-            "resources": ray.cluster_resources(),
-            "available_resources": ray.available_resources()
-        }
+        """Get Ray cluster statistics or local stats."""
+        if self.ray_available:
+            try:
+                return {
+                    "nodes": len(ray.nodes()),
+                    "resources": ray.cluster_resources(),
+                    "available_resources": ray.available_resources()
+                }
+            except Exception as e:
+                logger.warning("Failed to get Ray cluster stats", error=str(e))
+                return {"error": "Ray cluster stats unavailable"}
+        else:
+            return {
+                "nodes": 1,
+                "resources": {"CPU": multiprocessing.cpu_count()},
+                "available_resources": {"CPU": multiprocessing.cpu_count()},
+                "mode": "local_processing"
+            }
 
 
 class SessionManager:
@@ -476,7 +602,7 @@ class ScalableSystem:
                 self.memory_manager.optimize_memory()
             
             # Profile performance
-            self.performance_profiler.start_profiling(f"request_{user_id}")
+            profile_name = self.performance_profiler.start_profiling(f"request_{user_id}")
             
             # Process request
             with self.memory_manager.memory_monitor("request_processing"):
@@ -486,17 +612,19 @@ class ScalableSystem:
             self.cache_manager.set(cache_key, result, ttl=3600)
             
             # Update session
-            self.session_manager.update_session(session_id, {
-                'last_request': request_data,
-                'total_requests': self.session_manager.get_session(session_id)['request_count']
-            })
+            session_data = self.session_manager.get_session(session_id)
+            if session_data:
+                self.session_manager.update_session(session_id, {
+                    'last_request': request_data,
+                    'total_requests': session_data['request_count']
+                })
             
             # Record metrics
             processing_time = time.time() - start_time
             self.request_times.append(processing_time)
             
             # Stop profiling
-            profile_results = self.performance_profiler.stop_profiling(f"request_{user_id}")
+            profile_results = self.performance_profiler.stop_profiling(profile_name)
             
             logger.info(
                 "Request processed successfully",
