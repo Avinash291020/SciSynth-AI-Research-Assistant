@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
@@ -46,9 +46,9 @@ jobs:
       id: docs-check
       run: |
         if [[ `git status --porcelain` ]]; then
-          echo "::set-output name=changes::true"
+          echo "changes=true" >> $GITHUB_OUTPUT
         else
-          echo "::set-output name=changes::false"
+          echo "changes=false" >> $GITHUB_OUTPUT
         fi
 
     - name: Commit documentation changes

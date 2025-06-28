@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Machine Learning Theory and Mathematical Foundations.
 
@@ -117,7 +118,7 @@ class LossFunctions:
     @staticmethod
     def mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         """Mean Squared Error loss."""
-        return np.mean((y_true - y_pred) ** 2)
+        return float(np.mean((y_true - y_pred) ** 2))
     
     @staticmethod
     def mse_derivative(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
@@ -128,7 +129,7 @@ class LossFunctions:
     def cross_entropy(y_true: np.ndarray, y_pred: np.ndarray, epsilon: float = 1e-15) -> float:
         """Cross-entropy loss for classification."""
         y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
-        return -np.sum(y_true * np.log(y_pred)) / len(y_true)
+        return float(-np.sum(y_true * np.log(y_pred)) / len(y_true))
     
     @staticmethod
     def cross_entropy_derivative(y_true: np.ndarray, y_pred: np.ndarray, epsilon: float = 1e-15) -> np.ndarray:
@@ -139,7 +140,7 @@ class LossFunctions:
     @staticmethod
     def hinge_loss(y_true: np.ndarray, y_pred: np.ndarray, margin: float = 1.0) -> float:
         """Hinge loss for SVM."""
-        return np.mean(np.maximum(0, margin - y_true * y_pred))
+        return float(np.mean(np.maximum(0, margin - y_true * y_pred)))
     
     @staticmethod
     def huber_loss(y_true: np.ndarray, y_pred: np.ndarray, delta: float = 1.0) -> float:
@@ -148,7 +149,7 @@ class LossFunctions:
         abs_error = np.abs(error)
         quadratic = np.minimum(abs_error, delta)
         linear = abs_error - quadratic
-        return np.mean(0.5 * quadratic**2 + delta * linear)
+        return float(np.mean(0.5 * quadratic**2 + delta * linear))
     
     @staticmethod
     def focal_loss(y_true: np.ndarray, y_pred: np.ndarray, alpha: float = 1.0, gamma: float = 2.0) -> float:
@@ -156,7 +157,7 @@ class LossFunctions:
         y_pred = np.clip(y_pred, 1e-7, 1 - 1e-7)
         pt = y_true * y_pred + (1 - y_true) * (1 - y_pred)
         focal_weight = (1 - pt) ** gamma
-        return -np.mean(alpha * focal_weight * np.log(pt))
+        return float(-np.mean(alpha * focal_weight * np.log(pt)))
 
 
 class ActivationFunctions:
