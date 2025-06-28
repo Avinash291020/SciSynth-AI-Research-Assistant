@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>app.research_paper_processor API documentation</title>
+<meta name="description" content="Enhanced research paper processing for multiple papers.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>app.research_paper_processor</code></h1>
+</header>
+<section id="section-intro">
+<p>Enhanced research paper processing for multiple papers.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="app.research_paper_processor.ResearchPaperProcessor"><code class="flex name class">
+<span>class <span class="ident">ResearchPaperProcessor</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ResearchPaperProcessor:
+    def __init__(self):
+        self.model = ModelCache.get_sentence_transformer()
+        
+    def extract_metadata(self, pdf_path: str) -&gt; Dict:
+        &#34;&#34;&#34;Extract comprehensive metadata from PDF.&#34;&#34;&#34;
+        doc = fitz.open(pdf_path)
+        metadata = {
+            &#34;title&#34;: &#34;&#34;,
+            &#34;authors&#34;: [],
+            &#34;date&#34;: &#34;&#34;,
+            &#34;references&#34;: [],
+            &#34;keywords&#34;: [],
+            &#34;sections&#34;: []
+        }
+        
+        try:
+            # Extract document info
+            info = doc.metadata
+            if info:
+                metadata[&#34;title&#34;] = info.get(&#34;title&#34;, &#34;&#34;)
+                metadata[&#34;date&#34;] = info.get(&#34;creationDate&#34;, &#34;&#34;)
+            
+            # Process each page
+            text = &#34;&#34;
+            for page_num in range(doc.page_count):
+                page = doc[page_num]
+                page_text = page.get_text()  # type: ignore
+                text += page_text + &#34;\n\n&#34;
+                
+                # Extract title from first page if not found in metadata
+                if page_num == 0 and not metadata[&#34;title&#34;]:
+                    lines = page_text.split(&#39;\n&#39;)
+                    for line in lines:
+                        line = line.strip()
+                        # Look for title patterns (longer lines, all caps, or title case)
+                        if (len(line) &gt; 10 and len(line) &lt; 200 and 
+                            (line.isupper() or 
+                             (line[0].isupper() and line.count(&#39; &#39;) &gt; 2 and 
+                              not any(word.lower() in [&#39;abstract&#39;, &#39;introduction&#39;, &#39;conclusion&#39;, &#39;references&#39;] for word in line.split())))):
+                            metadata[&#34;title&#34;] = line
+                            break
+                
+                # Look for keywords section
+                if &#34;keywords:&#34; in page_text.lower():
+                    kw_section = page_text.lower().split(&#34;keywords:&#34;)[1].split(&#34;\n&#34;)[0]
+                    metadata[&#34;keywords&#34;] = [k.strip() for k in kw_section.split(&#34;,&#34;)]
+                
+                # Extract section headers
+                lines = page_text.split(&#34;\n&#34;)
+                for line in lines:
+                    if re.match(r&#39;^\d+\.\s+[A-Z]&#39;, line):  # Numbered sections
+                        metadata[&#34;sections&#34;].append(line.strip())
+            
+            # Extract references from last pages
+            last_pages = min(3, doc.page_count)
+            for i in range(doc.page_count - last_pages, doc.page_count):
+                page_text = doc[i].get_text()  # type: ignore
+                if any(ref in page_text.lower() for ref in [&#34;references&#34;, &#34;bibliography&#34;]):
+                    refs = page_text.split(&#34;\n&#34;)
+                    metadata[&#34;references&#34;] = [r.strip() for r in refs if r.strip() 
+                                           and not r.lower().startswith((&#34;references&#34;, &#34;bibliography&#34;))]
+            
+            # Extract technical terms
+            metadata[&#34;technical_terms&#34;] = list(self.extract_technical_terms(text))
+            
+        finally:
+            doc.close()
+        
+        return metadata
+    
+    def extract_technical_terms(self, text: str) -&gt; Set[str]:
+        &#34;&#34;&#34;Extract technical terms and abbreviations.&#34;&#34;&#34;
+        terms = set()
+        
+        # Find capitalized abbreviations with definitions
+        abbrev_pattern = r&#39;\b([A-Z]{2,})\b(?:\s*\(([^)]+)\))?&#39;
+        matches = re.finditer(abbrev_pattern, text)
+        for match in matches:
+            abbr = match.group(1)
+            definition = match.group(2)
+            if definition:
+                terms.add(f&#34;{abbr} ({definition})&#34;)
+            else:
+                terms.add(abbr)
+        
+        # Find technical terms in parentheses
+        tech_pattern = r&#39;\(([^)]+(?:algorithm|model|framework|method|technique|system|approach|architecture|protocol|standard)[^)]*)\)&#39;
+        matches = re.finditer(tech_pattern, text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find algorithm names (e.g., &#34;Algorithm 1&#34;, &#34;Algorithm X&#34;)
+        algo_pattern = r&#39;Algorithm\s+\d+[:\s]*([A-Za-z\s]+)&#39;
+        matches = re.finditer(algo_pattern, text)
+        terms.update(match.group(1).strip() for match in matches)
+        
+        # Find model names (e.g., &#34;Model X&#34;, &#34;X Model&#34;)
+        model_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Model\b&#39;
+        matches = re.finditer(model_pattern, text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find framework names
+        framework_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Framework\b&#39;
+        matches = re.finditer(framework_pattern, text)
+        terms.update(match.group(1) for match in matches)
+        
+        # Find scientific terms (words with numbers or special characters)
+        scientific_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s*\d*[A-Za-z]*)\b&#39;
+        matches = re.finditer(scientific_pattern, text)
+        for match in matches:
+            term = match.group(1).strip()
+            if len(term) &gt; 3 and any(c.isdigit() for c in term):
+                terms.add(term)
+        
+        return terms
+    
+    def process_paper(self, pdf_path: Path, max_retries: int = 3) -&gt; Optional[Dict]:
+        &#34;&#34;&#34;Process a single research paper with retries and memory management.&#34;&#34;&#34;
+        for attempt in range(max_retries):
+            try:
+                logger.info(f&#34;Processing {pdf_path.name} (attempt {attempt + 1})&#34;)
+                
+                # Extract metadata first
+                metadata = self.extract_metadata(str(pdf_path))
+                logger.info(f&#34;Extracted metadata from {pdf_path.name}&#34;)
+                
+                # Process text in chunks to manage memory
+                text = &#34;&#34;
+                doc = fitz.open(str(pdf_path))
+                try:
+                    for page in doc:
+                        text += page.get_text() + &#34;\n\n&#34;  # type: ignore
+                        # Clear page to free memory
+                        page = None
+                finally:
+                    doc.close()
+                
+                # Process the text
+                from .ingest_paper import chunk_and_index
+                from .insight_agent import generate_insights
+                from .hypothesis_gen import generate_hypotheses
+                
+                chunks = chunk_and_index(text)
+                insights = generate_insights(chunks)
+                hypotheses = generate_hypotheses(insights)
+                
+                result = {
+                    &#34;paper_name&#34;: pdf_path.name,
+                    &#34;metadata&#34;: metadata,
+                    &#34;processed_date&#34;: datetime.now().isoformat(),
+                    &#34;insights&#34;: insights,
+                    &#34;hypotheses&#34;: hypotheses,
+                    &#34;num_chunks&#34;: len(chunks),
+                    &#34;text_length&#34;: len(text)
+                }
+                
+                logger.info(f&#34;Successfully processed {pdf_path.name}&#34;)
+                return result
+                
+            except Exception as e:
+                if attempt == max_retries - 1:
+                    logger.error(f&#34;Failed to process {pdf_path.name} after {max_retries} attempts&#34;)
+                    logger.error(str(e))
+                    return None
+                logger.warning(f&#34;Retry {attempt + 1} for {pdf_path.name}&#34;)
+                continue
+    
+    def analyze_cross_references(self, papers: List[Dict]) -&gt; Dict:
+        &#34;&#34;&#34;Analyze cross-references between papers.&#34;&#34;&#34;
+        cross_refs = {
+            &#34;direct_citations&#34;: [],  # Paper A cites Paper B
+            &#34;shared_topics&#34;: [],     # Papers share similar topics
+            &#34;technical_overlap&#34;: [], # Papers use same technical terms
+            &#34;methodology_links&#34;: []  # Papers use similar methods
+        }
+        
+        for i, paper1 in enumerate(papers):
+            for paper2 in papers[i+1:]:
+                # Check direct citations
+                if any(paper2[&#34;paper_name&#34;] in ref for ref in paper1[&#34;metadata&#34;][&#34;references&#34;]):
+                    cross_refs[&#34;direct_citations&#34;].append({
+                        &#34;from&#34;: paper1[&#34;paper_name&#34;],
+                        &#34;to&#34;: paper2[&#34;paper_name&#34;]
+                    })
+                
+                # Check shared topics
+                topics1 = set(paper1[&#34;metadata&#34;][&#34;keywords&#34;])
+                topics2 = set(paper2[&#34;metadata&#34;][&#34;keywords&#34;])
+                shared = topics1.intersection(topics2)
+                if shared:
+                    cross_refs[&#34;shared_topics&#34;].append({
+                        &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                        &#34;shared_topics&#34;: list(shared)
+                    })
+                
+                # Check technical term overlap
+                terms1 = set(paper1[&#34;metadata&#34;][&#34;technical_terms&#34;])
+                terms2 = set(paper2[&#34;metadata&#34;][&#34;technical_terms&#34;])
+                shared_terms = terms1.intersection(terms2)
+                if shared_terms:
+                    cross_refs[&#34;technical_overlap&#34;].append({
+                        &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                        &#34;shared_terms&#34;: list(shared_terms)
+                    })
+                
+                # Check methodology similarity
+                text1 = &#34; &#34;.join(paper1[&#34;metadata&#34;][&#34;sections&#34;])
+                text2 = &#34; &#34;.join(paper2[&#34;metadata&#34;][&#34;sections&#34;])
+                similarity = self.compute_text_similarity(text1, text2)
+                if similarity &gt; 0.7:  # High methodology similarity
+                    cross_refs[&#34;methodology_links&#34;].append({
+                        &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                        &#34;similarity&#34;: similarity
+                    })
+        
+        return cross_refs
+    
+    def compute_text_similarity(self, text1: str, text2: str) -&gt; float:
+        &#34;&#34;&#34;Compute semantic similarity between two texts.&#34;&#34;&#34;
+        embeddings1 = self.model.encode([text1], convert_to_tensor=True)
+        embeddings2 = self.model.encode([text2], convert_to_tensor=True)
+        similarity = util.pytorch_cos_sim(embeddings1, embeddings2)
+        return float(similarity[0][0]) </code></pre>
+</details>
+<div class="desc"></div>
+<h3>Methods</h3>
+<dl>
+<dt id="app.research_paper_processor.ResearchPaperProcessor.analyze_cross_references"><code class="name flex">
+<span>def <span class="ident">analyze_cross_references</span></span>(<span>self, papers: List[Dict]) ‑> Dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def analyze_cross_references(self, papers: List[Dict]) -&gt; Dict:
+    &#34;&#34;&#34;Analyze cross-references between papers.&#34;&#34;&#34;
+    cross_refs = {
+        &#34;direct_citations&#34;: [],  # Paper A cites Paper B
+        &#34;shared_topics&#34;: [],     # Papers share similar topics
+        &#34;technical_overlap&#34;: [], # Papers use same technical terms
+        &#34;methodology_links&#34;: []  # Papers use similar methods
+    }
+    
+    for i, paper1 in enumerate(papers):
+        for paper2 in papers[i+1:]:
+            # Check direct citations
+            if any(paper2[&#34;paper_name&#34;] in ref for ref in paper1[&#34;metadata&#34;][&#34;references&#34;]):
+                cross_refs[&#34;direct_citations&#34;].append({
+                    &#34;from&#34;: paper1[&#34;paper_name&#34;],
+                    &#34;to&#34;: paper2[&#34;paper_name&#34;]
+                })
+            
+            # Check shared topics
+            topics1 = set(paper1[&#34;metadata&#34;][&#34;keywords&#34;])
+            topics2 = set(paper2[&#34;metadata&#34;][&#34;keywords&#34;])
+            shared = topics1.intersection(topics2)
+            if shared:
+                cross_refs[&#34;shared_topics&#34;].append({
+                    &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                    &#34;shared_topics&#34;: list(shared)
+                })
+            
+            # Check technical term overlap
+            terms1 = set(paper1[&#34;metadata&#34;][&#34;technical_terms&#34;])
+            terms2 = set(paper2[&#34;metadata&#34;][&#34;technical_terms&#34;])
+            shared_terms = terms1.intersection(terms2)
+            if shared_terms:
+                cross_refs[&#34;technical_overlap&#34;].append({
+                    &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                    &#34;shared_terms&#34;: list(shared_terms)
+                })
+            
+            # Check methodology similarity
+            text1 = &#34; &#34;.join(paper1[&#34;metadata&#34;][&#34;sections&#34;])
+            text2 = &#34; &#34;.join(paper2[&#34;metadata&#34;][&#34;sections&#34;])
+            similarity = self.compute_text_similarity(text1, text2)
+            if similarity &gt; 0.7:  # High methodology similarity
+                cross_refs[&#34;methodology_links&#34;].append({
+                    &#34;papers&#34;: [paper1[&#34;paper_name&#34;], paper2[&#34;paper_name&#34;]],
+                    &#34;similarity&#34;: similarity
+                })
+    
+    return cross_refs</code></pre>
+</details>
+<div class="desc"><p>Analyze cross-references between papers.</p></div>
+</dd>
+<dt id="app.research_paper_processor.ResearchPaperProcessor.compute_text_similarity"><code class="name flex">
+<span>def <span class="ident">compute_text_similarity</span></span>(<span>self, text1: str, text2: str) ‑> float</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute_text_similarity(self, text1: str, text2: str) -&gt; float:
+    &#34;&#34;&#34;Compute semantic similarity between two texts.&#34;&#34;&#34;
+    embeddings1 = self.model.encode([text1], convert_to_tensor=True)
+    embeddings2 = self.model.encode([text2], convert_to_tensor=True)
+    similarity = util.pytorch_cos_sim(embeddings1, embeddings2)
+    return float(similarity[0][0]) </code></pre>
+</details>
+<div class="desc"><p>Compute semantic similarity between two texts.</p></div>
+</dd>
+<dt id="app.research_paper_processor.ResearchPaperProcessor.extract_metadata"><code class="name flex">
+<span>def <span class="ident">extract_metadata</span></span>(<span>self, pdf_path: str) ‑> Dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_metadata(self, pdf_path: str) -&gt; Dict:
+    &#34;&#34;&#34;Extract comprehensive metadata from PDF.&#34;&#34;&#34;
+    doc = fitz.open(pdf_path)
+    metadata = {
+        &#34;title&#34;: &#34;&#34;,
+        &#34;authors&#34;: [],
+        &#34;date&#34;: &#34;&#34;,
+        &#34;references&#34;: [],
+        &#34;keywords&#34;: [],
+        &#34;sections&#34;: []
+    }
+    
+    try:
+        # Extract document info
+        info = doc.metadata
+        if info:
+            metadata[&#34;title&#34;] = info.get(&#34;title&#34;, &#34;&#34;)
+            metadata[&#34;date&#34;] = info.get(&#34;creationDate&#34;, &#34;&#34;)
+        
+        # Process each page
+        text = &#34;&#34;
+        for page_num in range(doc.page_count):
+            page = doc[page_num]
+            page_text = page.get_text()  # type: ignore
+            text += page_text + &#34;\n\n&#34;
+            
+            # Extract title from first page if not found in metadata
+            if page_num == 0 and not metadata[&#34;title&#34;]:
+                lines = page_text.split(&#39;\n&#39;)
+                for line in lines:
+                    line = line.strip()
+                    # Look for title patterns (longer lines, all caps, or title case)
+                    if (len(line) &gt; 10 and len(line) &lt; 200 and 
+                        (line.isupper() or 
+                         (line[0].isupper() and line.count(&#39; &#39;) &gt; 2 and 
+                          not any(word.lower() in [&#39;abstract&#39;, &#39;introduction&#39;, &#39;conclusion&#39;, &#39;references&#39;] for word in line.split())))):
+                        metadata[&#34;title&#34;] = line
+                        break
+            
+            # Look for keywords section
+            if &#34;keywords:&#34; in page_text.lower():
+                kw_section = page_text.lower().split(&#34;keywords:&#34;)[1].split(&#34;\n&#34;)[0]
+                metadata[&#34;keywords&#34;] = [k.strip() for k in kw_section.split(&#34;,&#34;)]
+            
+            # Extract section headers
+            lines = page_text.split(&#34;\n&#34;)
+            for line in lines:
+                if re.match(r&#39;^\d+\.\s+[A-Z]&#39;, line):  # Numbered sections
+                    metadata[&#34;sections&#34;].append(line.strip())
+        
+        # Extract references from last pages
+        last_pages = min(3, doc.page_count)
+        for i in range(doc.page_count - last_pages, doc.page_count):
+            page_text = doc[i].get_text()  # type: ignore
+            if any(ref in page_text.lower() for ref in [&#34;references&#34;, &#34;bibliography&#34;]):
+                refs = page_text.split(&#34;\n&#34;)
+                metadata[&#34;references&#34;] = [r.strip() for r in refs if r.strip() 
+                                       and not r.lower().startswith((&#34;references&#34;, &#34;bibliography&#34;))]
+        
+        # Extract technical terms
+        metadata[&#34;technical_terms&#34;] = list(self.extract_technical_terms(text))
+        
+    finally:
+        doc.close()
+    
+    return metadata</code></pre>
+</details>
+<div class="desc"><p>Extract comprehensive metadata from PDF.</p></div>
+</dd>
+<dt id="app.research_paper_processor.ResearchPaperProcessor.extract_technical_terms"><code class="name flex">
+<span>def <span class="ident">extract_technical_terms</span></span>(<span>self, text: str) ‑> Set[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_technical_terms(self, text: str) -&gt; Set[str]:
+    &#34;&#34;&#34;Extract technical terms and abbreviations.&#34;&#34;&#34;
+    terms = set()
+    
+    # Find capitalized abbreviations with definitions
+    abbrev_pattern = r&#39;\b([A-Z]{2,})\b(?:\s*\(([^)]+)\))?&#39;
+    matches = re.finditer(abbrev_pattern, text)
+    for match in matches:
+        abbr = match.group(1)
+        definition = match.group(2)
+        if definition:
+            terms.add(f&#34;{abbr} ({definition})&#34;)
+        else:
+            terms.add(abbr)
+    
+    # Find technical terms in parentheses
+    tech_pattern = r&#39;\(([^)]+(?:algorithm|model|framework|method|technique|system|approach|architecture|protocol|standard)[^)]*)\)&#39;
+    matches = re.finditer(tech_pattern, text)
+    terms.update(match.group(1) for match in matches)
+    
+    # Find algorithm names (e.g., &#34;Algorithm 1&#34;, &#34;Algorithm X&#34;)
+    algo_pattern = r&#39;Algorithm\s+\d+[:\s]*([A-Za-z\s]+)&#39;
+    matches = re.finditer(algo_pattern, text)
+    terms.update(match.group(1).strip() for match in matches)
+    
+    # Find model names (e.g., &#34;Model X&#34;, &#34;X Model&#34;)
+    model_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Model\b&#39;
+    matches = re.finditer(model_pattern, text)
+    terms.update(match.group(1) for match in matches)
+    
+    # Find framework names
+    framework_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Framework\b&#39;
+    matches = re.finditer(framework_pattern, text)
+    terms.update(match.group(1) for match in matches)
+    
+    # Find scientific terms (words with numbers or special characters)
+    scientific_pattern = r&#39;\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s*\d*[A-Za-z]*)\b&#39;
+    matches = re.finditer(scientific_pattern, text)
+    for match in matches:
+        term = match.group(1).strip()
+        if len(term) &gt; 3 and any(c.isdigit() for c in term):
+            terms.add(term)
+    
+    return terms</code></pre>
+</details>
+<div class="desc"><p>Extract technical terms and abbreviations.</p></div>
+</dd>
+<dt id="app.research_paper_processor.ResearchPaperProcessor.process_paper"><code class="name flex">
+<span>def <span class="ident">process_paper</span></span>(<span>self, pdf_path: pathlib.Path, max_retries: int = 3) ‑> Dict | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def process_paper(self, pdf_path: Path, max_retries: int = 3) -&gt; Optional[Dict]:
+    &#34;&#34;&#34;Process a single research paper with retries and memory management.&#34;&#34;&#34;
+    for attempt in range(max_retries):
+        try:
+            logger.info(f&#34;Processing {pdf_path.name} (attempt {attempt + 1})&#34;)
+            
+            # Extract metadata first
+            metadata = self.extract_metadata(str(pdf_path))
+            logger.info(f&#34;Extracted metadata from {pdf_path.name}&#34;)
+            
+            # Process text in chunks to manage memory
+            text = &#34;&#34;
+            doc = fitz.open(str(pdf_path))
+            try:
+                for page in doc:
+                    text += page.get_text() + &#34;\n\n&#34;  # type: ignore
+                    # Clear page to free memory
+                    page = None
+            finally:
+                doc.close()
+            
+            # Process the text
+            from .ingest_paper import chunk_and_index
+            from .insight_agent import generate_insights
+            from .hypothesis_gen import generate_hypotheses
+            
+            chunks = chunk_and_index(text)
+            insights = generate_insights(chunks)
+            hypotheses = generate_hypotheses(insights)
+            
+            result = {
+                &#34;paper_name&#34;: pdf_path.name,
+                &#34;metadata&#34;: metadata,
+                &#34;processed_date&#34;: datetime.now().isoformat(),
+                &#34;insights&#34;: insights,
+                &#34;hypotheses&#34;: hypotheses,
+                &#34;num_chunks&#34;: len(chunks),
+                &#34;text_length&#34;: len(text)
+            }
+            
+            logger.info(f&#34;Successfully processed {pdf_path.name}&#34;)
+            return result
+            
+        except Exception as e:
+            if attempt == max_retries - 1:
+                logger.error(f&#34;Failed to process {pdf_path.name} after {max_retries} attempts&#34;)
+                logger.error(str(e))
+                return None
+            logger.warning(f&#34;Retry {attempt + 1} for {pdf_path.name}&#34;)
+            continue</code></pre>
+</details>
+<div class="desc"><p>Process a single research paper with retries and memory management.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="app" href="index.html">app</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="app.research_paper_processor.ResearchPaperProcessor" href="#app.research_paper_processor.ResearchPaperProcessor">ResearchPaperProcessor</a></code></h4>
+<ul class="">
+<li><code><a title="app.research_paper_processor.ResearchPaperProcessor.analyze_cross_references" href="#app.research_paper_processor.ResearchPaperProcessor.analyze_cross_references">analyze_cross_references</a></code></li>
+<li><code><a title="app.research_paper_processor.ResearchPaperProcessor.compute_text_similarity" href="#app.research_paper_processor.ResearchPaperProcessor.compute_text_similarity">compute_text_similarity</a></code></li>
+<li><code><a title="app.research_paper_processor.ResearchPaperProcessor.extract_metadata" href="#app.research_paper_processor.ResearchPaperProcessor.extract_metadata">extract_metadata</a></code></li>
+<li><code><a title="app.research_paper_processor.ResearchPaperProcessor.extract_technical_terms" href="#app.research_paper_processor.ResearchPaperProcessor.extract_technical_terms">extract_technical_terms</a></code></li>
+<li><code><a title="app.research_paper_processor.ResearchPaperProcessor.process_paper" href="#app.research_paper_processor.ResearchPaperProcessor.process_paper">process_paper</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
