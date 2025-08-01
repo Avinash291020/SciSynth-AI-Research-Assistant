@@ -1,5 +1,5 @@
 # Production Dockerfile for SciSynth AI Research Assistant
-FROM python:3.10-slim
+FROM python:3.14.0rc1-slim
 
 # Set environment variables for Streamlit and Python
 ENV PYTHONUNBUFFERED=1 \
