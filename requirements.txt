@@ -67,3 +67,4 @@ flake8
 mypy
 pre-commit
 types-setuptools 
+urllib3>=2.6.0 # not directly required, pinned by Snyk to avoid a vulnerability
